@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -34,8 +38,16 @@ public class ApiController {
     }
 
     @PostMapping("/post")
-    public ResponseEntity<?> addImg(@RequestBody ImagePort img) {
-        return null;
+    public ResponseEntity<?> addImg(@RequestParam("file") Optional<MultipartFile> file) {
+        try {
+            if(file.isPresent()) {
+                return ResponseEntity.status(HttpStatus.OK).body(imgService.addImg(file.get()));
+            } else {
+                throw new IOException();
+            }
+        } catch (IOException ex) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
     }
 
     @PutMapping("/update/{id}")
