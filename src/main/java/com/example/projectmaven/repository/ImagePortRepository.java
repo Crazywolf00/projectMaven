@@ -7,6 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ImagePortRepository extends ListCrudRepository<ImagePort,Long> {
 
-    ImagePort getById (Long id);
 
 }

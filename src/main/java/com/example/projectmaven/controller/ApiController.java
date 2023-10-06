@@ -1,9 +1,11 @@
 package com.example.projectmaven.controller;
 
+import com.example.projectmaven.model.ImageDto;
 import com.example.projectmaven.model.ImagePort;
 import com.example.projectmaven.service.ImagePortServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,7 +17,7 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class ApiController {
 
-    private ImagePortServiceImpl imgService;
+    private final ImagePortServiceImpl imgService;
 
     @Autowired
     public ApiController(ImagePortServiceImpl imgService) {
@@ -27,14 +29,20 @@ public class ApiController {
         return ResponseEntity.status(HttpStatus.OK).body(imgService.getAll());
     }
 
-    @GetMapping("/get/{id}")
-    public ResponseEntity<?> getImg(@PathVariable Long id) {
-        return null;
+    @GetMapping("/getInfo/{id}")
+    public ResponseEntity<?> getImgInfo(@PathVariable Long id) {
+        ImageDto dto = new ImageDto(imgService.getImgWithInfo(id));
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
-
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteImg(@PathVariable Long id) {
-        return null;
+    @GetMapping("/getImg/{id}")
+    public ResponseEntity<?> getImg(@PathVariable Long id) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK)
+                    .contentType(MediaType.valueOf(imgService.getType(id)))
+                    .body(imgService.getImg(id));
+        } catch (IOException ex) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 
     @PostMapping("/post")
@@ -48,6 +56,11 @@ public class ApiController {
         } catch (IOException ex) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteImg(@PathVariable Long id) {
+        return null;
     }
 
     @PutMapping("/update/{id}")

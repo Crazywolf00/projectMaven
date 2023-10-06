@@ -10,12 +10,16 @@ public interface ImagePortService {
 
     List<ImagePort> getAll();
 
-    ImagePort getImg(Long id);
+    byte[] getImg(Long id) throws IOException;
 
     void deleteImg(Long id);
 
     ImagePort addImg(MultipartFile file) throws IOException;
 
     ImagePort updateImg(ImagePort img, Long id);
+
+    String getType(Long id);
+
+    ImagePort getImgWithInfo(Long id);
 
 }

@@ -8,16 +8,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class ImagePortServiceImpl implements ImagePortService {
 
-    private ImagePortRepository repository;
+    private final ImagePortRepository repository;
 
     private final Path path = Paths.get("src/main/resources/static/storedImg/");
 
@@ -34,9 +37,12 @@ public class ImagePortServiceImpl implements ImagePortService {
     }
 
     @Override
-    public ImagePort getImg(Long id) {
-        return repository.getById(id);
+    public byte[] getImg(Long id) throws IOException {
+            Optional<ImagePort> img = repository.findById(id);
+            Path filePath = Path.of(img.get().getPathName());
+            return Files.readAllBytes(new File(filePath.toUri()).toPath());
     }
+
 
     @Override
     public void deleteImg(Long id) {
@@ -61,5 +67,23 @@ public class ImagePortServiceImpl implements ImagePortService {
         repository.deleteById(id);
         img.setId(id);
         return repository.save(img);
+    }
+
+    @Override
+    public String getType(Long id) {
+        if(repository.findById(id).isPresent()) {
+            return repository.findById(id).get().getType();
+        } else {
+            return "none";
+        }
+    }
+
+    @Override
+    public ImagePort getImgWithInfo(Long id) {
+        if(repository.findById(id).isPresent()) {
+            return repository.findById(id).get();
+        } else {
+            return null;
+        }
     }
 }
