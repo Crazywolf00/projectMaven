@@ -38,10 +38,10 @@ public class ApiController {
     }
 
     @PostMapping("/post")
-    public ResponseEntity<?> addImg(@RequestParam("file") Optional<MultipartFile> file) {
+    public ResponseEntity<?> addImg(@RequestParam("img") Optional<MultipartFile> img) {
         try {
-            if(file.isPresent()) {
-                return ResponseEntity.status(HttpStatus.OK).body(imgService.addImg(file.get()));
+            if(img.isPresent()) {
+                return ResponseEntity.status(HttpStatus.OK).body(imgService.addImg(img.get()));
             } else {
                 throw new IOException();
             }
