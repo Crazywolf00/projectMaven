@@ -8,49 +8,70 @@ public class ImagePort {
 
     @Id
     private Long id;
-    private String group;
-    private String set;
-    private String path;
+    private String name;
+    private String groupName;
+    private String setName;
+    private String pathName;
+
+    private String type;
 
 
     public ImagePort() {
     }
 
-    public ImagePort(String group, String set, String path) {
-        this.group = group;
-        this.set = set;
-        this.path = path;
+    public ImagePort(String name, String group, String set, String path, String type) {
+        this.name = name;
+        this.groupName = group;
+        this.setName = set;
+        this.pathName = path;
+        this.type = type;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getGroup() {
-        return group;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public String getName() {
+        return name;
     }
 
-    public String getSet() {
-        return set;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setSet(String set) {
-        this.set = set;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public String getPath() {
-        return path;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public String getSetName() {
+        return setName;
+    }
+
+    public void setSetName(String setName) {
+        this.setName = setName;
+    }
+
+    public String getPathName() {
+        return pathName;
+    }
+
+    public void setPathName(String pathName) {
+        this.pathName = pathName;
     }
 }

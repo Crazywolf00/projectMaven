@@ -3,10 +3,12 @@ package com.example.projectmaven.controller;
 import com.example.projectmaven.model.ImagePort;
 import com.example.projectmaven.service.ImagePortServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api")
 public class ApiController {
 
     private ImagePortServiceImpl imgService;
@@ -18,7 +20,7 @@ public class ApiController {
 
     @GetMapping("/")
     public ResponseEntity<?> getAll() {
-        return null;
+        return ResponseEntity.status(HttpStatus.OK).body(imgService.getAll());
     }
 
     @GetMapping("/get/{id}")
