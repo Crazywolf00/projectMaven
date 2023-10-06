@@ -1,13 +1,20 @@
 package com.example.projectmaven.controller;
 
 import com.example.projectmaven.model.ImagePort;
+import com.example.projectmaven.service.ImagePortServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ApiController {
 
-    //add img, delete img, read img, update img
+    private ImagePortServiceImpl imgService;
+
+    @Autowired
+    public ApiController(ImagePortServiceImpl imgService) {
+        this.imgService = imgService;
+    }
 
     @GetMapping("/")
     public ResponseEntity<?> getAll() {
@@ -29,4 +36,9 @@ public class ApiController {
         return null;
     }
 
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateImg(@RequestBody ImagePort img,
+                                       @PathVariable Long id) {
+        return null;
+    }
 }
