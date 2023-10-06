@@ -1,9 +1,9 @@
 package com.example.projectmaven.repository;
 
-import com.example.projectmaven.model.Person;
+import com.example.projectmaven.model.ImagePort;
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PersonRepository extends ListCrudRepository<Person,Long> {
+public interface ImagePortRepository extends ListCrudRepository<ImagePort,Long> {
 }
