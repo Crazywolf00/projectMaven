@@ -12,10 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class ImagePortServiceImpl implements ImagePortService {
@@ -87,5 +84,14 @@ public class ImagePortServiceImpl implements ImagePortService {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public Set<String> category() {
+        Set<String> category = new HashSet<>();
+        for (ImagePort img : repository.findAll()) {
+            category.add(img.getGroupName());
+        }
+        return category;
     }
 }

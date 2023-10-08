@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api")
@@ -31,6 +33,8 @@ public class ApiController {
         return ResponseEntity.status(HttpStatus.OK).body(imgService.getAll());
     }
 
+
+
     @GetMapping("/getInfo/{id}")
     public ResponseEntity<?> getImgInfo(@PathVariable Long id) {
         ImageDto dto = new ImageDto(imgService.getImgWithInfo(id));
@@ -48,6 +52,29 @@ public class ApiController {
         }
     }
 
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteImg(@PathVariable Long id) {
+        return null;
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateImg(@RequestBody ImagePort img,
+                                       @PathVariable Long id) {
+        return null;
+    }
+
+
+    @GetMapping("/password")
+    public ResponseEntity<?> password(@RequestParam String inputPassword) {
+        if (password.checkPassword(inputPassword)) {
+            return ResponseEntity.status(HttpStatus.OK).body(password.getKey());
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+    }
+
+    //--------------------------------SECURITY--------------------------------
     @PostMapping("/post")
     public ResponseEntity<?> addImg(
             @RequestParam String key,
@@ -72,21 +99,10 @@ public class ApiController {
 
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteImg(@PathVariable Long id) {
-        return null;
-    }
-
-    @PutMapping("/update/{id}")
-    public ResponseEntity<?> updateImg(@RequestBody ImagePort img,
-                                       @PathVariable Long id) {
-        return null;
-    }
-
-    @GetMapping("/password")
-    public ResponseEntity<?> password(@RequestParam String inputPassword) {
-        if (password.checkPassword(inputPassword)) {
-            return ResponseEntity.status(HttpStatus.OK).body(password.getKey());
+    @GetMapping("/alladmin")
+    public ResponseEntity<?> getAllAdmin(@RequestParam String key) {
+        if (password.checkKey(key)) {
+            return ResponseEntity.status(HttpStatus.OK).body(imgService.category());
         } else {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }

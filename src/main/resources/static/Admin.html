@@ -10,17 +10,24 @@
 <h1>Přidání informací a obrázku</h1>
 
 <form id="infoForm">
-    <label for="groupName">Název skupiny:</label>
+    <label for="groupName">Název kategorie:</label>
     <input type="text" id="groupName" name="groupName" required><br><br>
 
-    <label for="setName">Nastavení:</label>
+    <label for="setName">Název skupiny:</label>
     <input type="text" id="setName" name="setName" required><br><br>
 
     <label for="imageUpload">Obrázek/Fotka:</label>
     <input type="file" id="imageUpload" name="imageUpload" required><br><br>
+    <img id="thumbnail" src="#" alt="Miniatura obrázku" style="display:none; max-width: 100px; max-height: 100px;">
 
     <input type="submit" value="Přidat">
 </form>
+
+<aside>
+    <h1>Kategorie:</h1>
+    <p id="cat"></p>
+    <button id="reset-button">Reset</button>
+</aside>
 
 </body>
 </html>
