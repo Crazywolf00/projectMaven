@@ -1,5 +1,5 @@
-
 let info = "";
+
 function checkPassword() {
     const inputPassword = prompt("Zadejte heslo:");
     fetch("api/password?inputPassword=" + inputPassword)
@@ -14,6 +14,7 @@ function checkPassword() {
             }
         })
 }
+
 checkPassword();
 
 
@@ -28,6 +29,25 @@ document.addEventListener('DOMContentLoaded', function () {
         const setName = document.getElementById('setName').value;
         const imageUpload = document.getElementById('imageUpload').files[0];
 
+        const formData = new FormData();
+        formData.append('key', info);
+        formData.append('groupName', groupName);
+        formData.append('setName', setName);
+        if (imageUpload) {
+            formData.append('img', imageUpload);
+        }
+
+        fetch('api/post', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Chyba při provádění HTTP požadavku:', error);
+            });
 
     });
 });

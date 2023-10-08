@@ -36,6 +36,7 @@ public class ApiController {
         ImageDto dto = new ImageDto(imgService.getImgWithInfo(id));
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
+
     @GetMapping("/getImg/{id}")
     public ResponseEntity<?> getImg(@PathVariable Long id) {
         try {
@@ -48,20 +49,27 @@ public class ApiController {
     }
 
     @PostMapping("/post")
-    public ResponseEntity<?> addImg(@RequestParam String groupName,
-            @RequestParam String setName,
+    public ResponseEntity<?> addImg(
+            @RequestParam String key,
+            @RequestParam Optional<String> groupName,
+            @RequestParam Optional<String> setName,
             @RequestParam("img") Optional<MultipartFile> img) {
 
-
-        try {
-            if(img.isPresent()) {
-                return ResponseEntity.status(HttpStatus.OK).body(imgService.addImg(groupName,setName,img.get()));
-            } else {
-                throw new IOException();
+        if (password.checkKey(key)) {
+            try {
+                if (img.isPresent() && groupName.isPresent() && setName.isPresent()) {
+                    return ResponseEntity.status(HttpStatus.OK)
+                            .body(imgService.addImg(groupName.get(), setName.get(), img.get()));
+                } else {
+                    throw new IOException();
+                }
+            } catch (IOException ex) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
             }
-        } catch (IOException ex) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
+
     }
 
     @DeleteMapping("/delete/{id}")
