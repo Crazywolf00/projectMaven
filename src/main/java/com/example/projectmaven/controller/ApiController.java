@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api")
@@ -80,13 +78,22 @@ public class ApiController {
             @RequestParam String key,
             @RequestParam Optional<String> groupName,
             @RequestParam Optional<String> setName,
-            @RequestParam("img") Optional<MultipartFile> img) {
+            @RequestParam("img") List<MultipartFile> img) {
+
+        System.out.println(key);
+        System.out.println(groupName.get());
+        System.out.println(setName.get());
+        System.out.println(Arrays.toString(img.toArray()));
+
 
         if (password.checkKey(key)) {
             try {
-                if (img.isPresent() && groupName.isPresent() && setName.isPresent()) {
+                if (groupName.isPresent() && setName.isPresent()) {
+                    for (MultipartFile multipartFile: img) {
+                        imgService.addImg(groupName.get(), setName.get(), multipartFile);
+                    }
                     return ResponseEntity.status(HttpStatus.OK)
-                            .body(imgService.addImg(groupName.get(), setName.get(), img.get()));
+                            .build();
                 } else {
                     throw new IOException();
                 }

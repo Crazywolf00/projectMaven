@@ -19,42 +19,63 @@ checkPassword();
 
 document.addEventListener('DOMContentLoaded', function () {
     const infoForm = document.getElementById('infoForm');
-    const imageUpload = document.getElementById('imageUpload');
-    const thumbnail = document.getElementById('thumbnail');
+    const addImageButton = document.getElementById('addImage');
 
-    const resetButton = document.querySelector("#reset-button")
-    resetButton.addEventListener('click', e => {
+    addImageButton.addEventListener('click', function (e) {
         e.preventDefault();
-        cat();
-    })
 
-    imageUpload.addEventListener('change', function (e) {
-        e.preventDefault();
-        if (imageUpload.files && imageUpload.files[0]) {
-            const reader = new FileReader();
+        const uniqueId = Date.now();
 
-            reader.onload = function (e) {
-                thumbnail.style.display = 'block';
-                thumbnail.src = e.target.result;
-            };
+        const newInput = document.createElement('input');
+        newInput.type = 'file';
+        newInput.name = 'imageUpload';
+        newInput.required = true;
+        newInput.classList.add('add');
+        newInput.id = `imageUpload_${uniqueId}`;
 
-            reader.readAsDataURL(imageUpload.files[0]);
-        }
+        const newImage = document.createElement('img');
+        newImage.style.display = 'none';
+        newImage.id = `thumbnail_${uniqueId}`;
+        newImage.alt = 'Miniatura obrázku';
+        newImage.style.maxWidth = '100px';
+        newImage.style.maxHeight = '100px';
+
+        newInput.addEventListener('change', function (e) {
+            e.preventDefault();
+            if (newInput.files && newInput.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    newImage.style.display = 'block';
+                    newImage.src = e.target.result;
+                };
+
+                reader.readAsDataURL(newInput.files[0]);
+            }
+        });
+
+        infoForm.insertBefore(newInput, addImageButton);
+        infoForm.insertBefore(newImage, addImageButton);
     });
 
     infoForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const groupName = document.getElementById('groupName').value;
         const setName = document.getElementById('setName').value;
-        const selectedImage = imageUpload.files[0];
 
         const formData = new FormData();
         formData.append('key', info);
         formData.append('groupName', groupName);
         formData.append('setName', setName);
-        if (selectedImage) {
-            formData.append('img', selectedImage);
-        }
+        console.log("ahoj1")
+        document.querySelectorAll(".add").forEach(
+            input=> {
+                console.log(input)
+                console.log("ahoj2")
+                formData.append('img', input.files[0])
+            })
+        console.log("ahoj3")
+
 
         fetch('api/post', {
             method: 'POST',
@@ -68,6 +89,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Chyba při provádění HTTP požadavku:', error);
             });
     });
+
+    const resetButton = document.querySelector('#reset-button');
+    resetButton.addEventListener('click' , e => {
+        e.preventDefault();
+        cat();
+    })
 });
 
 
