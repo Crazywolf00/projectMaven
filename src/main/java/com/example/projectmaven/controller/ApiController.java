@@ -80,11 +80,6 @@ public class ApiController {
             @RequestParam Optional<String> setName,
             @RequestParam("img") List<MultipartFile> img) {
 
-        System.out.println(key);
-        System.out.println(groupName.get());
-        System.out.println(setName.get());
-        System.out.println(Arrays.toString(img.toArray()));
-
 
         if (password.checkKey(key)) {
             try {
