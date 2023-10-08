@@ -2,6 +2,7 @@ package com.example.projectmaven.controller;
 
 import com.example.projectmaven.model.ImageDto;
 import com.example.projectmaven.model.ImagePort;
+import com.example.projectmaven.model.Password;
 import com.example.projectmaven.service.ImagePortServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,7 @@ import java.util.Optional;
 public class ApiController {
 
     private final ImagePortServiceImpl imgService;
+    private final Password password = new Password();
 
     @Autowired
     public ApiController(ImagePortServiceImpl imgService) {
@@ -46,10 +48,14 @@ public class ApiController {
     }
 
     @PostMapping("/post")
-    public ResponseEntity<?> addImg(@RequestParam("img") Optional<MultipartFile> img) {
+    public ResponseEntity<?> addImg(@RequestParam String groupName,
+            @RequestParam String setName,
+            @RequestParam("img") Optional<MultipartFile> img) {
+
+
         try {
             if(img.isPresent()) {
-                return ResponseEntity.status(HttpStatus.OK).body(imgService.addImg(img.get()));
+                return ResponseEntity.status(HttpStatus.OK).body(imgService.addImg(groupName,setName,img.get()));
             } else {
                 throw new IOException();
             }
@@ -68,4 +74,14 @@ public class ApiController {
                                        @PathVariable Long id) {
         return null;
     }
+
+    @GetMapping("/password")
+    public ResponseEntity<?> password(@RequestParam String inputPassword) {
+        if (password.checkPassword(inputPassword)) {
+            return ResponseEntity.status(HttpStatus.OK).body(password.getKey());
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+    }
+
 }

@@ -12,4 +12,10 @@ public class WebController {
     }
 
 
+    @GetMapping("/add")
+    public String admin() {
+        return "Admin.html";
+    }
+
+
 }

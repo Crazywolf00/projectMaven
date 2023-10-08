@@ -50,7 +50,7 @@ public class ImagePortServiceImpl implements ImagePortService {
     }
 
     @Override
-    public ImagePort addImg(MultipartFile file) throws IOException {
+    public ImagePort addImg(String groupName, String setName, MultipartFile file) throws IOException {
         Path filePath = Paths.get(String.valueOf(path), file.getOriginalFilename() + " -- "
                 + new SimpleDateFormat("ddMMyyyy-HHmmss").format(new Date()));
         file.transferTo(new File(filePath.toUri()));
@@ -59,6 +59,8 @@ public class ImagePortServiceImpl implements ImagePortService {
                 + new SimpleDateFormat("dd.MM. yyyy - HH:mm:ss").format(new Date()));
         img.setType(file.getContentType());
         img.setPathName(String.valueOf(filePath));
+        img.setGroupName(groupName);
+        img.setSetName(setName);
         return repository.save(img);
     }
 
