@@ -85,7 +85,7 @@ public class ApiController {
 
     @GetMapping("/alladmin")
     public ResponseEntity<?> getAllAdmin() {
-        return ResponseEntity.status(HttpStatus.OK).body(imgService.getAll());
+            return ResponseEntity.status(HttpStatus.OK).body(imgService.getAll());
     }
 
     @PostMapping("/post")
@@ -117,7 +117,7 @@ public class ApiController {
     }
 
     @GetMapping("/allcategory")
-    public ResponseEntity<?> getAllAdmin(@RequestParam String key) {
+    public ResponseEntity<?> getAllCategory(@RequestParam String key) {
         if (password.checkKey(key)) {
             return ResponseEntity.status(HttpStatus.OK).body(imgService.category());
         } else {

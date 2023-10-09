@@ -77,10 +77,10 @@ document.addEventListener('DOMContentLoaded', function () {
             method: 'POST',
             body: formData
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
+            .then(response => {
+                console.log(response.status)
             })
+
             .catch(error => {
                 console.error('Chyba při provádění HTTP požadavku:', error);
             });
@@ -125,6 +125,9 @@ function loadAllImages() {
 
                 const imgElement = document.createElement("img");
                 imgElement.src = `api/getImg/${imgInfo.id}`;
+                imgElement.style.width = "200px";
+                imgElement.style.height = "200px";
+                imgElement.style.width = "auto";
 
                 const imgInfoElement = document.createElement("p");
                 imgInfoElement.textContent = `Název: ${imgInfo.name}, Velikost: ${imgInfo.size}`;
@@ -136,9 +139,11 @@ function loadAllImages() {
                     imgDiv.remove();
                 });
 
+                const imgLine = document.createElement("hr")
                 imgDiv.appendChild(imgElement);
                 imgDiv.appendChild(imgInfoElement);
                 imgDiv.appendChild(deleteButton);
+                imgDiv.appendChild(imgLine);
 
                 imageContainer.appendChild(imgDiv);
             });
@@ -154,9 +159,9 @@ function deleteImg(id) {
     })
         .then(response => {
             if (response.status === 200) {
-                alert("Obrázek byl smazán.");
+                console.log(response.status);
             } else {
-                throw new Error("Chyba při mazání obrázku");
+                console.log(response.status);
             }
         })
         .catch(error => {
