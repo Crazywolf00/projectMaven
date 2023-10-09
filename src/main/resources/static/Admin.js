@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const newInput = document.createElement('input');
         newInput.type = 'file';
         newInput.name = 'imageUpload';
-        newInput.required = true;
         newInput.classList.add('add');
         newInput.id = `imageUpload_${uniqueId}`;
 
@@ -79,11 +78,15 @@ document.addEventListener('DOMContentLoaded', function () {
         })
             .then(response => {
                 console.log(response.status)
+                infoForm.reset();
+                console.log(response.status);
             })
 
             .catch(error => {
                 console.error('Chyba při provádění HTTP požadavku:', error);
             });
+
+
     });
 
     const resetButton = document.querySelector('#reset-button');
@@ -130,7 +133,7 @@ function loadAllImages() {
                 imgElement.style.width = "auto";
 
                 const imgInfoElement = document.createElement("p");
-                imgInfoElement.textContent = `Název: ${imgInfo.name}, Velikost: ${imgInfo.size}`;
+                imgInfoElement.textContent = `Název: ${imgInfo.name}, Skupina: ${imgInfo.setName}`;
 
                 const deleteButton = document.createElement("button");
                 deleteButton.textContent = "Smazat";

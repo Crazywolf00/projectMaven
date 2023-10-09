@@ -95,7 +95,6 @@ public class ApiController {
             @RequestParam Optional<String> setName,
             @RequestParam("img") List<MultipartFile> img) {
 
-
         if (password.checkKey(key)) {
             try {
                 if (groupName.isPresent() && setName.isPresent()) {
