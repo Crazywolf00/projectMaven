@@ -42,8 +42,11 @@ public class ImagePortServiceImpl implements ImagePortService {
 
 
     @Override
-    public void deleteImg(Long id) {
-        repository.deleteById(id);
+    public void deleteImg(Long id) throws IOException {
+        if(repository.findById(id).isPresent()) {
+            Files.deleteIfExists(Path.of(repository.findById(id).get().getPathName()));
+            repository.delete(repository.findById(id).get());
+        }
     }
 
     @Override

@@ -13,7 +13,7 @@ public interface ImagePortService {
 
     byte[] getImg(Long id) throws IOException;
 
-    void deleteImg(Long id);
+    void deleteImg(Long id) throws IOException;
 
     ImagePort addImg(String groupName, String setName, MultipartFile file) throws IOException;
 

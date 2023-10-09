@@ -67,14 +67,10 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append('key', info);
         formData.append('groupName', groupName);
         formData.append('setName', setName);
-        console.log("ahoj1")
         document.querySelectorAll(".add").forEach(
-            input=> {
-                console.log(input)
-                console.log("ahoj2")
+            input => {
                 formData.append('img', input.files[0])
             })
-        console.log("ahoj3")
 
 
         fetch('api/post', {
@@ -91,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const resetButton = document.querySelector('#reset-button');
-    resetButton.addEventListener('click' , e => {
+    resetButton.addEventListener('click', e => {
         e.preventDefault();
         cat();
     })
@@ -101,10 +97,9 @@ document.addEventListener('DOMContentLoaded', function () {
 function cat() {
     const asideElement = document.querySelector('#cat');
     asideElement.textContent = "";
-    fetch('api/alladmin?key=' + info)
+    fetch('api/allcategory?key=' + info)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             const categories = data;
 
             const categoryList = document.createElement('ul');
@@ -117,3 +112,56 @@ function cat() {
             asideElement.appendChild(categoryList);
         })
 }
+
+function loadAllImages() {
+    fetch('api/alladmin')
+        .then(response => response.json())
+        .then(data => {
+            const imageContainer = document.getElementById("imageContainer");
+
+            data.forEach(imgInfo => {
+                const imgDiv = document.createElement("div");
+                imgDiv.classList.add("image-entry");
+
+                const imgElement = document.createElement("img");
+                imgElement.src = `api/getImg/${imgInfo.id}`;
+
+                const imgInfoElement = document.createElement("p");
+                imgInfoElement.textContent = `Název: ${imgInfo.name}, Velikost: ${imgInfo.size}`;
+
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Smazat";
+                deleteButton.addEventListener("click", () => {
+                    deleteImg(imgInfo.id);
+                    imgDiv.remove();
+                });
+
+                imgDiv.appendChild(imgElement);
+                imgDiv.appendChild(imgInfoElement);
+                imgDiv.appendChild(deleteButton);
+
+                imageContainer.appendChild(imgDiv);
+            });
+        })
+        .catch(error => {
+            console.error("Chyba při načítání obrázků: " + error);
+        });
+}
+
+function deleteImg(id) {
+    fetch(`/api/delete/${id}?key=${info}`, {
+        method: 'DELETE'
+    })
+        .then(response => {
+            if (response.status === 200) {
+                alert("Obrázek byl smazán.");
+            } else {
+                throw new Error("Chyba při mazání obrázku");
+            }
+        })
+        .catch(error => {
+            console.error("Chyba při mazání obrázku: " + error);
+        });
+}
+
+loadAllImages();

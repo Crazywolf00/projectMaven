@@ -32,7 +32,6 @@ public class ApiController {
     }
 
 
-
     @GetMapping("/getInfo/{id}")
     public ResponseEntity<?> getImgInfo(@PathVariable Long id) {
         ImageDto dto = new ImageDto(imgService.getImgWithInfo(id));
@@ -51,11 +50,6 @@ public class ApiController {
     }
 
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteImg(@PathVariable Long id) {
-        return null;
-    }
-
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateImg(@RequestBody ImagePort img,
                                        @PathVariable Long id) {
@@ -73,6 +67,27 @@ public class ApiController {
     }
 
     //--------------------------------SECURITY--------------------------------
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteImg(@RequestParam String key,
+                                       @PathVariable Long id) {
+        if(password.checkKey(key)) {
+            try {
+                imgService.deleteImg(id);
+                return ResponseEntity.status(HttpStatus.OK).build();
+            } catch (IOException e) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+    }
+
+    @GetMapping("/alladmin")
+    public ResponseEntity<?> getAllAdmin() {
+        return ResponseEntity.status(HttpStatus.OK).body(imgService.getAll());
+    }
+
     @PostMapping("/post")
     public ResponseEntity<?> addImg(
             @RequestParam String key,
@@ -84,7 +99,7 @@ public class ApiController {
         if (password.checkKey(key)) {
             try {
                 if (groupName.isPresent() && setName.isPresent()) {
-                    for (MultipartFile multipartFile: img) {
+                    for (MultipartFile multipartFile : img) {
                         imgService.addImg(groupName.get(), setName.get(), multipartFile);
                     }
                     return ResponseEntity.status(HttpStatus.OK)
@@ -101,7 +116,7 @@ public class ApiController {
 
     }
 
-    @GetMapping("/alladmin")
+    @GetMapping("/allcategory")
     public ResponseEntity<?> getAllAdmin(@RequestParam String key) {
         if (password.checkKey(key)) {
             return ResponseEntity.status(HttpStatus.OK).body(imgService.category());
