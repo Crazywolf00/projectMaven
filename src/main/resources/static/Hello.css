@@ -1,3 +1,525 @@
+/* Styly pro mobilní zařízení */
+@media screen and (max-width: 768px) {
+    #img-three {
+        height: 70%;
+        background-image: url("mainImg/1.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 30px 5px 5px 5px;
+
+        transition: flex 1s, opacity 1s;
+    }
+    #img-three:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-four {
+        height: 70%;
+        background-image: url("mainImg/2.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 50px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-four:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+    #img-five {
+        height: 70%;
+        background-image: url("mainImg/3.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 70px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-five:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+    #img-six {
+        height: 70%;
+        background-image: url("mainImg/4.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 30px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-six:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-seven {
+        height: 70%;
+        background-image: url("mainImg/5.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 70px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-seven:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-eight {
+        height: 70%;
+        background-image: url("mainImg/6.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 50px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-eight:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-nine {
+        height: 70%;
+        background-image: url("mainImg/7.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 70px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-nine:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-ten {
+        height: 70%;
+        background-image: url("mainImg/8.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 30px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-ten:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+
+    #img-eleven {
+        height: 70%;
+        background-image: url("mainImg/9.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 50px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-eleven:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-twelve {
+        height: 70%;
+        background-image: url("mainImg/10.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 30px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-twelve:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+}
+
+/* Styly pro tablety a střední rozlišení */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    #img-two {
+        flex: 2;
+        margin: 50px;
+    }
+
+    #img-three {
+        height: 70%;
+        background-image: url("mainImg/1.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 30px 5px 5px 5px;
+
+        transition: flex 1s, opacity 1s;
+    }
+    #img-three:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-four {
+        height: 70%;
+        background-image: url("mainImg/2.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 50px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-four:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+    #img-five {
+        height: 70%;
+        background-image: url("mainImg/3.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 70px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-five:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+    #img-six {
+        height: 70%;
+        background-image: url("mainImg/4.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 30px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-six:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-seven {
+        height: 70%;
+        background-image: url("mainImg/5.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 70px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-seven:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-eight {
+        height: 70%;
+        background-image: url("mainImg/6.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 50px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-eight:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-nine {
+        height: 70%;
+        background-image: url("mainImg/7.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 70px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-nine:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-ten {
+        height: 70%;
+        background-image: url("mainImg/8.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 30px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-ten:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+
+    #img-eleven {
+        height: 70%;
+        background-image: url("mainImg/9.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 50px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-eleven:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-twelve {
+        height: 70%;
+        background-image: url("mainImg/10.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 30px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-twelve:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-thirteen {
+        flex: 2;
+        margin: 50px;
+    }
+
+}
+
+/* Styly pro desktopová zařízení */
+@media screen and (min-width: 1025px) {
+    #img-one {
+        flex: 2;
+        margin: 50px;
+    }
+
+    #img-two {
+        flex: 2;
+        margin: 50px;
+    }
+
+    #img-three {
+        height: 70%;
+        background-image: url("mainImg/1.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 30px 5px 5px 5px;
+
+        transition: flex 1s, opacity 1s;
+    }
+    #img-three:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-four {
+        height: 70%;
+        background-image: url("mainImg/2.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 50px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-four:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+    #img-five {
+        height: 70%;
+        background-image: url("mainImg/3.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 70px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-five:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+    #img-six {
+        height: 70%;
+        background-image: url("mainImg/4.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 30px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-six:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-seven {
+        height: 70%;
+        background-image: url("mainImg/5.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 70px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-seven:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-eight {
+        height: 70%;
+        background-image: url("mainImg/6.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 50px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-eight:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-nine {
+        height: 70%;
+        background-image: url("mainImg/7.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 70px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-nine:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-ten {
+        height: 70%;
+        background-image: url("mainImg/8.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 30px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-ten:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+
+    #img-eleven {
+        height: 70%;
+        background-image: url("mainImg/9.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 50px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-eleven:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-twelve {
+        height: 70%;
+        background-image: url("mainImg/10.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        flex: 2;
+        margin: 30px 5px 5px 5px;
+        transition: flex 1s, opacity 1s;
+    }
+    #img-twelve:hover {
+        flex: 4;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-thirteen {
+        flex: 2;
+        margin: 50px;
+    }
+
+    #img-fourteen {
+        flex: 2;
+        margin: 50px;
+    }
+}
+
 body {
     display: grid;
     grid-template-areas:
@@ -23,17 +545,7 @@ body {
     ". . h h h h h h h h h h h h h h h h h h h h h . ."
     ". . h h h h h h h h h h h h h h h h h h h h h . ."
     ". . m m m m m m m m m m m m m m m m m m m m m . ."
-    ". . l l l l l . . r r r r r r r r r r r r r r . ."
-    ". . l l l l l . . r r r r r r r r r r r r r r . ."
-    ". . l l l l l . . r r r r r r r r r r r r r r . ."
-    ". . l l l l l . . r r r r r r r r r r r r r r . ."
-    ". . l l l l l . . r r r r r r r r r r r r r r . ."
-    ". . l l l l l . . r r r r r r r r r r r r r r . ."
-    ". . l l l l l . . r r r r r r r r r r r r r r . ."
-    ". . . . . . . . . . . . . . . . . . . . . . . . ."
-    ". . f f f f f f f f f f f f f f f f f f f f f . ."
-    ". . f f f f f f f f f f f f f f f f f f f f f . ."
-    ". . . . . . . . . . . . . . . . . . . . . . . . .";
+ ;
     background-image: url("mainImg/backgrou.jpg");
     background-size: cover;
     min-height: 1000px;
@@ -51,187 +563,11 @@ header {
     grid-area: h;
     display: flex;
     padding: 10px;
-}
-
-#img-one {
-    flex: 2;
-    margin: 50px;
-}
-
-#img-two {
-    flex: 2;
-    margin: 50px;
-}
-
-#img-three {
-    height: 70%;
-    background-image: url("mainImg/1.jpg");
-    background-size: cover;
-    opacity: 0.5;
-    filter: grayscale(100%);
-    flex: 2;
-    margin: 30px 5px 5px 5px;
-
-    transition: flex 1s, opacity 1s;
-}
-#img-three:hover {
-    flex: 4;
-    opacity: 1;
-    filter: none;
-}
-
-#img-four {
-    height: 70%;
-    background-image: url("mainImg/2.jpg");
-    background-size: cover;
-    opacity: 0.5;
-    filter: grayscale(100%);
-    flex: 2;
-    margin: 50px 5px 5px 5px;
-    transition: flex 1s, opacity 1s;
-}
-#img-four:hover {
-    flex: 4;
-    opacity: 1;
-    filter: none;
-}
-#img-five {
-    height: 70%;
-    background-image: url("mainImg/3.jpg");
-    background-size: cover;
-    opacity: 0.5;
-    filter: grayscale(100%);
-    flex: 2;
-    margin: 70px 5px 5px 5px;
-    transition: flex 1s, opacity 1s;
-}
-#img-five:hover {
-    flex: 4;
-    opacity: 1;
-    filter: none;
-}
-#img-six {
-    height: 70%;
-    background-image: url("mainImg/4.jpg");
-    background-size: cover;
-    opacity: 0.5;
-    filter: grayscale(100%);
-    flex: 2;
-    margin: 30px 5px 5px 5px;
-    transition: flex 1s, opacity 1s;
-}
-#img-six:hover {
-    flex: 4;
-    opacity: 1;
-    filter: none;
-}
-
-#img-seven {
-    height: 70%;
-    background-image: url("mainImg/5.jpg");
-    background-size: cover;
-    opacity: 0.5;
-    filter: grayscale(100%);
-    flex: 2;
-    margin: 70px 5px 5px 5px;
-    transition: flex 1s, opacity 1s;
-}
-#img-seven:hover {
-    flex: 4;
-    opacity: 1;
-    filter: none;
-}
-
-#img-eight {
-    height: 70%;
-    background-image: url("mainImg/6.jpg");
-    background-size: cover;
-    opacity: 0.5;
-    filter: grayscale(100%);
-    flex: 2;
-    margin: 50px 5px 5px 5px;
-    transition: flex 1s, opacity 1s;
-}
-#img-eight:hover {
-    flex: 4;
-    opacity: 1;
-    filter: none;
-}
-
-#img-nine {
-    height: 70%;
-    background-image: url("mainImg/7.jpg");
-    background-size: cover;
-    opacity: 0.5;
-    filter: grayscale(100%);
-    flex: 2;
-    margin: 70px 5px 5px 5px;
-    transition: flex 1s, opacity 1s;
-}
-#img-nine:hover {
-    flex: 4;
-    opacity: 1;
-    filter: none;
-}
-
-#img-ten {
-    height: 70%;
-    background-image: url("mainImg/8.jpg");
-    background-size: cover;
-    opacity: 0.5;
-    filter: grayscale(100%);
-    flex: 2;
-    margin: 30px 5px 5px 5px;
-    transition: flex 1s, opacity 1s;
-}
-#img-ten:hover {
-    flex: 4;
-    opacity: 1;
-    filter: none;
+    height: 470px;
+    min-width: 1600px;
 }
 
 
-#img-eleven {
-    height: 70%;
-    background-image: url("mainImg/9.jpg");
-    background-size: cover;
-    opacity: 0.5;
-    filter: grayscale(100%);
-    flex: 2;
-    margin: 50px 5px 5px 5px;
-    transition: flex 1s, opacity 1s;
-}
-#img-eleven:hover {
-    flex: 4;
-    opacity: 1;
-    filter: none;
-}
-
-#img-twelve {
-    height: 70%;
-    background-image: url("mainImg/10.jpg");
-    background-size: cover;
-    opacity: 0.5;
-    filter: grayscale(100%);
-    flex: 2;
-    margin: 30px 5px 5px 5px;
-    transition: flex 1s, opacity 1s;
-}
-#img-twelve:hover {
-    flex: 4;
-    opacity: 1;
-    filter: none;
-}
-
-#img-thirteen {
-    flex: 2;
-    margin: 50px;
-}
-
-#img-fourteen {
-    flex: 2;
-    margin: 50px;
-}
 #logo {
     margin: 300px 30% 0px 30%;
     min-width: 40%;
@@ -268,6 +604,7 @@ small {
 aside {
     grid-area: r;
     background-color: purple;
+    height: 800px;
 }
 footer {
     grid-area: f;
