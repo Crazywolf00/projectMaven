@@ -13,8 +13,15 @@ body {
     ". . h h h h h h h h h h h h h h h h h h h h h . ."
     ". . h h h h h h h h h h h h h h h h h h h h h . ."
     ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . m m m m m m m m m m m m m m m m m m m m m . ."
-    ". . m m m m m m m m m m m m m m m m m m m m m . ."
+    ". . h h h h h h h h h h h h h h h h h h h h h . ."
+    ". . h h h h h h h h h h h h h h h h h h h h h . ."
+    ". . h h h h h h h h h h h h h h h h h h h h h . ."
+    ". . h h h h h h h h h h h h h h h h h h h h h . ."
+    ". . h h h h h h h h h h h h h h h h h h h h h . ."
+    ". . h h h h h h h h h h h h h h h h h h h h h . ."
+    ". . h h h h h h h h h h h h h h h h h h h h h . ."
+    ". . h h h h h h h h h h h h h h h h h h h h h . ."
+    ". . h h h h h h h h h h h h h h h h h h h h h . ."
     ". . m m m m m m m m m m m m m m m m m m m m m . ."
     ". . l l l l l . . r r r r r r r r r r r r r r . ."
     ". . l l l l l . . r r r r r r r r r r r r r r . ."
@@ -27,17 +34,232 @@ body {
     ". . f f f f f f f f f f f f f f f f f f f f f . ."
     ". . f f f f f f f f f f f f f f f f f f f f f . ."
     ". . . . . . . . . . . . . . . . . . . . . . . . .";
-    background-color: orange;
-    height: 1000px;
+    background-image: url("mainImg/backgrou.jpg");
+    background-size: cover;
+    min-height: 1000px;
+}
+
+#sign {
+    margin-top: 50px;
+    width: 300px;
+    hight: 150px;
+    background-image: url("mainImg/Sign.png");
+    background-size: contain;
 }
 
 header {
     grid-area: h;
-    background-color: red;
+    display: flex;
+    padding: 10px;
 }
+
+#img-one {
+    flex: 2;
+    margin: 50px;
+}
+
+#img-two {
+    flex: 2;
+    margin: 50px;
+}
+
+#img-three {
+    height: 70%;
+    background-image: url("mainImg/1.jpg");
+    background-size: cover;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    flex: 2;
+    margin: 30px 5px 5px 5px;
+
+    transition: flex 1s, opacity 1s;
+}
+#img-three:hover {
+    flex: 4;
+    opacity: 1;
+    filter: none;
+}
+
+#img-four {
+    height: 70%;
+    background-image: url("mainImg/2.jpg");
+    background-size: cover;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    flex: 2;
+    margin: 50px 5px 5px 5px;
+    transition: flex 1s, opacity 1s;
+}
+#img-four:hover {
+    flex: 4;
+    opacity: 1;
+    filter: none;
+}
+#img-five {
+    height: 70%;
+    background-image: url("mainImg/3.jpg");
+    background-size: cover;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    flex: 2;
+    margin: 70px 5px 5px 5px;
+    transition: flex 1s, opacity 1s;
+}
+#img-five:hover {
+    flex: 4;
+    opacity: 1;
+    filter: none;
+}
+#img-six {
+    height: 70%;
+    background-image: url("mainImg/4.jpg");
+    background-size: cover;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    flex: 2;
+    margin: 30px 5px 5px 5px;
+    transition: flex 1s, opacity 1s;
+}
+#img-six:hover {
+    flex: 4;
+    opacity: 1;
+    filter: none;
+}
+
+#img-seven {
+    height: 70%;
+    background-image: url("mainImg/5.jpg");
+    background-size: cover;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    flex: 2;
+    margin: 70px 5px 5px 5px;
+    transition: flex 1s, opacity 1s;
+}
+#img-seven:hover {
+    flex: 4;
+    opacity: 1;
+    filter: none;
+}
+
+#img-eight {
+    height: 70%;
+    background-image: url("mainImg/6.jpg");
+    background-size: cover;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    flex: 2;
+    margin: 50px 5px 5px 5px;
+    transition: flex 1s, opacity 1s;
+}
+#img-eight:hover {
+    flex: 4;
+    opacity: 1;
+    filter: none;
+}
+
+#img-nine {
+    height: 70%;
+    background-image: url("mainImg/7.jpg");
+    background-size: cover;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    flex: 2;
+    margin: 70px 5px 5px 5px;
+    transition: flex 1s, opacity 1s;
+}
+#img-nine:hover {
+    flex: 4;
+    opacity: 1;
+    filter: none;
+}
+
+#img-ten {
+    height: 70%;
+    background-image: url("mainImg/8.jpg");
+    background-size: cover;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    flex: 2;
+    margin: 30px 5px 5px 5px;
+    transition: flex 1s, opacity 1s;
+}
+#img-ten:hover {
+    flex: 4;
+    opacity: 1;
+    filter: none;
+}
+
+
+#img-eleven {
+    height: 70%;
+    background-image: url("mainImg/9.jpg");
+    background-size: cover;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    flex: 2;
+    margin: 50px 5px 5px 5px;
+    transition: flex 1s, opacity 1s;
+}
+#img-eleven:hover {
+    flex: 4;
+    opacity: 1;
+    filter: none;
+}
+
+#img-twelve {
+    height: 70%;
+    background-image: url("mainImg/10.jpg");
+    background-size: cover;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    flex: 2;
+    margin: 30px 5px 5px 5px;
+    transition: flex 1s, opacity 1s;
+}
+#img-twelve:hover {
+    flex: 4;
+    opacity: 1;
+    filter: none;
+}
+
+#img-thirteen {
+    flex: 2;
+    margin: 50px;
+}
+
+#img-fourteen {
+    flex: 2;
+    margin: 50px;
+}
+#logo {
+    margin: 300px 30% 0px 30%;
+    min-width: 40%;
+    height: 250px;
+    z-index: 80;
+    display: inline-flex;
+    position: absolute;
+}
+#photo {
+    width: 250px;
+    border-radius: 150px;
+    background-image: url("mainImg/photo.jpg");
+    background-size: cover;
+    box-shadow: 2px 2px 5px black;
+}
+
 main {
+    padding-top: 60px;
     grid-area: m;
-    background-color: yellow;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0),
+    rgba(150, 150, 150, 0.48),
+    rgba(150, 150, 150, 0.48),
+    rgba(255, 255, 255, 0));
+    text-align: center;
+}
+main p {
+    font-size: 22px;
+    font-family: "Comic Sans MS";
 }
 small {
     grid-area: l;
