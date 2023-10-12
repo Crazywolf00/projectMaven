@@ -72,3 +72,26 @@ fetch('api/alladmin')
     .catch(error => {
         console.error(`Error loading categories: ${error}`);
     });
+
+function handleDivClick(event) {
+    const divId = event.currentTarget.id;
+
+    fetch(`/api/category?name=${divId}`)
+        .then(response => {
+            if (response.ok) {
+
+                const mainElement = document.getElementById("main");
+                mainElement.scrollIntoView({ behavior: "smooth" });
+            } else {
+                console.error(`Chyba při volání endpointu: ${response.status}`);
+            }
+        })
+        .catch(error => {
+            console.error(`Chyba při volání endpointu: ${error}`);
+        });
+}
+
+
+const clickableDivs = document.querySelectorAll(".clickable-div");
+clickableDivs.forEach(function(div) {
+    div.addEventListener("click", handleDivClick);

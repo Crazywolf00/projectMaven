@@ -576,6 +576,8 @@
 
 /* Styly pro desktopová zařízení */
 @media screen and (min-width: 1025px) {
+
+
     #img-three {
         height: 70%;
         background-image: url("mainImg/1.jpg");
@@ -584,10 +586,14 @@
         filter: grayscale(100%);
         margin: 30px 5px 5px 5px;
         min-width: 80px;
-        transition: min-width 1s, opacity 1s;
+        font-size: 0px;
+        text-align: center;
+        transition: min-width 1s, opacity 1s, font-size 1s;
+        padding: 25px 0px;
     }
 
     #img-three:hover {
+        font-size: 25px;
         min-width: 160px;
         opacity: 1;
         filter: none;
@@ -601,10 +607,14 @@
         filter: grayscale(100%);
         margin: 50px 5px 5px 5px;
         min-width: 80px;
-        transition: min-width 1s, opacity 1s;
+        font-size: 0px;
+        text-align: center;
+        transition: min-width 1s, opacity 1s, font-size 1s;
+        padding: 25px 0px;
     }
 
     #img-four:hover {
+        font-size: 25px;
         min-width: 160px;
         opacity: 1;
         filter: none;
@@ -618,10 +628,14 @@
         filter: grayscale(100%);
         margin: 70px 5px 5px 5px;
         min-width: 80px;
-        transition: min-width 1s, opacity 1s;
+        font-size: 0px;
+        text-align: center;
+        transition: min-width 1s, opacity 1s, font-size 1s;
+        padding: 25px 0px;
     }
 
     #img-five:hover {
+        font-size: 25px;
         min-width: 160px;
         opacity: 1;
         filter: none;
@@ -635,10 +649,25 @@
         filter: grayscale(100%);
         margin: 30px 5px 5px 5px;
         min-width: 80px;
-        transition: min-width 1s, opacity 1s;
+        text-align: center;
+        transition: min-width 1s, opacity 1s, font-size 1s;
+        padding: 25px 0px;
+        font-family: "Comic Sans MS";
+        text-shadow:
+                2px 0px 0px white
+                ,0px 2px 0px white
+                ,0px -2px 0px white
+                ,-2px 0px 0px white;
     }
-
+    header p {
+        rotate: -90deg;
+        transition: rotate 1s;
+    }
+    #img-six:hover p {
+        rotate: 0deg;
+    }
     #img-six:hover {
+        font-size: 25px;
         min-width: 160px;
         opacity: 1;
         filter: none;
@@ -652,10 +681,25 @@
         filter: grayscale(100%);
         margin: 70px 5px 5px 5px;
         min-width: 80px;
-        transition: min-width 1s, opacity 1s;
+        text-align: center;
+        transition: min-width 1s, opacity 1s, font-size 1s;
+        padding: 25px 0px;
+        font-family: "Comic Sans MS";
+        text-shadow:
+                2px 0px 0px white
+        ,0px 2px 0px white
+        ,0px -2px 0px white
+        ,-2px 0px 0px white;
     }
-
+    header p {
+        rotate: -90deg;
+        transition: rotate 1s;
+    }
+    #img-seven:hover p {
+        rotate: 0deg;
+    }
     #img-seven:hover {
+        font-size: 25px;
         min-width: 160px;
         opacity: 1;
         filter: none;
@@ -669,10 +713,25 @@
         filter: grayscale(100%);
         margin: 50px 5px 5px 5px;
         min-width: 80px;
-        transition: min-width 1s, opacity 1s;
+        text-align: center;
+        transition: min-width 1s, opacity 1s, font-size 1s;
+        padding: 25px 0px;
+        font-family: "Comic Sans MS";
+        text-shadow:
+                2px 0px 0px white
+                ,0px 2px 0px white
+                ,0px -2px 0px white
+                ,-2px 0px 0px white;
     }
-
+    header p {
+        rotate: -90deg;
+        transition: rotate 1s;
+    }
+    #img-eight:hover p {
+        rotate: 0deg;
+    }
     #img-eight:hover {
+        font-size: 25px;
         min-width: 160px;
         opacity: 1;
         filter: none;
@@ -686,10 +745,25 @@
         filter: grayscale(100%);
         margin: 70px 5px 5px 5px;
         min-width: 80px;
-        transition: min-width 1s, opacity 1s;
+        text-align: center;
+        transition: min-width 1s, opacity 1s, font-size 1s;
+        padding: 25px 0px;
+        font-family: "Comic Sans MS";
+        text-shadow:
+                2px 0px 0px white
+                ,0px 2px 0px white
+                ,0px -2px 0px white
+                ,-2px 0px 0px white;
     }
-
+    header p {
+        rotate: -90deg;
+        transition: rotate 1s;
+    }
+    #img-nine:hover p {
+        rotate: 0deg;
+    }
     #img-nine:hover {
+        font-size: 25px;
         min-width: 160px;
         opacity: 1;
         filter: none;
@@ -703,10 +777,14 @@
         filter: grayscale(100%);
         margin: 30px 5px 5px 5px;
         min-width: 80px;
-        transition: min-width 1s, opacity 1s;
+        font-size: 0px;
+        text-align: center;
+        transition: min-width 1s, opacity 1s, font-size 1s;
+        padding: 25px 0px;
     }
 
     #img-ten:hover {
+        font-size: 25px;
         min-width: 160px;
         opacity: 1;
         filter: none;
@@ -721,10 +799,14 @@
         filter: grayscale(100%);
         margin: 50px 5px 5px 5px;
         min-width: 80px;
-        transition: min-width 1s, opacity 1s;
+        font-size: 0px;
+        text-align: center;
+        transition: min-width 1s, opacity 1s, font-size 1s;
+        padding: 25px 0px;
     }
 
     #img-eleven:hover {
+        font-size: 25px;
         min-width: 160px;
         opacity: 1;
         filter: none;
@@ -738,14 +820,21 @@
         filter: grayscale(100%);
         margin: 30px 5px 5px 5px;
         min-width: 80px;
-        transition: min-width 1s, opacity 1s;
+        font-size: 0px;
+        text-align: center;
+        transition: min-width 1s, opacity 1s, font-size 1s;
+        padding: 25px 0px;
     }
 
     #img-twelve:hover {
+        font-size: 25px;
         min-width: 160px;
         opacity: 1;
         filter: none;
 
+    }
+    #img {
+        height: 500px;
     }
 
     header {
@@ -783,7 +872,7 @@
     ". . h h h h h h h h h h h h h h h h h h h h h . ."
     ". . h h h h h h h h h h h h h h h h h h h h h . ."
     ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . m m m m m m m m m m m m m m m m m m m m m . .";
+    "m m m m m m m m m m m m m m m m m m m m m m m m m";
         background-image: url("mainImg/backgrou.jpg");
         background-size: cover;
         min-height: 800px;
@@ -792,7 +881,6 @@
     #sign {
         margin-top: 50px;
         width: 300px;
-        hight: 150px;
         background-image: url("mainImg/Sign.png");
         background-size: contain;
     }
@@ -836,80 +924,46 @@
         display: grid;
         grid-template-areas:
         " p p p p p p"
-        " r r r r r r"
-        " r r r r r r"
-        " r r r r r r"
         " l l l l l l"
         " f f f f f f"
         " f f f f f f";
-    }
-
-    small {
-        grid-area: l;
-        background-color: blue;
-        min-height: 500px;
-        margin: 25px;
-        min-width: 500px;
-        border-radius: 15px 0px 15px 0px;
-        box-shadow: 5px 5px 5px gray;
-        background-color: rgba(255, 255, 255, 0.45);
-        padding: 50px 10px 10px 10px;
         align-items: center;
         justify-content: center;
     }
 
-    table {
-        width: 80%;
-        height: 80%;
-        border: 2px solid black;
-    }
-    aside {
-        grid-area: r;
-        margin: 20px;
-        min-height: 500px;
-    }
+    /*small {*/
+    /*    grid-area: l;*/
+    /*    background-color: blue;*/
+    /*    min-height: 500px;*/
+    /*    margin: 25px;*/
+    /*    min-width: 500px;*/
+    /*    border-radius: 15px 0px 15px 0px;*/
+    /*    box-shadow: 5px 5px 5px gray;*/
+    /*    background-color: rgba(255, 255, 255, 0.45);*/
+    /*    padding: 50px 10px 10px 10px;*/
+    /*    align-items: center;*/
+    /*    justify-content: center;*/
+    /*}*/
 
-    #categories {
-        display: flex;
-        flex-wrap: wrap;
-    }
 
-    .category-div {
-        width: calc(33% - 30px);
-        margin: 10px;
-        border-radius: 500px;
-        box-shadow: 5px 5px 5px gray;
-        background-color: rgba(255, 255, 255, 0.45);
-        transition: box-shadow 1s, background-color 1s, color 1s;
-        cursor: pointer;
-        max-width: 240px;
-        height: 240px;
-        overflow: hidden;
-        padding: 5px;
-        color: gray;
-        min-height: 200px;
-        min-width: 200px;
-    }
-
-    .category-div:hover {
-        box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.85);
-        background-color: rgba(255, 255, 255, 0.8);
-        color: black;
-    }
-
-    img {
-        width: 80%;
-        height: auto;
-    }
-    .category-div p {
-        font-family: "Comic Sans MS";
-        font-size: 20px;
-    }
 
     footer {
         grid-area: f;
-        background-color: gray;
-        margin: 20px;
-        min-height: 200px;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0),
+        rgba(150, 150, 150, 0.5),
+        rgba(150, 150, 150, 0.5),
+        rgba(150, 150, 150, 0.5),
+        rgba(150, 150, 150, 0.5),
+        rgba(255, 255, 255, 0));
+        height: 20px;
+        width: 100%;
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        opacity: 0.5;
     }
+    a {
+        color: #2c548c;
+    }
+
 }
