@@ -12,7 +12,7 @@ public class ImageDto {
     public ImageDto(ImagePort img) {
         this.id = img.getId();
         this.name = img.getName();
-        this.groupName = img.getGroupName();
+        this.groupName = img.getCategoriesName();
         this.setName = img.getSetName();
         this.type = img.getType();
     }

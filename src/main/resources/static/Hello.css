@@ -1,12 +1,46 @@
 /* Styly pro mobilní zařízení */
 @media screen and (max-width: 768px) {
-    #img-three {
+    #img-one {
         height: 70%;
         background-image: url("mainImg/1.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
         margin: 30px 5px 5px 5px;
+        min-width: 80px;
+        transition: min-width 1s, opacity 1s;
+    }
+
+    #img-one:hover {
+        min-width: 160px;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-two {
+        height: 70%;
+        background-image: url("mainImg/2.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        margin: 50px 5px 5px 5px;
+        min-width: 80px;
+        transition: min-width 1s, opacity 1s;
+    }
+
+    #img-two:hover {
+        min-width: 160px;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-three {
+        height: 70%;
+        background-image: url("mainImg/3.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        margin: 70px 5px 5px 5px;
         min-width: 80px;
         transition: min-width 1s, opacity 1s;
     }
@@ -19,11 +53,11 @@
 
     #img-four {
         height: 70%;
-        background-image: url("mainImg/2.jpg");
+        background-image: url("mainImg/4.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
-        margin: 50px 5px 5px 5px;
+        margin: 30px 5px 5px 5px;
         min-width: 80px;
         transition: min-width 1s, opacity 1s;
     }
@@ -36,7 +70,7 @@
 
     #img-five {
         height: 70%;
-        background-image: url("mainImg/3.jpg");
+        background-image: url("mainImg/5.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
@@ -53,11 +87,11 @@
 
     #img-six {
         height: 70%;
-        background-image: url("mainImg/4.jpg");
+        background-image: url("mainImg/6.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
-        margin: 30px 5px 5px 5px;
+        margin: 50px 5px 5px 5px;
         min-width: 80px;
         transition: min-width 1s, opacity 1s;
     }
@@ -70,7 +104,7 @@
 
     #img-seven {
         height: 70%;
-        background-image: url("mainImg/5.jpg");
+        background-image: url("mainImg/7.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
@@ -87,11 +121,11 @@
 
     #img-eight {
         height: 70%;
-        background-image: url("mainImg/6.jpg");
+        background-image: url("mainImg/8.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
-        margin: 50px 5px 5px 5px;
+        margin: 30px 5px 5px 5px;
         min-width: 80px;
         transition: min-width 1s, opacity 1s;
     }
@@ -102,13 +136,14 @@
         filter: none;
     }
 
+
     #img-nine {
         height: 70%;
-        background-image: url("mainImg/7.jpg");
+        background-image: url("mainImg/9.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
-        margin: 70px 5px 5px 5px;
+        margin: 50px 5px 5px 5px;
         min-width: 80px;
         transition: min-width 1s, opacity 1s;
     }
@@ -121,41 +156,6 @@
 
     #img-ten {
         height: 70%;
-        background-image: url("mainImg/8.jpg");
-        background-size: cover;
-        opacity: 0.5;
-        filter: grayscale(100%);
-        margin: 30px 5px 5px 5px;
-        min-width: 80px;
-        transition: min-width 1s, opacity 1s;
-    }
-
-    #img-ten:hover {
-        min-width: 160px;
-        opacity: 1;
-        filter: none;
-    }
-
-
-    #img-eleven {
-        height: 70%;
-        background-image: url("mainImg/9.jpg");
-        background-size: cover;
-        opacity: 0.5;
-        filter: grayscale(100%);
-        margin: 50px 5px 5px 5px;
-        min-width: 80px;
-        transition: min-width 1s, opacity 1s;
-    }
-
-    #img-eleven:hover {
-        min-width: 160px;
-        opacity: 1;
-        filter: none;
-    }
-
-    #img-twelve {
-        height: 70%;
         background-image: url("mainImg/10.jpg");
         background-size: cover;
         opacity: 0.5;
@@ -165,7 +165,7 @@
         transition: min-width 1s, opacity 1s;
     }
 
-    #img-twelve:hover {
+    #img-ten:hover {
         min-width: 160px;
         opacity: 1;
         filter: none;
@@ -288,13 +288,47 @@
 
 /* Styly pro tablety a střední rozlišení */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-    #img-three {
+    #img-one {
         height: 70%;
         background-image: url("mainImg/1.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
         margin: 30px 5px 5px 5px;
+        min-width: 80px;
+        transition: min-width 1s, opacity 1s;
+    }
+
+    #img-one:hover {
+        min-width: 160px;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-two {
+        height: 70%;
+        background-image: url("mainImg/2.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        margin: 50px 5px 5px 5px;
+        min-width: 80px;
+        transition: min-width 1s, opacity 1s;
+    }
+
+    #img-two:hover {
+        min-width: 160px;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-three {
+        height: 70%;
+        background-image: url("mainImg/3.jpg");
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        margin: 70px 5px 5px 5px;
         min-width: 80px;
         transition: min-width 1s, opacity 1s;
     }
@@ -307,11 +341,11 @@
 
     #img-four {
         height: 70%;
-        background-image: url("mainImg/2.jpg");
+        background-image: url("mainImg/4.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
-        margin: 50px 5px 5px 5px;
+        margin: 30px 5px 5px 5px;
         min-width: 80px;
         transition: min-width 1s, opacity 1s;
     }
@@ -324,7 +358,7 @@
 
     #img-five {
         height: 70%;
-        background-image: url("mainImg/3.jpg");
+        background-image: url("mainImg/5.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
@@ -341,11 +375,11 @@
 
     #img-six {
         height: 70%;
-        background-image: url("mainImg/4.jpg");
+        background-image: url("mainImg/6.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
-        margin: 30px 5px 5px 5px;
+        margin: 50px 5px 5px 5px;
         min-width: 80px;
         transition: min-width 1s, opacity 1s;
     }
@@ -358,7 +392,7 @@
 
     #img-seven {
         height: 70%;
-        background-image: url("mainImg/5.jpg");
+        background-image: url("mainImg/7.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
@@ -375,11 +409,11 @@
 
     #img-eight {
         height: 70%;
-        background-image: url("mainImg/6.jpg");
+        background-image: url("mainImg/8.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
-        margin: 50px 5px 5px 5px;
+        margin: 30px 5px 5px 5px;
         min-width: 80px;
         transition: min-width 1s, opacity 1s;
     }
@@ -390,13 +424,14 @@
         filter: none;
     }
 
+
     #img-nine {
         height: 70%;
-        background-image: url("mainImg/7.jpg");
+        background-image: url("mainImg/9.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
-        margin: 70px 5px 5px 5px;
+        margin: 50px 5px 5px 5px;
         min-width: 80px;
         transition: min-width 1s, opacity 1s;
     }
@@ -409,41 +444,6 @@
 
     #img-ten {
         height: 70%;
-        background-image: url("mainImg/8.jpg");
-        background-size: cover;
-        opacity: 0.5;
-        filter: grayscale(100%);
-        margin: 30px 5px 5px 5px;
-        min-width: 80px;
-        transition: min-width 1s, opacity 1s;
-    }
-
-    #img-ten:hover {
-        min-width: 160px;
-        opacity: 1;
-        filter: none;
-    }
-
-
-    #img-eleven {
-        height: 70%;
-        background-image: url("mainImg/9.jpg");
-        background-size: cover;
-        opacity: 0.5;
-        filter: grayscale(100%);
-        margin: 50px 5px 5px 5px;
-        min-width: 80px;
-        transition: min-width 1s, opacity 1s;
-    }
-
-    #img-eleven:hover {
-        min-width: 160px;
-        opacity: 1;
-        filter: none;
-    }
-
-    #img-twelve {
-        height: 70%;
         background-image: url("mainImg/10.jpg");
         background-size: cover;
         opacity: 0.5;
@@ -453,7 +453,7 @@
         transition: min-width 1s, opacity 1s;
     }
 
-    #img-twelve:hover {
+    #img-ten:hover {
         min-width: 160px;
         opacity: 1;
         filter: none;
@@ -576,20 +576,77 @@
 
 /* Styly pro desktopová zařízení */
 @media screen and (min-width: 1025px) {
+    header p {
+        rotate: -90deg;
+        transition: rotate 1s;
+    }
 
-
-    #img-three {
+    #img-one {
         height: 70%;
-        background-image: url("mainImg/1.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
         margin: 30px 5px 5px 5px;
         min-width: 80px;
-        font-size: 0px;
         text-align: center;
         transition: min-width 1s, opacity 1s, font-size 1s;
         padding: 25px 0px;
+        font-family: "Comic Sans MS";
+        text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+    }
+
+    #img-one:hover p {
+        rotate: 0deg;
+    }
+
+    #img-one:hover {
+        font-size: 25px;
+        min-width: 160px;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-two {
+        height: 70%;
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        margin: 50px 5px 5px 5px;
+        min-width: 80px;
+        text-align: center;
+        transition: min-width 1s, opacity 1s, font-size 1s;
+        padding: 25px 0px;
+        font-family: "Comic Sans MS";
+        text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+    }
+
+    #img-two:hover p {
+        rotate: 0deg;
+    }
+
+    #img-two:hover {
+        font-size: 25px;
+        min-width: 160px;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-three {
+        height: 70%;
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        margin: 70px 5px 5px 5px;
+        min-width: 80px;
+        text-align: center;
+        transition: min-width 1s, opacity 1s, font-size 1s;
+        padding: 25px 0px;
+        font-family: "Comic Sans MS";
+        text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+    }
+
+    #img-three:hover p {
+        rotate: 0deg;
     }
 
     #img-three:hover {
@@ -601,16 +658,24 @@
 
     #img-four {
         height: 70%;
-        background-image: url("mainImg/2.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
-        margin: 50px 5px 5px 5px;
+        margin: 30px 5px 5px 5px;
         min-width: 80px;
-        font-size: 0px;
         text-align: center;
         transition: min-width 1s, opacity 1s, font-size 1s;
         padding: 25px 0px;
+        font-family: "Comic Sans MS";
+        text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+    }
+
+    #img-four:hover p {
+        rotate: 0deg;
+    }
+
+    #img-four:hover p {
+        rotate: 0deg;
     }
 
     #img-four:hover {
@@ -622,16 +687,21 @@
 
     #img-five {
         height: 70%;
-        background-image: url("mainImg/3.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
         margin: 70px 5px 5px 5px;
         min-width: 80px;
-        font-size: 0px;
         text-align: center;
         transition: min-width 1s, opacity 1s, font-size 1s;
         padding: 25px 0px;
+        font-family: "Comic Sans MS";
+        text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+    }
+
+
+    #img-five:hover p {
+        rotate: 0deg;
     }
 
     #img-five:hover {
@@ -643,71 +713,6 @@
 
     #img-six {
         height: 70%;
-        background-image: url("mainImg/4.jpg");
-        background-size: cover;
-        opacity: 0.5;
-        filter: grayscale(100%);
-        margin: 30px 5px 5px 5px;
-        min-width: 80px;
-        text-align: center;
-        transition: min-width 1s, opacity 1s, font-size 1s;
-        padding: 25px 0px;
-        font-family: "Comic Sans MS";
-        text-shadow:
-                2px 0px 0px white
-                ,0px 2px 0px white
-                ,0px -2px 0px white
-                ,-2px 0px 0px white;
-    }
-    header p {
-        rotate: -90deg;
-        transition: rotate 1s;
-    }
-    #img-six:hover p {
-        rotate: 0deg;
-    }
-    #img-six:hover {
-        font-size: 25px;
-        min-width: 160px;
-        opacity: 1;
-        filter: none;
-    }
-
-    #img-seven {
-        height: 70%;
-        background-image: url("mainImg/5.jpg");
-        background-size: cover;
-        opacity: 0.5;
-        filter: grayscale(100%);
-        margin: 70px 5px 5px 5px;
-        min-width: 80px;
-        text-align: center;
-        transition: min-width 1s, opacity 1s, font-size 1s;
-        padding: 25px 0px;
-        font-family: "Comic Sans MS";
-        text-shadow:
-                2px 0px 0px white
-        ,0px 2px 0px white
-        ,0px -2px 0px white
-        ,-2px 0px 0px white;
-    }
-    header p {
-        rotate: -90deg;
-        transition: rotate 1s;
-    }
-    #img-seven:hover p {
-        rotate: 0deg;
-    }
-    #img-seven:hover {
-        font-size: 25px;
-        min-width: 160px;
-        opacity: 1;
-        filter: none;
-    }
-
-    #img-eight {
-        height: 70%;
-        background-image: url("mainImg/6.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
@@ -717,15 +722,59 @@
         transition: min-width 1s, opacity 1s, font-size 1s;
         padding: 25px 0px;
         font-family: "Comic Sans MS";
-        text-shadow:
-                2px 0px 0px white
-                ,0px 2px 0px white
-                ,0px -2px 0px white
-                ,-2px 0px 0px white;
+        text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
     }
-    header p {
-        rotate: -90deg;
-        transition: rotate 1s;
+
+
+    #img-six:hover p {
+        rotate: 0deg;
+    }
+
+    #img-six:hover {
+        font-size: 25px;
+        min-width: 160px;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-seven {
+        height: 70%;
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        margin: 70px 5px 5px 5px;
+        min-width: 80px;
+        text-align: center;
+        transition: min-width 1s, opacity 1s, font-size 1s;
+        padding: 25px 0px;
+        font-family: "Comic Sans MS";
+        text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+    }
+
+
+    #img-seven:hover p {
+        rotate: 0deg;
+    }
+
+    #img-seven:hover {
+        font-size: 25px;
+        min-width: 160px;
+        opacity: 1;
+        filter: none;
+    }
+
+    #img-eight {
+        height: 70%;
+        background-size: cover;
+        opacity: 0.5;
+        filter: grayscale(100%);
+        margin: 30px 5px 5px 5px;
+        min-width: 80px;
+        text-align: center;
+        transition: min-width 1s, opacity 1s, font-size 1s;
+        padding: 25px 0px;
+        font-family: "Comic Sans MS";
+        text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
     }
     #img-eight:hover p {
         rotate: 0deg;
@@ -737,27 +786,19 @@
         filter: none;
     }
 
+
     #img-nine {
         height: 70%;
-        background-image: url("mainImg/7.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
-        margin: 70px 5px 5px 5px;
+        margin: 50px 5px 5px 5px;
         min-width: 80px;
         text-align: center;
         transition: min-width 1s, opacity 1s, font-size 1s;
         padding: 25px 0px;
         font-family: "Comic Sans MS";
-        text-shadow:
-                2px 0px 0px white
-                ,0px 2px 0px white
-                ,0px -2px 0px white
-                ,-2px 0px 0px white;
-    }
-    header p {
-        rotate: -90deg;
-        transition: rotate 1s;
+        text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
     }
     #img-nine:hover p {
         rotate: 0deg;
@@ -771,68 +812,28 @@
 
     #img-ten {
         height: 70%;
-        background-image: url("mainImg/8.jpg");
         background-size: cover;
         opacity: 0.5;
         filter: grayscale(100%);
         margin: 30px 5px 5px 5px;
         min-width: 80px;
-        font-size: 0px;
         text-align: center;
         transition: min-width 1s, opacity 1s, font-size 1s;
         padding: 25px 0px;
+        font-family: "Comic Sans MS";
+        text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
     }
-
+    #img-ten:hover p {
+        rotate: 0deg;
+    }
     #img-ten:hover {
         font-size: 25px;
         min-width: 160px;
         opacity: 1;
         filter: none;
-    }
-
-
-    #img-eleven {
-        height: 70%;
-        background-image: url("mainImg/9.jpg");
-        background-size: cover;
-        opacity: 0.5;
-        filter: grayscale(100%);
-        margin: 50px 5px 5px 5px;
-        min-width: 80px;
-        font-size: 0px;
-        text-align: center;
-        transition: min-width 1s, opacity 1s, font-size 1s;
-        padding: 25px 0px;
-    }
-
-    #img-eleven:hover {
-        font-size: 25px;
-        min-width: 160px;
-        opacity: 1;
-        filter: none;
-    }
-
-    #img-twelve {
-        height: 70%;
-        background-image: url("mainImg/10.jpg");
-        background-size: cover;
-        opacity: 0.5;
-        filter: grayscale(100%);
-        margin: 30px 5px 5px 5px;
-        min-width: 80px;
-        font-size: 0px;
-        text-align: center;
-        transition: min-width 1s, opacity 1s, font-size 1s;
-        padding: 25px 0px;
-    }
-
-    #img-twelve:hover {
-        font-size: 25px;
-        min-width: 160px;
-        opacity: 1;
-        filter: none;
 
     }
+
     #img {
         height: 500px;
     }
@@ -841,8 +842,10 @@
         grid-area: h;
         display: inline-flex;
         padding: 10px;
-        height: 470px;
+        height: 500px;
         min-width: 1025px;
+        min-height: 500px;
+        max-height: 500px;
         justify-content: center;
         justify-self: center;
     }
@@ -851,30 +854,10 @@
     body {
         display: grid;
         grid-template-areas:
-    ". . . . . . . . . . . . . . . . . . . . . . . . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    ". . h h h h h h h h h h h h h h h h h h h h h . ."
-    "m m m m m m m m m m m m m m m m m m m m m m m m m";
+    ". h h ."
+    ". m m .";
         background-image: url("mainImg/backgrou.jpg");
-        background-size: cover;
+        background-size: 2000px 2000px;
         min-height: 800px;
     }
 
@@ -887,7 +870,7 @@
 
 
     #logo {
-        margin: 300px 30% 0px 30%;
+        margin: 340px 30% 0px 30%;
         min-width: 40%;
         height: 250px;
         z-index: 80;
@@ -910,7 +893,8 @@
     }
 
     #p {
-      grid-area: p;
+        grid-area: p;
+        min-height: 180px;
     }
 
     main {
@@ -923,28 +907,25 @@
         text-align: center;
         display: grid;
         grid-template-areas:
-        " p p p p p p"
-        " l l l l l l"
-        " f f f f f f"
-        " f f f f f f";
+        " p"
+        " l"
+        " f";
         align-items: center;
         justify-content: center;
     }
 
-    /*small {*/
-    /*    grid-area: l;*/
-    /*    background-color: blue;*/
-    /*    min-height: 500px;*/
-    /*    margin: 25px;*/
-    /*    min-width: 500px;*/
-    /*    border-radius: 15px 0px 15px 0px;*/
-    /*    box-shadow: 5px 5px 5px gray;*/
-    /*    background-color: rgba(255, 255, 255, 0.45);*/
-    /*    padding: 50px 10px 10px 10px;*/
-    /*    align-items: center;*/
-    /*    justify-content: center;*/
-    /*}*/
 
+    small {
+        grid-area: l;
+        border-radius: 15px 0px 15px 0px;
+        box-shadow: 5px 5px 5px gray;
+        background-color: rgba(255, 255, 255, 0.45);
+        padding: 50px 10px 10px 10px;
+        align-items: center;
+        justify-content: center;
+        min-height: 500px;
+        display: none;
+    }
 
 
     footer {
@@ -960,8 +941,9 @@
         display: inline-flex;
         justify-content: space-between;
         align-items: center;
-        opacity: 0.5;
+        opacity: 0.4;
     }
+
     a {
         color: #2c548c;
     }

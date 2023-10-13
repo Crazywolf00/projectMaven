@@ -66,6 +66,19 @@ public class ApiController {
         }
     }
 
+    @GetMapping("/main")
+    public ResponseEntity<?> getMain() {
+        List<ImagePort> images = imgService.getMain();
+        images.sort(Comparator.comparingInt(img -> Integer.parseInt(img.getName().split("\\.")[0])));
+        return ResponseEntity.status(HttpStatus.OK).body(images);
+    }
+
+    @GetMapping("/category")
+    public ResponseEntity<?> category(@RequestParam String name) {
+        System.out.println(name);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
     //--------------------------------SECURITY--------------------------------
 
     @DeleteMapping("/delete/{id}")
@@ -83,7 +96,7 @@ public class ApiController {
         }
     }
 
-    @GetMapping("/alladmin")
+    @GetMapping("/all")
     public ResponseEntity<?> getAllAdmin() {
             return ResponseEntity.status(HttpStatus.OK).body(imgService.getAll());
     }
@@ -99,7 +112,7 @@ public class ApiController {
             try {
                 if (groupName.isPresent() && setName.isPresent()) {
                     for (MultipartFile multipartFile : img) {
-                        imgService.addImg(groupName.get(), setName.get(), multipartFile);
+                        imgService.addImg(groupName.get(), setName.get(), multipartFile, groupName.get());
                     }
                     return ResponseEntity.status(HttpStatus.OK)
                             .build();

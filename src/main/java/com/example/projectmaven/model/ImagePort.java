@@ -12,7 +12,7 @@ public class ImagePort {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String groupName;
+    private String categoriesName;
     private String setName;
     private String pathName;
 
@@ -24,7 +24,7 @@ public class ImagePort {
 
     public ImagePort(String name, String group, String set, String path, String type) {
         this.name = name;
-        this.groupName = group;
+        this.categoriesName = group;
         this.setName = set;
         this.pathName = path;
         this.type = type;
@@ -54,12 +54,12 @@ public class ImagePort {
         this.name = name;
     }
 
-    public String getGroupName() {
-        return groupName;
+    public String getCategoriesName() {
+        return categoriesName;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
+    public void setCategoriesName(String groupName) {
+        this.categoriesName = groupName;
     }
 
     public String getSetName() {

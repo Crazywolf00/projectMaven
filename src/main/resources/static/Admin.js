@@ -117,7 +117,7 @@ function cat() {
 }
 
 function loadAllImages() {
-    fetch('api/alladmin')
+    fetch('api/all')
         .then(response => response.json())
         .then(data => {
             const imageContainer = document.getElementById("imageContainer");

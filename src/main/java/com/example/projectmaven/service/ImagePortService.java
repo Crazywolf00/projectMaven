@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 public interface ImagePortService {
+    List<ImagePort> getMain();
 
     List<ImagePort> getAll();
 
@@ -15,7 +16,7 @@ public interface ImagePortService {
 
     void deleteImg(Long id) throws IOException;
 
-    ImagePort addImg(String groupName, String setName, MultipartFile file) throws IOException;
+    ImagePort addImg(String groupName, String setName, MultipartFile file,String rare ) throws IOException;
 
     ImagePort updateImg(ImagePort img, Long id);
 

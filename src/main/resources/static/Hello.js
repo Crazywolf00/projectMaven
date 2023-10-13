@@ -25,8 +25,41 @@ document.addEventListener('mouseleave', function () {
 });
 
 
+fetch('api/main')
+    .then(response => response.json())
+    .then(data => {
+        createDivs(data);
+    })
+    .catch(error => console.error(error));
+const main = document.querySelectorAll('.clickable-div');
+let counter = 0;
+
+function createDivs(data) {
+    const header = document.querySelector('header');
+    data.forEach(img => {
+        const div = main[counter];
+        counter++;
+        const name = img.name.substring(0, img.name.indexOf(" "));
+        const imgPath = `mainImg/${name}`;
+        div.style.backgroundImage = `url(${imgPath})`;
+
+        const paragraph = document.createElement('p');
+        let categories = img.setName.split(" ");
+        let cate = "";
+        for (const text of categories) {
+            cate += text + '<br>'
+        }
+        paragraph.innerHTML = cate;
+
+        div.appendChild(paragraph);
+        header.appendChild(div);
+    });
+}
+
+
 const categoriesElement = document.getElementById('categories');
 const loadedCategories = new Set();
+
 function loadCategoryImage(category, categoryDiv) {
     fetch(`api/getImg/${category.id}`)
         .then(response => response.blob())
@@ -45,7 +78,8 @@ function loadCategoryImage(category, categoryDiv) {
 function redirectToAddPage(categoryName) {
     window.location.href = `api/add?category=${encodeURIComponent(categoryName)}`;
 }
-fetch('api/alladmin')
+
+fetch('api/all')
     .then(response => response.json())
     .then(data => {
         data.forEach(category => {
@@ -70,7 +104,6 @@ fetch('api/alladmin')
         });
     })
     .catch(error => {
-        console.error(`Error loading categories: ${error}`);
     });
 
 function handleDivClick(event) {
@@ -79,9 +112,11 @@ function handleDivClick(event) {
     fetch(`/api/category?name=${divId}`)
         .then(response => {
             if (response.ok) {
-
+                const small = document.querySelector('small')
+                small.innerText = "";
+                small.style.display = "block";
                 const mainElement = document.getElementById("main");
-                mainElement.scrollIntoView({ behavior: "smooth" });
+                mainElement.scrollIntoView({behavior: "smooth"});
             } else {
                 console.error(`Chyba při volání endpointu: ${response.status}`);
             }
@@ -93,5 +128,14 @@ function handleDivClick(event) {
 
 
 const clickableDivs = document.querySelectorAll(".clickable-div");
-clickableDivs.forEach(function(div) {
+clickableDivs.forEach(function (div) {
     div.addEventListener("click", handleDivClick);
+});
+
+const homeLink = document.querySelector('#home-link');
+homeLink.addEventListener("click", e => {
+    e.preventDefault();
+
+    const small = document.querySelector('#main');
+    small.style.display = 'none';
+});

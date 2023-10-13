@@ -19,13 +19,25 @@ public class ImagePortServiceImpl implements ImagePortService {
 
     private final ImagePortRepository repository;
 
-    private final Path path = Paths.get("src/main/resources/static/storedImg/");
+    private final Path pathMany = Paths.get("src/main/resources/static/storedImg/");
+    private final Path pathRare = Paths.get("src/main/resources/static/mainImg/");
 
 
 
     @Autowired
     public ImagePortServiceImpl(ImagePortRepository repository) {
         this.repository = repository;
+    }
+
+    @Override
+    public List<ImagePort> getMain() {
+        List<ImagePort> main = new ArrayList<>();
+        for(ImagePort x: repository.findAll()) {
+            if(Objects.equals(x.getCategoriesName(), "main")) {
+                main.add(x);
+            }
+        }
+        return main;
     }
 
     @Override
@@ -50,16 +62,21 @@ public class ImagePortServiceImpl implements ImagePortService {
     }
 
     @Override
-    public ImagePort addImg(String groupName, String setName, MultipartFile file) throws IOException {
-        Path filePath = Paths.get(String.valueOf(path), file.getOriginalFilename() + " -- "
-                + new SimpleDateFormat("ddMMyyyy-HHmmss").format(new Date()));
+    public ImagePort addImg(String groupName, String setName, MultipartFile file, String main) throws IOException {
+        Path filePath;
+        if(Objects.equals(main,"main")) {
+            filePath = Paths.get(String.valueOf(pathRare), file.getOriginalFilename());
+        } else {
+            filePath = Paths.get(String.valueOf(pathMany), file.getOriginalFilename() + " -- "
+                    + new SimpleDateFormat("ddMMyyyy-HHmmss").format(new Date()));
+        }
         file.transferTo(new File(filePath.toUri()));
         ImagePort img = new ImagePort();
         img.setName(file.getOriginalFilename() + " -- "
                 + new SimpleDateFormat("dd.MM. yyyy - HH:mm:ss").format(new Date()));
         img.setType(file.getContentType());
         img.setPathName(String.valueOf(filePath));
-        img.setGroupName(groupName);
+        img.setCategoriesName(groupName);
         img.setSetName(setName);
         return repository.save(img);
     }
@@ -93,7 +110,9 @@ public class ImagePortServiceImpl implements ImagePortService {
     public Set<String> category() {
         Set<String> category = new HashSet<>();
         for (ImagePort img : repository.findAll()) {
-            category.add(img.getGroupName());
+            if(Character.isDigit(img.getName().charAt(0))) {
+                category.add(img.getSetName());
+            }
         }
         return category;
     }
