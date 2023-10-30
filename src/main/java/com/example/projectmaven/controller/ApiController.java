@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api")
 public class ApiController {
 
@@ -59,6 +60,7 @@ public class ApiController {
 
     @GetMapping("/password")
     public ResponseEntity<?> password(@RequestParam String inputPassword) {
+        System.out.println("-------------" + inputPassword);
         if (password.checkPassword(inputPassword)) {
             return ResponseEntity.status(HttpStatus.OK).body(password.getKey());
         } else {

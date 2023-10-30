@@ -593,6 +593,7 @@
         padding: 25px 0px;
         font-family: "Comic Sans MS";
         text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+        font-size: 0px;
     }
 
     #img-one:hover p {
@@ -618,6 +619,7 @@
         padding: 25px 0px;
         font-family: "Comic Sans MS";
         text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+        font-size: 0px;
     }
 
     #img-two:hover p {
@@ -643,6 +645,7 @@
         padding: 25px 0px;
         font-family: "Comic Sans MS";
         text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+        font-size: 0px;
     }
 
     #img-three:hover p {
@@ -668,6 +671,7 @@
         padding: 25px 0px;
         font-family: "Comic Sans MS";
         text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+        font-size: 0px;
     }
 
     #img-four:hover p {
@@ -697,6 +701,7 @@
         padding: 25px 0px;
         font-family: "Comic Sans MS";
         text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+        font-size: 0px;
     }
 
 
@@ -723,6 +728,7 @@
         padding: 25px 0px;
         font-family: "Comic Sans MS";
         text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+        font-size: 0px;
     }
 
 
@@ -749,6 +755,7 @@
         padding: 25px 0px;
         font-family: "Comic Sans MS";
         text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+        font-size: 0px;
     }
 
 
@@ -775,6 +782,7 @@
         padding: 25px 0px;
         font-family: "Comic Sans MS";
         text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+        font-size: 0px;
     }
     #img-eight:hover p {
         rotate: 0deg;
@@ -799,6 +807,7 @@
         padding: 25px 0px;
         font-family: "Comic Sans MS";
         text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+        font-size: 0px;
     }
     #img-nine:hover p {
         rotate: 0deg;
@@ -822,6 +831,7 @@
         padding: 25px 0px;
         font-family: "Comic Sans MS";
         text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+        font-size: 0px;
     }
     #img-ten:hover p {
         rotate: 0deg;
@@ -862,8 +872,10 @@
     }
 
     #sign {
-        margin-top: 50px;
-        width: 300px;
+        margin-top: 100px;
+        margin-left: 25px;
+        width: 295px;
+        max-height: 75px;
         background-image: url("mainImg/Sign.png");
         background-size: contain;
     }
