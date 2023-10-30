@@ -75,6 +75,8 @@ public class ApiController {
         return ResponseEntity.status(HttpStatus.OK).body(images);
     }
 
+
+
     @GetMapping("/category")
     public ResponseEntity<?> category(@RequestParam String name) {
         System.out.println(name);
