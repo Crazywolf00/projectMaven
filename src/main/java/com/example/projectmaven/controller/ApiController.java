@@ -52,13 +52,6 @@ public class ApiController {
     }
 
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<?> updateImg(@RequestBody ImagePort img,
-                                       @PathVariable Long id) {
-        return null;
-    }
-
-
     @GetMapping("/password")
     public ResponseEntity<?> password(@RequestParam String inputPassword) {
         if (password.checkPassword(inputPassword)) {
@@ -75,20 +68,6 @@ public class ApiController {
         return ResponseEntity.status(HttpStatus.OK).body(images);
     }
 
-//    @GetMapping("/main")
-//    public ResponseEntity<?> getMain() throws IOException {
-//        List<ImagePort> images = imgService.getMain();
-//        images.sort(Comparator.comparingInt(img -> Integer.parseInt(img.getName().split("\\.")[0])));
-//        List<ImageContainerDto> imagesContainerDto = new ArrayList<>();
-//
-//        for (ImagePort image : images) {
-//            imagesContainerDto.add(new ImageContainerDto(image,imgService.getImg(image.getId()),imgService.getType(image.getId())));
-//        }
-//
-//        return ResponseEntity
-//                .status(HttpStatus.OK)
-//                .body(imagesContainerDto);
-//    }
 
     @GetMapping("/category")
     public ResponseEntity<?> category(@RequestParam String name) {

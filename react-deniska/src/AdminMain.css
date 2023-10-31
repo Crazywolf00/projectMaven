@@ -2,9 +2,32 @@
     display: inline-flex;
 }
 
+h4 {
+    rotate: -90deg;
+    transition: rotate 1s;
+}
+
 .image-item {
-    width: 50px;
-    height: 250px;
-    margin: 20px;
+    height: 70%;
     background-size: cover;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    min-width: 80px;
+    text-align: center;
+    transition: min-width 1s, opacity 1s, font-size 1s;
+    padding: 25px 0px;
+    font-family: "Comic Sans MS";
+    text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+    font-size: 0px;
+}
+
+.image-item:hover h4 {
+    rotate: 0deg;
+}
+
+.image-item:hover {
+    font-size: 25px;
+    min-width: 160px;
+    opacity: 1;
+    filter: none;
 }

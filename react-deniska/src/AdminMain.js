@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import React from 'react';
 import { SERVER_URL } from './Config';
 import axios from './axios';
 import './AdminMain.css';
 
 function AdminMain() {
     const [mainIMG, setMainIMG] = useState([]);
+    const marginTopValues = [30, 50, 70, 30, 70, 50, 70, 30, 50, 30]
 
     useEffect(() => {
         async function fetchData() {
@@ -27,9 +29,17 @@ function AdminMain() {
                     <div key={index}
                          className={`image-item image-item-${image.id}`}
                          style={{
-                             backgroundImage: `url(${SERVER_URL}/api/getImg/${image.id})`
+                             backgroundImage: `url(${SERVER_URL}/api/getImg/${image.id})`,
+                             margin: `${marginTopValues[index]}px 5px`
                          }}>
-                        <h4>{image.setName}</h4>
+                        <h4>
+                            {image.setName.split(' ').map((word, wordIndex) => (
+                                <React.Fragment key={wordIndex}>
+                                    {word}
+                                    {wordIndex < image.setName.split(' ').length - 1 && <br />}
+                                </React.Fragment>
+                            ))}
+                        </h4>
                     </div>
                 ))}
             </div>
