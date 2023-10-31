@@ -1,48 +1,40 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import { SERVER_URL } from './Config';
 import axios from './axios';
-import './AdminMain.css'
+import './AdminMain.css';
 
 function AdminMain() {
-
-    const [mainIMG, setMainIMG] = useState([])
+    const [mainIMG, setMainIMG] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const response = await axios.get('/api/main');
-                console.log(response)
                 setMainIMG(response.data);
-                await getSpecificImage(2)
+                console.log(response.data)
             } catch (err) {
                 console.log(err);
             }
         }
-
-        fetchData().then(r => {
-            console.log(r)});
+        fetchData();
     }, []);
 
-    async function getSpecificImage(id) {
-        try {
-            const response = await axios.get(`/api/getImg/51`);
-            const imageUrl = response.data;
-            const block = document.querySelector('.image-item');
-            block.style.backgroundImage = `url(${imageUrl})`;
-        } catch (err) {
-            console.log(err);
-        }
-    }
 
     return (
         <div id="header">
             <div className="image-container">
                 {mainIMG.map((image, index) => (
-                    <div key={index} className="image-item">
-                        <img src={image.url} alt={image.name}/>
+                    <div key={index}
+                         className={`image-item image-item-${image.id}`}
+                         style={{
+                             backgroundImage: `url(${SERVER_URL}/api/getImg/${image.id})`
+                         }}>
+                        <h4>{image.setName}</h4>
                     </div>
                 ))}
             </div>
         </div>
-    );
+    )
 }
-export default AdminMain
+
+export default AdminMain;

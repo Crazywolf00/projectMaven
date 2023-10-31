@@ -3,9 +3,8 @@
 }
 
 .image-item {
-
     width: 50px;
     height: 250px;
-    background-color: gray;
     margin: 20px;
+    background-size: cover;
 }

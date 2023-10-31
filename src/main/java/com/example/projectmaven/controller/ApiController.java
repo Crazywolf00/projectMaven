@@ -41,6 +41,7 @@ public class ApiController {
 
     @GetMapping("/getImg/{id}")
     public ResponseEntity<?> getImg(@PathVariable Long id) {
+        System.out.println(id);
         try {
             return ResponseEntity.status(HttpStatus.OK)
                     .contentType(MediaType.valueOf(imgService.getType(id)))
@@ -60,7 +61,6 @@ public class ApiController {
 
     @GetMapping("/password")
     public ResponseEntity<?> password(@RequestParam String inputPassword) {
-        System.out.println("-------------" + inputPassword);
         if (password.checkPassword(inputPassword)) {
             return ResponseEntity.status(HttpStatus.OK).body(password.getKey());
         } else {
@@ -75,7 +75,20 @@ public class ApiController {
         return ResponseEntity.status(HttpStatus.OK).body(images);
     }
 
-
+//    @GetMapping("/main")
+//    public ResponseEntity<?> getMain() throws IOException {
+//        List<ImagePort> images = imgService.getMain();
+//        images.sort(Comparator.comparingInt(img -> Integer.parseInt(img.getName().split("\\.")[0])));
+//        List<ImageContainerDto> imagesContainerDto = new ArrayList<>();
+//
+//        for (ImagePort image : images) {
+//            imagesContainerDto.add(new ImageContainerDto(image,imgService.getImg(image.getId()),imgService.getType(image.getId())));
+//        }
+//
+//        return ResponseEntity
+//                .status(HttpStatus.OK)
+//                .body(imagesContainerDto);
+//    }
 
     @GetMapping("/category")
     public ResponseEntity<?> category(@RequestParam String name) {
@@ -88,7 +101,7 @@ public class ApiController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteImg(@RequestParam String key,
                                        @PathVariable Long id) {
-        if(password.checkKey(key)) {
+        if (password.checkKey(key)) {
             try {
                 imgService.deleteImg(id);
                 return ResponseEntity.status(HttpStatus.OK).build();
@@ -102,7 +115,7 @@ public class ApiController {
 
     @GetMapping("/all")
     public ResponseEntity<?> getAllAdmin() {
-            return ResponseEntity.status(HttpStatus.OK).body(imgService.getAll());
+        return ResponseEntity.status(HttpStatus.OK).body(imgService.getAll());
     }
 
     @PostMapping("/post")
