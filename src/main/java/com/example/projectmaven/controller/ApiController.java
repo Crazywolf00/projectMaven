@@ -41,7 +41,6 @@ public class ApiController {
 
     @GetMapping("/getImg/{id}")
     public ResponseEntity<?> getImg(@PathVariable Long id) {
-        System.out.println(id);
         try {
             return ResponseEntity.status(HttpStatus.OK)
                     .contentType(MediaType.valueOf(imgService.getType(id)))
@@ -67,6 +66,27 @@ public class ApiController {
         images.sort(Comparator.comparingInt(img -> Integer.parseInt(img.getName().split("\\.")[0])));
         return ResponseEntity.status(HttpStatus.OK).body(images);
     }
+
+    @GetMapping("/background")
+    public ResponseEntity<?> getBackground(@RequestParam String name) {
+        System.out.println(name);
+        ImagePort imagePort = imgService.getBackground(name);
+        Long id;
+        if (imagePort != null) {
+            id = imagePort.getId();
+            System.out.println(id);
+        } else {
+            return null;
+        }
+        try {
+            return ResponseEntity.status(HttpStatus.OK)
+                    .contentType(MediaType.valueOf(imgService.getType(id)))
+                    .body(imgService.getImg(id));
+        } catch (IOException ex) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
 
 
     @GetMapping("/category")

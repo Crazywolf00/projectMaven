@@ -33,7 +33,7 @@ public class ImagePortServiceImpl implements ImagePortService {
     public List<ImagePort> getMain() {
         List<ImagePort> main = new ArrayList<>();
         for(ImagePort x: repository.findAll()) {
-            if(Objects.equals(x.getCategoriesName(), "main")) {
+            if(Objects.equals(x.getCategoriesName(), "main" ) &&  Character.isDigit(x.getName().charAt(0))) {
                 main.add(x);
             }
         }
@@ -104,6 +104,11 @@ public class ImagePortServiceImpl implements ImagePortService {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public ImagePort getBackground(String name) {
+        return repository.getImagePortBySetName(name);
     }
 
     @Override

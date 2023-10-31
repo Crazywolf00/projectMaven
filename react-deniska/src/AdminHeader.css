@@ -31,3 +31,8 @@ h4 {
     opacity: 1;
     filter: none;
 }
+
+#body {
+    background-size: 2000px 2000px;
+    min-height: 800px;
+}

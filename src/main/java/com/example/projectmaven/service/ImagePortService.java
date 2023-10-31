@@ -23,6 +23,7 @@ public interface ImagePortService {
     String getType(Long id);
 
     ImagePort getImgWithInfo(Long id);
+    ImagePort getBackground(String name);
 
     Set<String> category();
 
