@@ -1,0 +1,27 @@
+#photo{
+    width: 250px;
+    height: 250px;
+    border-radius: 150px;
+    background-size: cover;
+    box-shadow: 2px 2px 5px black;
+    z-index: 3;
+}
+
+#sign{
+    margin-top: 50px;
+    margin-left: 15px;
+    width: 400px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+    z-index: 3;
+}
+
+#photoSign {
+    z-index: 2;
+    margin-top: -100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

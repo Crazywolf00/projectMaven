@@ -1,22 +1,23 @@
 import {useKey} from "./KeyProvider";
 import axios from "./axios";
 import "./SignForm.css"
+
 function SingForm() {
+    const key = useKey();
 
-    const  key  = useKey();
-
-    function changeBackground() {
+    function changeSign() {
 
         const formData = new FormData();
-        const input = document.querySelector('#background');
+        const input = document.querySelector('#signInput');
+        console.log(input.files[0])
         const file = input.files[0];
         formData.append('key', key.keyAdmin);
         formData.append('name', 'sign');
         formData.append('inputMainImg', file)
 
-        axios.post('/admin/mainImg',formData)
+        axios.post('/admin/mainImg', formData)
             .then(response => {
-                if(response.status === 200) {
+                if (response.status === 200) {
                     input.value = '';
                 }
             })
@@ -25,13 +26,14 @@ function SingForm() {
             });
     }
 
-    return(
-        <div id={'sign-form'} >
+    return (
+        <div id={'sign-form'}>
             <p>Změna podpis</p>
-            <input id={'sign'}  type={"file"}/>
-            <button onClick={changeBackground}>Odeslat</button>
+            <input id={'signInput'} type={"file"}/>
+            <button onClick={changeSign}>Odeslat</button>
         </div>
     )
 
 }
+
 export default SingForm;

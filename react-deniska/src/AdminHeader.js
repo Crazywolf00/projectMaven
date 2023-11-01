@@ -29,7 +29,8 @@ function AdminHeader() {
                          className={`image-item image-item-${image.id}`}
                          style={{
                              backgroundImage: `url(${SERVER_URL}/api/getImg/${image.id})`,
-                             margin: `${marginTopValues[index]}px 5px`
+                             margin: `${marginTopValues[index]}px 5px`,
+                             zIndex: '1'
                          }}>
                         <h4>
                             {image.setName.split(' ').map((word, wordIndex) => (

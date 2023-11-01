@@ -4,6 +4,7 @@ import Interface from "./Interface";
 import GetKeyForm from "./GetKeyForm";
 import {useState} from "react";
 import {KeyProvider} from './KeyProvider';
+import PhotoSign from "./PhotoSign";
 
 function AdminMain() {
 
@@ -27,7 +28,7 @@ function AdminMain() {
             {showGetKeyForm ? (
                 <div>
                     <AdminHeader/>
-
+                    <PhotoSign/>
                     <Interface/>
                 </div>
             ) : (
