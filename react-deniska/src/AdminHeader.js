@@ -13,7 +13,6 @@ function AdminHeader() {
             try {
                 const response = await axios.get('/api/main');
                 setMainIMG(response.data);
-                console.log(response.data)
             } catch (err) {
                 console.log(err);
             }

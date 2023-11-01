@@ -25,15 +25,33 @@ public class AdminController {
         this.imgService = imgService;
     }
 
-    @PostMapping("/background")
+    @PostMapping("/mainImg")
     public ResponseEntity<?> setBackground(@RequestParam String key,
-                                           @RequestParam MultipartFile backgroundImg) {
+                                           @RequestParam String name,
+                                           @RequestParam MultipartFile inputMainImg) {
         if (password.checkKey(key)) {
             try {
-                if(imgService.getBackground("background") != null) {
-                    imgService.deleteImg(imgService.getBackground("background").getId());
+                switch (name) {
+                    case "background" -> {
+                        if (imgService.getBackground("background") != null) {
+                            imgService.deleteImg(imgService.getBackground("background").getId());
+                        }
+                        imgService.addImg("main", "background", inputMainImg);
+                    }
+                    case "profilePhoto" -> {
+                        if (imgService.getBackground("profilePhoto") != null) {
+                            imgService.deleteImg(imgService.getBackground("profilePhoto").getId());
+                        }
+                        imgService.addImg("main", "profilePhoto", inputMainImg);
+                    }
+                    case "sign" -> {
+                        if (imgService.getBackground("sign") != null) {
+                            imgService.deleteImg(imgService.getBackground("sign").getId());
+                        }
+                        imgService.addImg("main", "sign", inputMainImg);
+                    }
                 }
-                imgService.addImg("main", "background", backgroundImg);
+
                 return ResponseEntity.status(HttpStatus.OK).build();
             } catch (IOException ex) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -42,6 +60,7 @@ public class AdminController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
     }
+
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteImg(@RequestParam String key,

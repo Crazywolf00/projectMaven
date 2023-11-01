@@ -7,16 +7,17 @@ function BackgroundForm() {
     function changeBackground() {
 
         const formData = new FormData();
-        const input = document.querySelector('input');
+        const input = document.querySelector('#background');
         const file = input.files[0];
-        console.log(key)
         formData.append('key', key.keyAdmin);
-        formData.append('backgroundImg', file)
+        formData.append('name', 'background');
+        formData.append('inputMainImg', file)
 
-        axios.post('/admin/background',formData)
+        axios.post('/admin/mainImg',formData)
             .then(response => {
-                console.log(response.status)
-                input.value = '';
+                if(response.status === 200) {
+                    input.value = '';
+                }
             })
             .catch(error => {
                 console.error(error);
@@ -26,7 +27,7 @@ function BackgroundForm() {
     return(
         <div id={'background-form'} >
             <p>Změna pozadí</p>
-            <input type={"file"}/>
+            <input id={'background'}  type={"file"}/>
             <button onClick={changeBackground}>Odeslat</button>
         </div>
     )

@@ -26,7 +26,6 @@ function GetKeyForm({setKey}) {
             })
             .then((body) => {
                 setKey(body)
-                console.log(body)
                 setKeyAdmin(body)
             })
             .catch(() => {
