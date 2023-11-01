@@ -2,7 +2,7 @@ let info = "info";
 
 function checkPassword() {
     const inputPassword = prompt("Zadejte heslo:");
-    fetch("api/password?inputPassword=" + inputPassword)
+    fetch("admin/password?inputPassword=" + inputPassword)
         .then(response => {
             if (response.status === 200) {
                 response.text()
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function cat() {
     const asideElement = document.querySelector('#cat');
     asideElement.textContent = "";
-    fetch('api/allcategory?key=' + info)
+    fetch('admin/allcategory?key=' + info)
         .then(response => response.json())
         .then(data => {
             const categories = data;
@@ -157,7 +157,7 @@ function loadAllImages() {
 }
 
 function deleteImg(id) {
-    fetch(`/api/delete/${id}?key=${info}`, {
+    fetch(`/admin/delete/${id}?key=${info}`, {
         method: 'DELETE'
     })
         .then(response => {

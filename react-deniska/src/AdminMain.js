@@ -1,5 +1,6 @@
 import {SERVER_URL} from "./config";
 import AdminHeader from "./AdminHeader";
+import Interface from "./Interface";
 function AdminMain() {
 
 
@@ -11,6 +12,8 @@ function AdminMain() {
         }}>
 
         <AdminHeader/>
+
+        <Interface/>
         </body>
     )
 

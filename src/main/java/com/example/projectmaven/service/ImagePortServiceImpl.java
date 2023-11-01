@@ -62,14 +62,16 @@ public class ImagePortServiceImpl implements ImagePortService {
     }
 
     @Override
-    public ImagePort addImg(String groupName, String setName, MultipartFile file, String main) throws IOException {
+    public ImagePort addImg(String groupName, String setName, MultipartFile file) throws IOException {
         Path filePath;
-        if(Objects.equals(main,"main")) {
+        if(Objects.equals(groupName,"main")) {
             filePath = Paths.get(String.valueOf(pathRare), file.getOriginalFilename());
         } else {
             filePath = Paths.get(String.valueOf(pathMany), file.getOriginalFilename() + " -- "
                     + new SimpleDateFormat("ddMMyyyy-HHmmss").format(new Date()));
         }
+
+
         file.transferTo(new File(filePath.toUri()));
         ImagePort img = new ImagePort();
         img.setName(file.getOriginalFilename() + " -- "

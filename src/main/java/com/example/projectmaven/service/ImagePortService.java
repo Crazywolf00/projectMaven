@@ -16,7 +16,7 @@ public interface ImagePortService {
 
     void deleteImg(Long id) throws IOException;
 
-    ImagePort addImg(String groupName, String setName, MultipartFile file,String rare ) throws IOException;
+    ImagePort addImg(String groupName, String setName, MultipartFile file) throws IOException;
 
     ImagePort updateImg(ImagePort img, Long id);
 
