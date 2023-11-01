@@ -1,0 +1,28 @@
+#getKeyFormDiv {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    background-color: rgba(238, 221, 255, 0.3);
+    border-radius: 25px;
+    box-shadow: 0px 25px 25px black;
+    height: 100px;
+    width: 250px;
+}
+
+#getKeyFormDiv input {
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 50px;
+    border: none;
+}
+#getKeyFormDiv button {
+    margin-top: 25px;
+    border-radius: 5px;
+    padding: 5px 15px;
+    background-color: rgba(255, 255, 255, 0.43);
+    border: none;
+    color: rgba(146, 42, 252, 0.9);
+    font-weight: bold;
+}

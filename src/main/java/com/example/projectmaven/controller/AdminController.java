@@ -30,6 +30,9 @@ public class AdminController {
                                            @RequestParam MultipartFile backgroundImg) {
         if (password.checkKey(key)) {
             try {
+                if(imgService.getBackground("background") != null) {
+                    imgService.deleteImg(imgService.getBackground("background").getId());
+                }
                 imgService.addImg("main", "background", backgroundImg);
                 return ResponseEntity.status(HttpStatus.OK).build();
             } catch (IOException ex) {

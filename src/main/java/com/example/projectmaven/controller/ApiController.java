@@ -62,12 +62,10 @@ public class ApiController {
 
     @GetMapping("/background")
     public ResponseEntity<?> getBackground(@RequestParam String name) {
-        System.out.println(name);
         ImagePort imagePort = imgService.getBackground(name);
         Long id;
         if (imagePort != null) {
             id = imagePort.getId();
-            System.out.println(id);
         } else {
             return null;
         }

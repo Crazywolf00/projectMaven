@@ -23,7 +23,6 @@ public class ImagePortServiceImpl implements ImagePortService {
     private final Path pathRare = Paths.get("src/main/resources/static/mainImg/");
 
 
-
     @Autowired
     public ImagePortServiceImpl(ImagePortRepository repository) {
         this.repository = repository;
@@ -32,8 +31,8 @@ public class ImagePortServiceImpl implements ImagePortService {
     @Override
     public List<ImagePort> getMain() {
         List<ImagePort> main = new ArrayList<>();
-        for(ImagePort x: repository.findAll()) {
-            if(Objects.equals(x.getCategoriesName(), "main" ) &&  Character.isDigit(x.getName().charAt(0))) {
+        for (ImagePort x : repository.findAll()) {
+            if (Objects.equals(x.getCategoriesName(), "main") && Character.isDigit(x.getName().charAt(0))) {
                 main.add(x);
             }
         }
@@ -47,15 +46,15 @@ public class ImagePortServiceImpl implements ImagePortService {
 
     @Override
     public byte[] getImg(Long id) throws IOException {
-            Optional<ImagePort> img = repository.findById(id);
-            Path filePath = Path.of(img.get().getPathName());
-            return Files.readAllBytes(new File(filePath.toUri()).toPath());
+        Optional<ImagePort> img = repository.findById(id);
+        Path filePath = Path.of(img.get().getPathName());
+        return Files.readAllBytes(new File(filePath.toUri()).toPath());
     }
 
 
     @Override
     public void deleteImg(Long id) throws IOException {
-        if(repository.findById(id).isPresent()) {
+        if (repository.findById(id).isPresent()) {
             Files.deleteIfExists(Path.of(repository.findById(id).get().getPathName()));
             repository.delete(repository.findById(id).get());
         }
@@ -64,7 +63,7 @@ public class ImagePortServiceImpl implements ImagePortService {
     @Override
     public ImagePort addImg(String groupName, String setName, MultipartFile file) throws IOException {
         Path filePath;
-        if(Objects.equals(groupName,"main")) {
+        if (Objects.equals(groupName, "main")) {
             filePath = Paths.get(String.valueOf(pathRare), file.getOriginalFilename());
         } else {
             filePath = Paths.get(String.valueOf(pathMany), file.getOriginalFilename() + " -- "
@@ -92,7 +91,7 @@ public class ImagePortServiceImpl implements ImagePortService {
 
     @Override
     public String getType(Long id) {
-        if(repository.findById(id).isPresent()) {
+        if (repository.findById(id).isPresent()) {
             return repository.findById(id).get().getType();
         } else {
             return "none";
@@ -101,7 +100,7 @@ public class ImagePortServiceImpl implements ImagePortService {
 
     @Override
     public ImagePort getImgWithInfo(Long id) {
-        if(repository.findById(id).isPresent()) {
+        if (repository.findById(id).isPresent()) {
             return repository.findById(id).get();
         } else {
             return null;
@@ -117,7 +116,7 @@ public class ImagePortServiceImpl implements ImagePortService {
     public Set<String> category() {
         Set<String> category = new HashSet<>();
         for (ImagePort img : repository.findAll()) {
-            if(Character.isDigit(img.getName().charAt(0))) {
+            if (Character.isDigit(img.getName().charAt(0))) {
                 category.add(img.getSetName());
             }
         }

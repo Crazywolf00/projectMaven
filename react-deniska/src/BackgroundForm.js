@@ -1,19 +1,33 @@
 import './BacgroundForm.css'
 import axios from "./axios";
+import { useKey } from './KeyProvider';
 function BackgroundForm() {
+    const  key  = useKey();
 
+    function changeBackground() {
 
-    function changeBacground() {
-        axios.get('/admin/background',{
-            method: "POST"
-        })
+        const formData = new FormData();
+        const input = document.querySelector('input');
+        const file = input.files[0];
+        console.log(key)
+        formData.append('key', key.keyAdmin);
+        formData.append('backgroundImg', file)
+
+        axios.post('/admin/background',formData)
+            .then(response => {
+                console.log(response.status)
+                input.value = '';
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }
 
     return(
-        <div id={'background-form'} onClick={changeBacground}>
+        <div id={'background-form'} >
             <p>Změna pozadí</p>
             <input type={"file"}/>
-            <button>Odeslat</button>
+            <button onClick={changeBackground}>Odeslat</button>
         </div>
     )
 
