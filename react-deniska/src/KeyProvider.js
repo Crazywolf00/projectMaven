@@ -13,7 +13,5 @@ export const KeyProvider = ({ children }) => {
 };
 
 export const useKey = () => {
-    console.log("hi")
-    console.log(useContext(KeyContext))
     return useContext(KeyContext);
 };

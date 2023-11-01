@@ -1,0 +1,12 @@
+#profile-photo-form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid gray;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: darkgrey;
+    margin: 15px;
+}
+
