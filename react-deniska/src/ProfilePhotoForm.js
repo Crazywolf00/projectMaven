@@ -12,6 +12,7 @@ function ProfilePhotoForm() {
         const file = input.files[0];
         formData.append('key', key.keyAdmin);
         formData.append('name', 'profilePhoto');
+        formData.append('index', 100);
         formData.append('inputMainImg', file)
 
         axios.post('/admin/mainImg',formData)

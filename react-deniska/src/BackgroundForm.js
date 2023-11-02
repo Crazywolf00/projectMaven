@@ -10,9 +10,9 @@ function BackgroundForm() {
         const formData = new FormData();
         const input = document.querySelector('#background');
         const file = input.files[0];
-        console.log(input)
         formData.append('key', key.keyAdmin);
         formData.append('name', 'background');
+        formData.append('index', 100);
         formData.append('inputMainImg', file)
 
         axios.post('/admin/mainImg', formData)

@@ -9,10 +9,10 @@ function SingForm() {
 
         const formData = new FormData();
         const input = document.querySelector('#signInput');
-        console.log(input.files[0])
         const file = input.files[0];
         formData.append('key', key.keyAdmin);
         formData.append('name', 'sign');
+        formData.append('index', 100);
         formData.append('inputMainImg', file)
 
         axios.post('/admin/mainImg', formData)
