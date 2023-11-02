@@ -1,9 +1,10 @@
 import axios from "./axios";
 import {useEffect, useState} from "react";
 
-function AdminComments({ setSelect }) {
+function AdminComments({setSelect}) {
 
     const [comments, setComments] = useState([]);
+
     function close() {
         setSelect(false);
     }
@@ -12,14 +13,18 @@ function AdminComments({ setSelect }) {
         axios.get('/api/comments')
             .then(response => {
                 setComments(response.data);
-                console.log(response)
             });
     }, []);
 
-    function close() {
-        setSelect(false);
-    }
+    function changeAllowStatus(id,allow) {
+        const allowDiv = document.querySelector(`#allow-${id}`)
+        if(allow) {
+            allowDiv.style.backgroundColor = 'lime'
+        } else {
+            allowDiv.style.backgroundColor = 'Tomato'
+        }
 
+    }
 
     return (
         <div>
@@ -27,10 +32,13 @@ function AdminComments({ setSelect }) {
                 <ul>
                     {comments.map(comment => (
                         <div key={comment.id}>
-                            <p>j: {comment.name}</p>
-                            <p>k: {comment.review}</p>
-                            <p>a: {comment.answer}</p>
-                            <p>p: {comment.allow ? "Ano" : "Ne"}</p>
+                            <h5>j: {comment.name}</h5>
+                            <p id={'review'}>k: {comment.review}</p>
+                            <p id={'answer'}>a: {comment.answer}</p>
+                            <div>
+                                <div id={`allow-${comment.id}`} onClick={() => changeAllowStatus(comment.id,comment.allow)}>{comment.allow ? 'ano' : 'ne'}</div>
+                                <div id={'delete'}>Smazat</div>
+                            </div>
                         </div>
                     ))}
                 </ul>
@@ -39,4 +47,5 @@ function AdminComments({ setSelect }) {
         </div>
     )
 }
+
 export default AdminComments
