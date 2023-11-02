@@ -2,14 +2,12 @@ package com.example.projectmaven.controller;
 
 import com.example.projectmaven.model.ImageDto;
 import com.example.projectmaven.model.ImagePort;
-import com.example.projectmaven.model.Password;
 import com.example.projectmaven.service.ImagePortServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.*;
@@ -53,16 +51,11 @@ public class ApiController {
 
 
 
-    @GetMapping("/main")
-    public ResponseEntity<?> getMain() {
-        List<ImagePort> images = imgService.getMain();
-        images.sort(Comparator.comparingInt(img -> Integer.parseInt(img.getName().split("\\.")[0])));
-        return ResponseEntity.status(HttpStatus.OK).body(images);
-    }
+
 
     @GetMapping("/background")
     public ResponseEntity<?> getBackground(@RequestParam String name) {
-        ImagePort imagePort = imgService.getBackground(name);
+        ImagePort imagePort = imgService.getImgByName(name);
         Long id;
         if (imagePort != null) {
             id = imagePort.getId();
