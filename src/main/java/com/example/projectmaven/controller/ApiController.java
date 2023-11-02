@@ -1,7 +1,9 @@
 package com.example.projectmaven.controller;
 
+import com.example.projectmaven.model.Comment;
 import com.example.projectmaven.model.ImageDto;
 import com.example.projectmaven.model.ImagePort;
+import com.example.projectmaven.service.CommentServiceImpl;
 import com.example.projectmaven.service.ImagePortServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.util.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -19,10 +20,13 @@ public class ApiController {
 
     private final ImagePortServiceImpl imgService;
 
+    private final CommentServiceImpl commentService;
+
 
     @Autowired
-    public ApiController(ImagePortServiceImpl imgService) {
+    public ApiController(ImagePortServiceImpl imgService, CommentServiceImpl commentService) {
         this.imgService = imgService;
+        this.commentService = commentService;
     }
 
     @GetMapping("/")
@@ -51,7 +55,9 @@ public class ApiController {
     @PostMapping("/comment")
     public ResponseEntity<?> addComment(@RequestParam String name,
                                         @RequestParam String comment) {
-        return null;
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(commentService.createNewComment(new Comment(name,comment)));
     }
 
 
@@ -81,9 +87,5 @@ public class ApiController {
         System.out.println(name);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
-
-    //--------------------------------SECURITY--------------------------------
-
-
 
 }

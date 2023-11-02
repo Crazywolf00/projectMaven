@@ -1,8 +1,6 @@
 package com.example.projectmaven.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,14 +12,21 @@ import lombok.Setter;
 public class Comment {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     @Lob
     private String review;
     @Lob
-    private String answer;
+    private String answer = "";
     private boolean allow = true;
 
+    public Comment(String name, String review) {
+        this.name = name;
+        this.review = review;
+    }
 
+    public Comment() {
 
+    }
 }

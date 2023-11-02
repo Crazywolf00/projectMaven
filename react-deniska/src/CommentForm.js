@@ -1,11 +1,13 @@
 import { useState } from "react";
+import axios from "./axios";
 
 function CommentForm() {
     const [comment, setComment] = useState("");
     const [name, setName] = useState("");
-    const [honeypot1, setHoneypot1] = useState(""); // První honeypot
-    const [honeypot2, setHoneypot2] = useState(""); // Druhý honeypot
-    const [honeypot3, setHoneypot3] = useState(""); // Třetí honeypot
+    const [honeypot1, setHoneypot1] = useState("");
+    const [honeypot2, setHoneypot2] = useState("");
+    const [honeypot3, setHoneypot3] = useState("");
+    const [result, setResult] = useState("");
     const handleHoneypot1Change = (e) => {
         setHoneypot1(e.target.value);
     };
@@ -21,14 +23,26 @@ function CommentForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (honeypot1 || honeypot2 || honeypot3) {
-            alert("Prosím, nevyplňujte skrytá pole.");
+            alert("Robot");
             return;
         }
 
+        if(name.length === 0 || comment.length === 0) {
+            name.length === 0 ? setResult("Zadejte jméno") : setResult("Zadejte komentář")
+            return;
+        }
 
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('comment', comment)
+
+        axios.post('/api/comment', formData)
+            .then(response => {
+                setComment("")
+                setName("")
+                console.log(response)
+            })
     };
-
-
 
     return (
         <div>
@@ -57,7 +71,9 @@ function CommentForm() {
                 onChange={handleHoneypot3Change}
                 style={{ display: "none" }}
             />
-            <button onClick={handleSubmit}>Odeslat</button>
+            <button
+                onClick={handleSubmit}>Odeslat</button>
+            {result && <p>{result}</p>}
         </div>
     );
 }
