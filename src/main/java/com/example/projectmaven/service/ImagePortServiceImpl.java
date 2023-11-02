@@ -94,12 +94,6 @@ public class ImagePortServiceImpl implements ImagePortService {
         return repository.save(img);
     }
 
-    @Override
-    public ImagePort updateImg(ImagePort img, Long id) {
-        repository.deleteById(id);
-        img.setId(id);
-        return repository.save(img);
-    }
 
     @Override
     public String getType(Long id) {

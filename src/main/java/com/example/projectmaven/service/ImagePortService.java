@@ -18,8 +18,6 @@ public interface ImagePortService {
 
     ImagePort addImg(String groupName,int index, String setName, MultipartFile file) throws IOException;
 
-    ImagePort updateImg(ImagePort img, Long id);
-
     String getType(Long id);
 
     ImagePort getImgWithInfo(Long id);

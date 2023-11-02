@@ -48,7 +48,11 @@ public class ApiController {
         }
     }
 
-
+    @PostMapping("/comment")
+    public ResponseEntity<?> addComment(@RequestParam String name,
+                                        @RequestParam String comment) {
+        return null;
+    }
 
 
 
