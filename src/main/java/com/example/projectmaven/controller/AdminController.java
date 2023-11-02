@@ -1,5 +1,6 @@
 package com.example.projectmaven.controller;
 
+import com.example.projectmaven.model.ImagePort;
 import com.example.projectmaven.model.Password;
 import com.example.projectmaven.service.ImagePortServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,30 +28,22 @@ public class AdminController {
     }
 
     @PostMapping("/mainImg")
-    public ResponseEntity<?> setBackground(@RequestParam String key,
+    public ResponseEntity<?> setMainImg(@RequestParam String key,
                                            @RequestParam String name,
+                                           @RequestParam int index,
                                            @RequestParam MultipartFile inputMainImg) {
         if (password.checkKey(key)) {
             try {
-                switch (name) {
-                    case "background" -> {
-                        if (imgService.getBackground("background") != null) {
-                            imgService.deleteImg(imgService.getBackground("background").getId());
-                        }
-                        imgService.addImg("main", "background", inputMainImg);
+                if(index == 100) {
+                    if (imgService.getImgByName(name) != null) {
+                        imgService.deleteImg(imgService.getImgByName(name).getId());
                     }
-                    case "profilePhoto" -> {
-                        if (imgService.getBackground("profilePhoto") != null) {
-                            imgService.deleteImg(imgService.getBackground("profilePhoto").getId());
-                        }
-                        imgService.addImg("main", "profilePhoto", inputMainImg);
+                    imgService.addImg("main",index, name, inputMainImg);
+                } else {
+                    if(imgService.getImgByIndex(index) != null) {
+                        imgService.deleteImg(imgService.getImgByIndex(index).getId());
                     }
-                    case "sign" -> {
-                        if (imgService.getBackground("sign") != null) {
-                            imgService.deleteImg(imgService.getBackground("sign").getId());
-                        }
-                        imgService.addImg("main", "sign", inputMainImg);
-                    }
+                    imgService.addImg("main",index, name, inputMainImg);
                 }
 
                 return ResponseEntity.status(HttpStatus.OK).build();
@@ -60,17 +54,20 @@ public class AdminController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
     }
+    @GetMapping("/main")
+    public ResponseEntity<?> getMain() {
+        return ResponseEntity.status(HttpStatus.OK).body(imgService.getMain());
+    }
 
-
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete")
     public ResponseEntity<?> deleteImg(@RequestParam String key,
-                                       @PathVariable Long id) {
+                                       @RequestParam int index) {
         if (password.checkKey(key)) {
-            try {
-                imgService.deleteImg(id);
+            if( index < 99) {
+                imgService.deleteImgByIndex(index);
                 return ResponseEntity.status(HttpStatus.OK).build();
-            } catch (IOException e) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            } else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
             }
         } else {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
@@ -93,7 +90,7 @@ public class AdminController {
             try {
                 if (groupName.isPresent() && setName.isPresent()) {
                     for (MultipartFile multipartFile : img) {
-                        imgService.addImg(groupName.get(), setName.get(), multipartFile);
+                        imgService.addImg(groupName.get(),100, setName.get(), multipartFile);
                     }
                     return ResponseEntity.status(HttpStatus.OK).build();
                 } else {

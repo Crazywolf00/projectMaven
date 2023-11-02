@@ -30,13 +30,19 @@ public class ImagePortServiceImpl implements ImagePortService {
 
     @Override
     public List<ImagePort> getMain() {
-        List<ImagePort> main = new ArrayList<>();
-        for (ImagePort x : repository.findAll()) {
-            if (Objects.equals(x.getCategoriesName(), "main") && Character.isDigit(x.getName().charAt(0))) {
-                main.add(x);
-            }
+        ImagePort[] imagePortsArr = new ImagePort[10];
+        for (int i = 0; i < imagePortsArr.length; i++) {
+            imagePortsArr[i] = new ImagePort(String.valueOf(i), "Prázdné");
         }
-        return main;
+        for (ImagePort x : repository.findAll()) {
+            for (int i = 0; i < imagePortsArr.length; i++) {
+                if (i == x.getImgIndex()) {
+                    imagePortsArr[i] = x;
+                }
+            }
+
+        }
+        return List.of(imagePortsArr);
     }
 
     @Override
@@ -61,7 +67,7 @@ public class ImagePortServiceImpl implements ImagePortService {
     }
 
     @Override
-    public ImagePort addImg(String groupName, String setName, MultipartFile file) throws IOException {
+    public ImagePort addImg(String groupName, int index, String setName, MultipartFile file) throws IOException {
         Path filePath;
         if (Objects.equals(groupName, "main")) {
             filePath = Paths.get(String.valueOf(pathRare), file.getOriginalFilename());
@@ -73,9 +79,15 @@ public class ImagePortServiceImpl implements ImagePortService {
 
         file.transferTo(new File(filePath.toUri()));
         ImagePort img = new ImagePort();
-        img.setName(file.getOriginalFilename() + " -- "
-                + new SimpleDateFormat("dd.MM. yyyy - HH:mm:ss").format(new Date()));
+        if (index == 100) {
+            img.setName(file.getOriginalFilename() + " -- "
+                    + new SimpleDateFormat("dd.MM. yyyy - HH:mm:ss").format(new Date()));
+        } else {
+            img.setName(index + "." + file.getOriginalFilename() + " -- "
+                    + new SimpleDateFormat("dd.MM. yyyy - HH:mm:ss").format(new Date()));
+        }
         img.setType(file.getContentType());
+        img.setImgIndex(index);
         img.setPathName(String.valueOf(filePath));
         img.setCategoriesName(groupName);
         img.setSetName(setName);
@@ -108,7 +120,7 @@ public class ImagePortServiceImpl implements ImagePortService {
     }
 
     @Override
-    public ImagePort getBackground(String name) {
+    public ImagePort getImgByName(String name) {
         return repository.getImagePortBySetName(name);
     }
 
@@ -121,5 +133,15 @@ public class ImagePortServiceImpl implements ImagePortService {
             }
         }
         return category;
+    }
+
+    @Override
+    public ImagePort getImgByIndex(int index) {
+        return repository.getImagePortByImgIndex(index);
+    }
+
+    @Override
+    public void deleteImgByIndex(int index) {
+        repository.deleteById(repository.getImagePortByImgIndex(index).getId());
     }
 }

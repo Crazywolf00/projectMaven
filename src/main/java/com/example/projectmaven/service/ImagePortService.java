@@ -16,15 +16,18 @@ public interface ImagePortService {
 
     void deleteImg(Long id) throws IOException;
 
-    ImagePort addImg(String groupName, String setName, MultipartFile file) throws IOException;
+    ImagePort addImg(String groupName,int index, String setName, MultipartFile file) throws IOException;
 
     ImagePort updateImg(ImagePort img, Long id);
 
     String getType(Long id);
 
     ImagePort getImgWithInfo(Long id);
-    ImagePort getBackground(String name);
+    ImagePort getImgByName(String name);
 
     Set<String> category();
 
+    ImagePort getImgByIndex(int index);
+
+    void deleteImgByIndex(int index);
 }
