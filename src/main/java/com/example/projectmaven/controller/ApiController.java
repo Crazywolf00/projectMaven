@@ -56,10 +56,17 @@ public class ApiController {
     public ResponseEntity<?> addComment(@RequestParam String name,
                                         @RequestParam String comment) {
 
+        if(name.length() == 0 || comment.length() == 0) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
         return ResponseEntity.status(HttpStatus.OK)
                 .body(commentService.createNewComment(new Comment(name,comment)));
     }
 
+    @GetMapping("/comments")
+    public ResponseEntity<?> getComments() {
+        return ResponseEntity.status(HttpStatus.OK).body(commentService.getAllComments());
+    }
 
 
     @GetMapping("/background")
