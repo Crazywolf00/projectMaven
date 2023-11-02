@@ -5,6 +5,7 @@ import GetKeyForm from "./GetKeyForm";
 import {useState} from "react";
 import {KeyProvider} from './KeyProvider';
 import PhotoSign from "./PhotoSign";
+import CommentForm from "./CommentForm";
 
 function AdminMain() {
 
@@ -30,6 +31,7 @@ function AdminMain() {
                     <AdminHeader/>
                     <PhotoSign/>
                     <Interface/>
+                    <CommentForm/>
                 </div>
             ) : (
                 <GetKeyForm setKey={setKey}/>

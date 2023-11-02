@@ -30,7 +30,7 @@ public class ImagePortServiceImpl implements ImagePortService {
 
     @Override
     public List<ImagePort> getMain() {
-        ImagePort[] imagePortsArr = new ImagePort[10];
+        ImagePort[] imagePortsArr = new ImagePort[15];
         for (int i = 0; i < imagePortsArr.length; i++) {
             imagePortsArr[i] = new ImagePort(String.valueOf(i), "Prázdné");
         }

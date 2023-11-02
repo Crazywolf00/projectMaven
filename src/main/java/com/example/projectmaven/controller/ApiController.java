@@ -52,7 +52,6 @@ public class ApiController {
 
 
 
-
     @GetMapping("/background")
     public ResponseEntity<?> getBackground(@RequestParam String name) {
         ImagePort imagePort = imgService.getImgByName(name);
