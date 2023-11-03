@@ -9,4 +9,9 @@ public interface CommentService {
     Comment createNewComment(Comment comment);
 
     List<Comment> getAllComments();
+
+    Comment findById(Long id);
+
+
+    void changeAllow(Comment comment);
 }

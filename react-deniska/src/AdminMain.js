@@ -6,6 +6,7 @@ import {useState} from "react";
 import {KeyProvider} from './KeyProvider';
 import PhotoSign from "./PhotoSign";
 import AdminCommentInterface from "./AdminCommentInterface";
+import CommentForm from "./CommentForm";
 
 function AdminMain() {
 
@@ -19,7 +20,7 @@ function AdminMain() {
     return (
         <body id="body" style={{
             backgroundImage: `url(${SERVER_URL}/api/background?name=background)`,
-            backgroundSize: '2000px 2000px',
+            backgroundSize: '2000px 3000px',
             minHeight: '868px',
             display: 'flex',
             alignItems: 'center',

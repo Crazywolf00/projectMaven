@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.Date;
+
+import java.text.SimpleDateFormat;
 
 @Entity
 @Data
@@ -20,6 +23,7 @@ public class Comment {
     @Lob
     private String answer = "";
     private boolean allow = true;
+    private String timestamp = new SimpleDateFormat("dd.MM. yyyy - HH:mm").format(new Date());
 
     public Comment(String name, String review) {
         this.name = name;
@@ -28,5 +32,9 @@ public class Comment {
 
     public Comment() {
 
+    }
+
+    public void changeAllow() {
+        allow = !allow;
     }
 }

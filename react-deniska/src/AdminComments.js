@@ -1,8 +1,9 @@
 import axios from "./axios";
 import {useEffect, useState} from "react";
+import {useKey} from "./KeyProvider";
 
 function AdminComments({setSelect}) {
-
+    const key = useKey();
     const [comments, setComments] = useState([]);
 
     function close() {
@@ -16,14 +17,17 @@ function AdminComments({setSelect}) {
             });
     }, []);
 
-    function changeAllowStatus(id,allow) {
+    function changeAllowStatus(id) {
         const allowDiv = document.querySelector(`#allow-${id}`)
-        if(allow) {
-            allowDiv.style.backgroundColor = 'lime'
-        } else {
+        if (allowDiv.textContent === 'Povolen') {
             allowDiv.style.backgroundColor = 'Tomato'
+            allowDiv.textContent = 'Zakázán'
+        } else {
+            allowDiv.style.backgroundColor = 'lime'
+            allowDiv.textContent = 'Povolen'
         }
 
+        axios.patch(`/admin/allow/${id}?key=${key.keyAdmin}`)
     }
 
     return (
@@ -36,7 +40,11 @@ function AdminComments({setSelect}) {
                             <p id={'review'}>k: {comment.review}</p>
                             <p id={'answer'}>a: {comment.answer}</p>
                             <div>
-                                <div id={`allow-${comment.id}`} onClick={() => changeAllowStatus(comment.id,comment.allow)}>{comment.allow ? 'ano' : 'ne'}</div>
+                                <div id={`allow-${comment.id}`}
+                                     style={{
+                                         backgroundColor: comment.allow ? 'lime' : 'Tomato'
+                                     }}
+                                     onClick={() => changeAllowStatus(comment.id)}>{comment.allow ? 'Povolen' : 'Zakázán'}</div>
                                 <div id={'delete'}>Smazat</div>
                             </div>
                         </div>

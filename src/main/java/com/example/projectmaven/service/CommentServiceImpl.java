@@ -26,4 +26,21 @@ public class CommentServiceImpl implements CommentService{
     public List<Comment> getAllComments() {
         return commentRepository.findAll();
     }
+
+    @Override
+    public Comment findById(Long id) {
+        if(commentRepository.findById(id).isPresent()) {
+            return commentRepository.findById(id).get();
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public void changeAllow(Comment comment) {
+        comment.changeAllow();
+        commentRepository.save(comment);
+    }
+
+
 }

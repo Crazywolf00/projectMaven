@@ -1,7 +1,7 @@
 package com.example.projectmaven.controller;
 
-import com.example.projectmaven.model.ImagePort;
 import com.example.projectmaven.model.Password;
+import com.example.projectmaven.service.CommentServiceImpl;
 import com.example.projectmaven.service.ImagePortServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,30 +19,32 @@ import java.util.Optional;
 public class AdminController {
 
     private final ImagePortServiceImpl imgService;
+    private final CommentServiceImpl commentService;
     private final Password password = new Password();
 
     @Autowired
-    public AdminController(ImagePortServiceImpl imgService) {
+    public AdminController(ImagePortServiceImpl imgService, CommentServiceImpl commentService) {
         this.imgService = imgService;
+        this.commentService = commentService;
     }
 
     @PostMapping("/mainImg")
     public ResponseEntity<?> setMainImg(@RequestParam String key,
-                                           @RequestParam String name,
-                                           @RequestParam int index,
-                                           @RequestParam MultipartFile inputMainImg) {
+                                        @RequestParam String name,
+                                        @RequestParam int index,
+                                        @RequestParam MultipartFile inputMainImg) {
         if (password.checkKey(key)) {
             try {
-                if(index == 100) {
+                if (index == 100) {
                     if (imgService.getImgByName(name) != null) {
                         imgService.deleteImg(imgService.getImgByName(name).getId());
                     }
-                    imgService.addImg("main",index, name, inputMainImg);
+                    imgService.addImg("main", index, name, inputMainImg);
                 } else {
-                    if(imgService.getImgByIndex(index) != null) {
+                    if (imgService.getImgByIndex(index) != null) {
                         imgService.deleteImg(imgService.getImgByIndex(index).getId());
                     }
-                    imgService.addImg("main",index, name, inputMainImg);
+                    imgService.addImg("main", index, name, inputMainImg);
                 }
 
                 return ResponseEntity.status(HttpStatus.OK).build();
@@ -54,6 +55,7 @@ public class AdminController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
     }
+
     @GetMapping("/main")
     public ResponseEntity<?> getMain() {
         return ResponseEntity.status(HttpStatus.OK).body(imgService.getMain());
@@ -63,7 +65,7 @@ public class AdminController {
     public ResponseEntity<?> deleteImg(@RequestParam String key,
                                        @RequestParam int index) {
         if (password.checkKey(key)) {
-            if( index < 99) {
+            if (index < 99) {
                 imgService.deleteImgByIndex(index);
                 return ResponseEntity.status(HttpStatus.OK).build();
             } else {
@@ -73,6 +75,25 @@ public class AdminController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
     }
+
+    @PatchMapping("/allow/{id}")
+    public ResponseEntity<?> updateCommentAllow(@RequestParam String key,
+                                                @PathVariable Long id) {
+
+        if (password.checkKey(key)) {
+            if (commentService.findById(id) != null) {
+                commentService.changeAllow(commentService.findById(id));
+
+                return ResponseEntity.status(HttpStatus.OK).build();
+            } else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+    }
+
+
 
     @GetMapping("/all")
     public ResponseEntity<?> getAllAdmin() {
@@ -90,7 +111,7 @@ public class AdminController {
             try {
                 if (groupName.isPresent() && setName.isPresent()) {
                     for (MultipartFile multipartFile : img) {
-                        imgService.addImg(groupName.get(),100, setName.get(), multipartFile);
+                        imgService.addImg(groupName.get(), 100, setName.get(), multipartFile);
                     }
                     return ResponseEntity.status(HttpStatus.OK).build();
                 } else {
