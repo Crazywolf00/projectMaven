@@ -93,7 +93,20 @@ public class AdminController {
         }
     }
 
-
+    @DeleteMapping("/comment/{id}")
+    public ResponseEntity<?> deleteComment(@RequestParam String key,
+                                           @PathVariable Long id) {
+        if (password.checkKey(key)) {
+            if (commentService.findById(id) != null) {
+                commentService.deleteComment(commentService.findById(id));
+                return ResponseEntity.status(HttpStatus.OK).build();
+            } else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+    }
 
     @GetMapping("/all")
     public ResponseEntity<?> getAllAdmin() {
