@@ -22,7 +22,6 @@
 #miniature-file {
     display: flex;
     flex-wrap: wrap;
-    min-height: 100px;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
     margin: 5px 15px;
 }

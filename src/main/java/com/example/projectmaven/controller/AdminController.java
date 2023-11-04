@@ -129,18 +129,17 @@ public class AdminController {
         return ResponseEntity.status(HttpStatus.OK).body(imgService.getAll());
     }
 
-    @PostMapping("/post")
+    @PostMapping("/images")
     public ResponseEntity<?> addImg(
             @RequestParam String key,
             @RequestParam Optional<String> groupName,
             @RequestParam Optional<String> setName,
             @RequestParam("img") List<MultipartFile> img) {
-
         if (password.checkKey(key)) {
             try {
                 if (groupName.isPresent() && setName.isPresent()) {
                     for (MultipartFile multipartFile : img) {
-                        imgService.addImg(groupName.get(), 100, setName.get(), multipartFile);
+                        imgService.addImg(groupName.get(), 200, setName.get(), multipartFile);
                     }
                     return ResponseEntity.status(HttpStatus.OK).build();
                 } else {

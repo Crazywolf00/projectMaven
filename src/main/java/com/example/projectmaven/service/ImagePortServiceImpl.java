@@ -68,12 +68,15 @@ public class ImagePortServiceImpl implements ImagePortService {
 
     @Override
     public ImagePort addImg(String groupName, int index, String setName, MultipartFile file) throws IOException {
+        Random random = new Random();
+        int randomNum =  random.nextInt(9000) + 1000;
         Path filePath;
         if (Objects.equals(groupName, "main")) {
             filePath = Paths.get(String.valueOf(pathRare), file.getOriginalFilename());
         } else {
             filePath = Paths.get(String.valueOf(pathMany), file.getOriginalFilename() + " -- "
-                    + new SimpleDateFormat("ddMMyyyy-HHmmss").format(new Date()));
+                    + new SimpleDateFormat("ddMMyyyy-HHmmss").format(new Date())
+                    + "--" + randomNum);
         }
 
 
@@ -81,10 +84,12 @@ public class ImagePortServiceImpl implements ImagePortService {
         ImagePort img = new ImagePort();
         if (index == 100) {
             img.setName(file.getOriginalFilename() + " -- "
-                    + new SimpleDateFormat("dd.MM. yyyy - HH:mm:ss").format(new Date()));
+                    + new SimpleDateFormat("dd.MM. yyyy - HH:mm:ss").format(new Date())
+                    + "--" + randomNum);
         } else {
             img.setName(index + "." + file.getOriginalFilename() + " -- "
-                    + new SimpleDateFormat("dd.MM. yyyy - HH:mm:ss").format(new Date()));
+                    + new SimpleDateFormat("dd.MM. yyyy - HH:mm:ss").format(new Date())
+                    + "--" + randomNum);
         }
         img.setType(file.getContentType());
         img.setImgIndex(index);
