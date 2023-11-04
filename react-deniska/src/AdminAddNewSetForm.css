@@ -14,3 +14,20 @@
 #categories {
     margin: 5px 15px;
 }
+
+#add-file {
+    display: block;
+}
+
+#miniature-file {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin: 5px 15px;
+}
+#set-img-input {
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
