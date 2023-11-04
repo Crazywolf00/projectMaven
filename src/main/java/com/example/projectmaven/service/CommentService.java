@@ -16,5 +16,7 @@ public interface CommentService {
     void changeAllow(Comment comment);
 
     void deleteComment(Comment comment);
+
+    void addAnswer(Comment comment,String answer);
 }
 

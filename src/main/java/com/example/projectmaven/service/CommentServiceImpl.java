@@ -5,6 +5,7 @@ import com.example.projectmaven.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -24,7 +25,9 @@ public class CommentServiceImpl implements CommentService{
 
     @Override
     public List<Comment> getAllComments() {
-        return commentRepository.findAll();
+        List<Comment> comments = commentRepository.findAll();
+        Collections.reverse(comments);
+        return comments;
     }
 
     @Override
@@ -45,6 +48,12 @@ public class CommentServiceImpl implements CommentService{
     @Override
     public void deleteComment(Comment comment) {
         commentRepository.delete(comment);
+    }
+
+    @Override
+    public void addAnswer(Comment comment, String answer) {
+        comment.setAnswer(answer);
+        commentRepository.save(comment);
     }
 
 

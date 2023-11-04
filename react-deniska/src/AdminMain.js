@@ -33,7 +33,6 @@ function AdminMain() {
                     <PhotoSign/>
                     <Interface/>
                     <AdminCommentInterface/>
-                    <CommentForm/>
                 </div>
             ) : (
                 <GetKeyForm setKey={setKey}/>

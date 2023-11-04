@@ -2,13 +2,11 @@ import axios from "./axios";
 import {useEffect, useState} from "react";
 import {useKey} from "./KeyProvider";
 import './AdminCooments.css'
-function AdminComments({setSelect}) {
+
+function AdminComments() {
     const key = useKey();
     const [comments, setComments] = useState([]);
 
-    function close() {
-        setSelect(false);
-    }
 
     useEffect(() => {
         axios.get('/api/comments')
@@ -47,7 +45,17 @@ function AdminComments({setSelect}) {
     }
 
     function sendAnswer(id) {
+        const answer = document.querySelector(`#answer-textarea-${id}`)
 
+        const formData = new FormData();
+        formData.append('key', key.keyAdmin)
+        formData.append('answer', answer.value)
+        axios.patch(`/admin/answer/${id}`, formData)
+            .then(response => {
+                if (response.status === 200) {
+                    answer.value = "";
+                }
+            })
     }
 
     return (
@@ -56,21 +64,32 @@ function AdminComments({setSelect}) {
                 <ul>
                     {comments.map(comment => (
                         <div id={`main-comment-div-${comment.id}`}
-                            className={'main-comment-div'}
-                            key={comment.id}>
+                             className={'main-comment-div'}
+                             key={comment.id}>
 
                             <div id={'name-comment'}>
                                 <p id={'name'}>{comment.name}</p>
                                 <p id={'time'}>{comment.timestamp}</p>
                             </div>
-                            <div id={'review-answer-comment'}>
-                            <p id={'review'}>{comment.review}</p>
-                                <p id={'answer'}
-                                   style={{
-                                       display: comment.answer.length > 0 ? "inline" : "none"
-                                   }}>{comment.answer.length > 0 ? comment.answer : 'k'}</p>
+                            <div className={'review-answer-comment'}
+                                 style={{
+                                     width: comment.answer.length > 0 ? "80%" : "96%"
+                                 }}>
+                                <p id={'review'}>{comment.review}</p>
                             </div>
-                            <textarea id={'answer-textarea'} placeholder={'Reakce'}></textarea>
+                            <div className={'review-answer-comment'}
+                                 style={{
+                                     display: comment.answer.length > 0 ? "flex" : "none",
+                                     width: comment.answer.length > 0 ? "80%" : "100%",
+                                     alignSelf: "end"
+                                 }}>
+                                <p id={'answer'}
+                                   >{comment.answer.length > 0 ? comment.answer : 'k'}</p>
+                            </div>
+                            <textarea className={'answer-textarea'}
+                                      id={`answer-textarea-${comment.id}`}
+                                      placeholder={'Reakce'}
+                            ></textarea>
                             <div id={'buttons-comment'}>
                                 <div className={'button-comme'} id={`allow-${comment.id}`}
                                      style={{
@@ -82,19 +101,20 @@ function AdminComments({setSelect}) {
                                      style={{
                                          backgroundColor: 'DeepSkyBlue'
                                      }}
-                                     onClick={() => sendAnswer(comment.id)}>Odeslat reakci</div>
+                                     onClick={() => sendAnswer(comment.id)}>Odeslat reakci
+                                </div>
 
                                 <div className={'button-comme'} id={'delete'}
                                      style={{
                                          backgroundColor: 'Tomato'
                                      }}
-                                     onClick={() => deleteComment(comment.id)}>Smazat</div>
+                                     onClick={() => deleteComment(comment.id)}>Smazat
+                                </div>
                             </div>
                         </div>
                     ))}
                 </ul>
             </div>
-            <button onClick={close}>zavřít</button>
         </div>
     )
 }

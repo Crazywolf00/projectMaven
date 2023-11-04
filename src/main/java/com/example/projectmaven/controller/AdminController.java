@@ -108,6 +108,22 @@ public class AdminController {
         }
     }
 
+    @PatchMapping("/answer/{id}")
+    public ResponseEntity<?> addAnswerToComment(@RequestParam String key,
+                                                @RequestParam String answer,
+                                                @PathVariable Long id) {
+        if (password.checkKey(key)) {
+            if (commentService.findById(id) != null) {
+                commentService.addAnswer(commentService.findById(id),answer);
+                return ResponseEntity.status(HttpStatus.OK).build();
+            } else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+    }
+
     @GetMapping("/all")
     public ResponseEntity<?> getAllAdmin() {
         return ResponseEntity.status(HttpStatus.OK).body(imgService.getAll());

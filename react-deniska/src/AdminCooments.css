@@ -1,21 +1,22 @@
 .main-comment-div {
-    border: 2px solid rgba(0, 0, 0, 0.47);
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.37);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    background-color: rgba(255, 255, 255, 0.05);
     display: flex;
     flex-wrap:wrap;
     flex-flow: column;
-    padding: 5px 25px;
-    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
-    width: 50%;
+    padding: 0px 25px 5px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.32);
     margin: 5px;
+    width: 800px;
 }
+
 
 #name-comment {
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.53);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.06);
     margin-bottom: 5px;
+    height: 50px;
 }
 
 #buttons-comment {
@@ -23,11 +24,13 @@
     align-self: center;
     justify-self: center;
 }
-
+.answer-textarea {
+    height: 60px;
+    margin-bottom: 5px;
+}
 .button-comme {
     margin: 0px 25px;
     padding: 5px 15px;
-    border-radius: 20px;
     cursor: pointer;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
@@ -35,34 +38,26 @@
 
 #review {
     white-space: pre-line;
+    display: block;
 }
 
 #answer {
-    border-top: 2px solid black;
+    white-space: pre-line;
 }
 #name {
-    background-color: rgba(255, 255, 255, 0.91);
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     padding: 5px 25px;
-    border-radius: 15px;
+    font-weight: bold;
 }
 
 #time {
-    background-color: rgba(255, 255, 255, 0.91);
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     padding: 5px 25px;
-    border-radius: 15px;
 }
 
-#review-answer-comment {
-    background-color: rgba(255, 255, 255, 0.71);
-    border-radius: 15px;
-    padding: 5px 15px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+.review-answer-comment {
+    background-color: rgba(255, 255, 255, 0.34);
+    padding: 0px 15px 5px 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     margin-bottom: 5px;
+
 }
 
-#answer-textarea {
-    height: 60px;
-    margin-bottom: 5px;
-}

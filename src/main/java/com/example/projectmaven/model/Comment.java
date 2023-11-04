@@ -21,12 +21,13 @@ public class Comment {
     @Lob
     private String review;
     @Lob
-    private String answer = "";
+    private String answer;
     private boolean allow = true;
     private String timestamp = new SimpleDateFormat("dd.MM. yyyy - HH:mm").format(new Date());
 
     public Comment(String name, String review) {
         this.name = name;
+        this.answer = "";
         this.review = review;
     }
 
@@ -37,4 +38,5 @@ public class Comment {
     public void changeAllow() {
         allow = !allow;
     }
+
 }

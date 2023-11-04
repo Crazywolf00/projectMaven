@@ -1,18 +1,27 @@
 import {useState} from "react";
 import AdminComments from "./AdminComments";
+import './AdminCommentInterface.css'
 
 function AdminCommentInterface() {
 
-    const [select, setSelect] = useState(false);
+    const [category, setCategory] = useState(false);
+    const [comments, setComments] = useState(false);
 
-    function change() {
-        setSelect(true);
+    function changeComment() {
+        setComments(!comments);
     }
 
+
     return (
-        <div>
-            <button onClick={change}>Komentáře</button>
-            {select ? <AdminComments setSelect={setSelect}/> : <div></div>}
+        <div id={'comment-interface'}>
+            <div>
+                <button onClick={changeComment}>Komentáře</button>
+                <button onClick={changeComment}>Katalog</button>
+            </div>
+            {comments ? <AdminComments/> : <div></div>}
+            {comments ? <button onClick={changeComment}>Zavřít</button> : <div></div>}
+
+
         </div>
     )
 
