@@ -155,7 +155,7 @@ public class AdminController {
 
     }
 
-    @GetMapping("/allcategory")
+    @GetMapping("/allCategory")
     public ResponseEntity<?> getAllCategory(@RequestParam String key) {
         if (password.checkKey(key)) {
             return ResponseEntity.status(HttpStatus.OK).body(imgService.category());

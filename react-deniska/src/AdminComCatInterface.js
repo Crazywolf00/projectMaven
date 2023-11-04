@@ -1,14 +1,27 @@
 import {useState} from "react";
 import AdminComments from "./AdminComments";
-import './AdminCommentInterface.css'
+import './AdminComCatInterface.css'
+import AdminCategory from "./AdminCategoryInterface.js";
 
-function AdminCommentInterface() {
+
+
+function AdminComCatInterface() {
 
     const [category, setCategory] = useState(false);
     const [comments, setComments] = useState(false);
 
     function changeComment() {
         setComments(!comments);
+        if(category){
+            setCategory(!category);
+        }
+    }
+
+    function changeCategory() {
+        setCategory(!category);
+        if(comments){
+            setComments(!comments);
+        }
     }
 
 
@@ -16,15 +29,17 @@ function AdminCommentInterface() {
         <div id={'comment-interface'}>
             <div>
                 <button onClick={changeComment}>Komentáře</button>
-                <button onClick={changeComment}>Katalog</button>
+                <button onClick={changeCategory}>Kategorie</button>
             </div>
             {comments ? <AdminComments/> : <div></div>}
             {comments ? <button onClick={changeComment}>Zavřít</button> : <div></div>}
 
+            {category ? <AdminCategory/> : <div></div>}
+            {category ? <button onClick={changeCategory}>Zavřít</button> : <div></div>}
 
         </div>
     )
 
 }
 
-export default AdminCommentInterface
+export default AdminComCatInterface

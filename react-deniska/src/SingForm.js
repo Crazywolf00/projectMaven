@@ -28,7 +28,7 @@ function SingForm() {
 
     return (
         <div id={'sign-form'}>
-            <p>Změna podpis</p>
+            <p>Změna podpisu</p>
             <input id={'signInput'} type={"file"}/>
             <button onClick={changeSign}>Odeslat</button>
         </div>

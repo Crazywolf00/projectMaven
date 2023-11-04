@@ -91,7 +91,6 @@ public class ApiController {
 
     @GetMapping("/category")
     public ResponseEntity<?> category(@RequestParam String name) {
-        System.out.println(name);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 

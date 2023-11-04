@@ -122,7 +122,7 @@ public class ImagePortServiceImpl implements ImagePortService {
     public Set<String> category() {
         Set<String> category = new HashSet<>();
         for (ImagePort img : repository.findAll()) {
-            if (Character.isDigit(img.getName().charAt(0))) {
+            if (img.getImgIndex() < 99) {
                 category.add(img.getSetName());
             }
         }

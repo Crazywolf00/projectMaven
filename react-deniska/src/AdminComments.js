@@ -7,7 +7,6 @@ function AdminComments() {
     const key = useKey();
     const [comments, setComments] = useState([]);
 
-
     useEffect(() => {
         axios.get('/api/comments')
             .then(response => {
