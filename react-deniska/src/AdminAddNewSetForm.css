@@ -1,0 +1,16 @@
+#add-img-set {
+    padding: 5px 15px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+    width: 800px;
+}
+#select-input {
+    display: flex;
+    justify-content: center;
+}
+#input-set {
+    margin: 5px 15px;
+}
+
+#categories {
+    margin: 5px 15px;
+}
