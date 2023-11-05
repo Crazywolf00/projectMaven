@@ -1,8 +1,10 @@
 package com.example.projectmaven.controller;
 
 import com.example.projectmaven.model.Password;
+import com.example.projectmaven.model.WelcomeMessage;
 import com.example.projectmaven.service.CommentServiceImpl;
 import com.example.projectmaven.service.ImagePortServiceImpl;
+import com.example.projectmaven.service.WelcomeMessageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,12 +22,14 @@ public class AdminController {
 
     private final ImagePortServiceImpl imgService;
     private final CommentServiceImpl commentService;
+    private final WelcomeMessageServiceImpl welcomeMessageService;
     private final Password password = new Password();
 
     @Autowired
-    public AdminController(ImagePortServiceImpl imgService, CommentServiceImpl commentService) {
+    public AdminController(ImagePortServiceImpl imgService, CommentServiceImpl commentService, WelcomeMessageServiceImpl welcomeMessageService) {
         this.imgService = imgService;
         this.commentService = commentService;
+        this.welcomeMessageService = welcomeMessageService;
     }
 
     @PostMapping("/mainImg")
@@ -114,7 +118,7 @@ public class AdminController {
                                                 @PathVariable Long id) {
         if (password.checkKey(key)) {
             if (commentService.findById(id) != null) {
-                commentService.addAnswer(commentService.findById(id),answer);
+                commentService.addAnswer(commentService.findById(id), answer);
                 return ResponseEntity.status(HttpStatus.OK).build();
             } else {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -130,11 +134,10 @@ public class AdminController {
     }
 
     @PostMapping("/images")
-    public ResponseEntity<?> addImg(
-            @RequestParam String key,
-            @RequestParam Optional<String> groupName,
-            @RequestParam Optional<String> setName,
-            @RequestParam("img") List<MultipartFile> img) {
+    public ResponseEntity<?> addImg(@RequestParam String key,
+                                    @RequestParam Optional<String> groupName,
+                                    @RequestParam Optional<String> setName,
+                                    @RequestParam("img") List<MultipartFile> img) {
         if (password.checkKey(key)) {
             try {
                 if (groupName.isPresent() && setName.isPresent()) {
@@ -158,6 +161,34 @@ public class AdminController {
     public ResponseEntity<?> getAllCategory(@RequestParam String key) {
         if (password.checkKey(key)) {
             return ResponseEntity.status(HttpStatus.OK).body(imgService.category());
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+    }
+
+    @PostMapping("/welcome")
+    public ResponseEntity<?> setWelcomeMessage(@RequestParam String key,
+                                               @RequestParam String type,
+                                               @RequestParam String message) {
+        if (password.checkKey(key)) {
+            welcomeMessageService.createWelcomeMessage(new WelcomeMessage(message, type));
+            return ResponseEntity.status(HttpStatus.OK).build();
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+    }
+
+    @PatchMapping("/welcome")
+    public ResponseEntity<?> updateWelcomeMessage(@RequestParam String key,
+                                                  @RequestParam String type,
+                                                  @RequestParam String message) {
+        if (password.checkKey(key)) {
+            if(welcomeMessageService.getMessageByType(type) != null) {
+                welcomeMessageService.updateWelcomeMessage(welcomeMessageService.getMessageByType(type), message);
+            } else {
+                welcomeMessageService.createWelcomeMessage(new WelcomeMessage(message, type));
+            }
+            return ResponseEntity.status(HttpStatus.OK).build();
         } else {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }

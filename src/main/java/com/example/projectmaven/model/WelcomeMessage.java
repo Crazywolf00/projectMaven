@@ -13,7 +13,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class WelcomeMessage {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,4 +20,13 @@ public class WelcomeMessage {
     private String message;
 
     private String type;
+
+    public WelcomeMessage(String message, String type) {
+        this.message = message;
+        this.type = type;
+    }
+
+    public WelcomeMessage() {
+
+    }
 }

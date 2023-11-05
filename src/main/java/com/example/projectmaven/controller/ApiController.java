@@ -5,6 +5,7 @@ import com.example.projectmaven.model.ImageDto;
 import com.example.projectmaven.model.ImagePort;
 import com.example.projectmaven.service.CommentServiceImpl;
 import com.example.projectmaven.service.ImagePortServiceImpl;
+import com.example.projectmaven.service.WelcomeMessageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,12 +22,14 @@ public class ApiController {
     private final ImagePortServiceImpl imgService;
 
     private final CommentServiceImpl commentService;
+    private final WelcomeMessageServiceImpl welcomeMessageService;
 
 
     @Autowired
-    public ApiController(ImagePortServiceImpl imgService, CommentServiceImpl commentService) {
+    public ApiController(ImagePortServiceImpl imgService, CommentServiceImpl commentService, WelcomeMessageServiceImpl welcomeMessageService) {
         this.imgService = imgService;
         this.commentService = commentService;
+        this.welcomeMessageService = welcomeMessageService;
     }
 
     @GetMapping("/")
@@ -88,10 +91,14 @@ public class ApiController {
     }
 
 
-
     @GetMapping("/category")
     public ResponseEntity<?> category(@RequestParam String name) {
         return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @GetMapping("/welcome")
+    public ResponseEntity<?> getWelcomeMessage(@RequestParam String type) {
+        return ResponseEntity.status(HttpStatus.OK).body(welcomeMessageService.getMessageByType(type));
     }
 
 }
