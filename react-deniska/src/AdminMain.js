@@ -7,6 +7,7 @@ import {KeyProvider} from './KeyProvider';
 import PhotoSign from "./PhotoSign";
 import AdminComCatInterface from "./AdminComCatInterface";
 import CommentForm from "./CommentForm";
+import WelcomeMessage from "./WelcomeMessage";
 
 function AdminMain() {
 
@@ -31,6 +32,7 @@ function AdminMain() {
                 <div>
                     <AdminHeader/>
                     <PhotoSign/>
+                    <WelcomeMessage/>
                     <Interface/>
                     <AdminComCatInterface/>
                 </div>
