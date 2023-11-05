@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface WelcomeMessageRepository extends ListCrudRepository<WelcomeMessage,Long> {
 
-    WelcomeMessage getWelcomeMessageByType(String type);
+    WelcomeMessage getWelcomeMessageByMessageType(String type);
 }

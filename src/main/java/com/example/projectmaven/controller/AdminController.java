@@ -166,19 +166,8 @@ public class AdminController {
         }
     }
 
-    @PostMapping("/welcome")
-    public ResponseEntity<?> setWelcomeMessage(@RequestParam String key,
-                                               @RequestParam String type,
-                                               @RequestParam String message) {
-        if (password.checkKey(key)) {
-            welcomeMessageService.createWelcomeMessage(new WelcomeMessage(message, type));
-            return ResponseEntity.status(HttpStatus.OK).build();
-        } else {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
-        }
-    }
 
-    @PatchMapping("/welcome")
+    @PostMapping("/welcome")
     public ResponseEntity<?> updateWelcomeMessage(@RequestParam String key,
                                                   @RequestParam String type,
                                                   @RequestParam String message) {

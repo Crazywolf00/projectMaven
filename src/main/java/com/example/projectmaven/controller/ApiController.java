@@ -3,6 +3,7 @@ package com.example.projectmaven.controller;
 import com.example.projectmaven.model.Comment;
 import com.example.projectmaven.model.ImageDto;
 import com.example.projectmaven.model.ImagePort;
+import com.example.projectmaven.model.WelcomeMessage;
 import com.example.projectmaven.service.CommentServiceImpl;
 import com.example.projectmaven.service.ImagePortServiceImpl;
 import com.example.projectmaven.service.WelcomeMessageServiceImpl;
@@ -98,7 +99,8 @@ public class ApiController {
 
     @GetMapping("/welcome")
     public ResponseEntity<?> getWelcomeMessage(@RequestParam String type) {
-        return ResponseEntity.status(HttpStatus.OK).body(welcomeMessageService.getMessageByType(type));
+        WelcomeMessage welcomeMessageDatabase= welcomeMessageService.getMessageByType(type);
+        return ResponseEntity.status(HttpStatus.OK).body(welcomeMessageDatabase == null ? "" : welcomeMessageDatabase);
     }
 
 }

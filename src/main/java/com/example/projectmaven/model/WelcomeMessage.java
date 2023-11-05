@@ -1,9 +1,6 @@
 package com.example.projectmaven.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,13 +14,15 @@ public class WelcomeMessage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(columnDefinition = "TEXT")
     private String message;
 
-    private String type;
+    @Column(unique=true)
+    private String messageType;
 
     public WelcomeMessage(String message, String type) {
         this.message = message;
-        this.type = type;
+        this.messageType = type;
     }
 
     public WelcomeMessage() {

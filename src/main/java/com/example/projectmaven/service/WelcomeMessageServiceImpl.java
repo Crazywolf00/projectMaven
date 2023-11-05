@@ -18,7 +18,7 @@ public class WelcomeMessageServiceImpl implements WelcomeMessageService{
 
     @Override
     public WelcomeMessage getMessageByType(String type) {
-        return welcomeMessageRepository.getWelcomeMessageByType(type);
+        return welcomeMessageRepository.getWelcomeMessageByMessageType(type);
     }
 
     @Override
