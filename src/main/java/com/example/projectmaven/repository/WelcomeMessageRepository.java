@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface WelcomeMessageRepository extends ListCrudRepository<WelcomeMessage,Long> {
 
     WelcomeMessage getWelcomeMessageByMessageType(String type);
+
+    WelcomeMessage getWelcomeMessageById(Long Id);
 }

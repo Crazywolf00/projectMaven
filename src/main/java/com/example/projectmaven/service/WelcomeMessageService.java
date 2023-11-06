@@ -12,4 +12,9 @@ public interface WelcomeMessageService {
     void updateWelcomeMessage(WelcomeMessage welcomeMessage, String message);
 
     List<WelcomeMessage> getAllMessages();
+
+
+    WelcomeMessage getMessageById(Long id);
+
+    void deleteMessage(Long id);
 }

@@ -21,5 +21,28 @@
     justify-content: center;
     font-size: 22px;
     font-family: "Comic Sans MS";
-    grid-area: p;
+}
+#admin-cat-message-main {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.incoming-message-div {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    margin: 5px;
+    min-height: 100px;
+    width: 800px;
+    padding: 15px 5px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+    font-size: 22px;
+    font-family: "Comic Sans MS";
+    text-align: center;
+    white-space: pre-line;
+}
+
+#hr-message {
+ width: 80%;
 }

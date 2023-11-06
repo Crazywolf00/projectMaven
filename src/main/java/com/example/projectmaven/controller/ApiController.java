@@ -99,7 +99,7 @@ public class ApiController {
         return ResponseEntity.status(HttpStatus.OK).body(welcomeMessageDatabase == null ? "" : welcomeMessageDatabase);
     }
 
-    @GetMapping("/message")
+    @GetMapping("/messages")
     public ResponseEntity<?> getAllMessages() {
         return ResponseEntity.status(HttpStatus.OK).body(welcomeMessageService.getAllMessages());
     }

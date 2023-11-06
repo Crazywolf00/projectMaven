@@ -191,4 +191,19 @@ public class AdminController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
     }
+
+    @DeleteMapping("/welcome/{id}")
+    public ResponseEntity<?> deleteMessage(@RequestParam String key,
+                                           @PathVariable Long id) {
+        if (password.checkKey(key)) {
+           if(welcomeMessageService.getMessageById(id) == null) {
+               return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+           } else {
+               welcomeMessageService.deleteMessage(id);
+               return ResponseEntity.status(HttpStatus.OK).build();
+           }
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+    }
 }

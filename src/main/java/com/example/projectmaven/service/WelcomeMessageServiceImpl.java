@@ -5,7 +5,7 @@ import com.example.projectmaven.repository.WelcomeMessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -43,5 +43,15 @@ public class WelcomeMessageServiceImpl implements WelcomeMessageService {
                 .stream()
                 .filter(welcomeMessage -> !Objects.equals(welcomeMessage.getMessageType(), "welcomeMessage"))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public WelcomeMessage getMessageById(Long id) {
+        return welcomeMessageRepository.getWelcomeMessageById(id);
+    }
+
+    @Override
+    public void deleteMessage(Long id) {
+        welcomeMessageRepository.delete(welcomeMessageRepository.getWelcomeMessageById(id));
     }
 }
