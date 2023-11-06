@@ -8,7 +8,6 @@ function WelcomeMessage() {
     const [message, setMessage] = useState("")
 
     useEffect(() => {
-        console.log(message)
         axios.get('/api/welcome?type=welcomeMessage')
             .then(response => {
                 setMessage(response.data.message)

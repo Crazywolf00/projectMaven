@@ -6,12 +6,12 @@ import './AdminCatMessage.css'
 function AdminCatMessage() {
     const key = useKey();
     const [category, setCategory] = useState([]);
-    const [images, setImages] = useState([]);
-    const [imagePreviews, setImagePreviews] = useState([]);
+    const [message, setMessage] = useState([]);
+
 
 
     useEffect(() => {
-        const select = document.querySelector("#categories");
+        const select = document.querySelector("#categories-message");
         select.innerHTML = "";
         axios.get(`/admin/allCategory?key=${key.keyAdmin}`).then((response) => {
             setCategory(response.data);
@@ -25,9 +25,9 @@ function AdminCatMessage() {
             option.textContent = categoryMap;
             select.appendChild(option);
         });
+
+
     }, []);
-
-
 
 
 
