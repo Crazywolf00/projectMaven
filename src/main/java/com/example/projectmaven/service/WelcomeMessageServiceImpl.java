@@ -5,8 +5,13 @@ import com.example.projectmaven.repository.WelcomeMessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
 @Service
-public class WelcomeMessageServiceImpl implements WelcomeMessageService{
+public class WelcomeMessageServiceImpl implements WelcomeMessageService {
 
     private final WelcomeMessageRepository welcomeMessageRepository;
 
@@ -30,5 +35,13 @@ public class WelcomeMessageServiceImpl implements WelcomeMessageService{
     public void updateWelcomeMessage(WelcomeMessage welcomeMessage, String message) {
         welcomeMessage.setMessage(message);
         welcomeMessageRepository.save(welcomeMessage);
+    }
+
+    @Override
+    public List<WelcomeMessage> getAllMessages() {
+        return welcomeMessageRepository.findAll()
+                .stream()
+                .filter(welcomeMessage -> !Objects.equals(welcomeMessage.getMessageType(), "welcomeMessage"))
+                .collect(Collectors.toList());
     }
 }

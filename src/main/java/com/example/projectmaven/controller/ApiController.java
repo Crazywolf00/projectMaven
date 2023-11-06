@@ -92,15 +92,16 @@ public class ApiController {
     }
 
 
-    @GetMapping("/category")
-    public ResponseEntity<?> category(@RequestParam String name) {
-        return ResponseEntity.status(HttpStatus.OK).build();
-    }
 
     @GetMapping("/welcome")
     public ResponseEntity<?> getWelcomeMessage(@RequestParam String type) {
         WelcomeMessage welcomeMessageDatabase= welcomeMessageService.getMessageByType(type);
         return ResponseEntity.status(HttpStatus.OK).body(welcomeMessageDatabase == null ? "" : welcomeMessageDatabase);
+    }
+
+    @GetMapping("/message")
+    public ResponseEntity<?> getAllMessages() {
+        return ResponseEntity.status(HttpStatus.OK).body(welcomeMessageService.getAllMessages());
     }
 
 }
