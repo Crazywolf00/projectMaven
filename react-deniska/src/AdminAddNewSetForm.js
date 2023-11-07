@@ -9,6 +9,7 @@ function AddNewSetForm() {
     const [images, setImages] = useState([]);
     const [imagePreviews, setImagePreviews] = useState([]);
     const [result, setResult] = useState("")
+    const [incomeSets, setIncomeSets] = useState([])
 
     useEffect(() => {
         const select = document.querySelector("#categories");
@@ -25,6 +26,8 @@ function AddNewSetForm() {
             option.textContent = categoryMap;
             select.appendChild(option);
         });
+
+
     }, []);
 
     function addInputFile() {

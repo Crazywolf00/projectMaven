@@ -143,4 +143,13 @@ public class ImagePortServiceImpl implements ImagePortService {
     public void deleteImgByIndex(int index) {
         repository.deleteById(repository.getImagePortByImgIndex(index).getId());
     }
+
+    @Override
+    public List<List<List<ImagePort>>> getAllSetsImages() {
+        List<ImagePort> allImages = repository.findAll();
+
+        return null;
+    }
+
+
 }

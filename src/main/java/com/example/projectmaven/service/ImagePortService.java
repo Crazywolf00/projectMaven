@@ -28,4 +28,6 @@ public interface ImagePortService {
     ImagePort getImgByIndex(int index);
 
     void deleteImgByIndex(int index);
+
+    List<List<List<ImagePort>>> getAllSetsImages();
 }
