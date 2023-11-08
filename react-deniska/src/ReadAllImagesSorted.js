@@ -23,15 +23,15 @@ function ReadAllImagesSorted() {
 
     return <div id={'read-all-img-sort'}>
         {incomeImages.map((category, categoryIndex) => (
-            <div className={category.category}
+            <div className={'category-category'}
                  key={categoryIndex}>
-                {category.category}
-
+                <h1>{category.category}</h1>
+                <hr/>
 
                 {category.sorteImageList.map((set, setIndex) => (
                     <div className={set.setName}
                          key={setIndex}>
-                        {set.setName}
+                        <h2> {set.setName}</h2>
                         <div className={'set-name-style'}>
                             {set.images.map((img, imgIndex) => (
 
