@@ -1,0 +1,21 @@
+.img-sorted{
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    margin: 5px;
+
+}
+#read-all-img-sort {
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+    padding: 5px;
+}
+
+.set-name-style {
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+
+}

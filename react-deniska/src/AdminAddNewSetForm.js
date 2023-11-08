@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "./axios";
 import { useKey } from "./KeyProvider";
 import "./AdminAddNewSetForm.css";
+import ReadAllImagesSorted from "./ReadAllImagesSorted";
 
 function AddNewSetForm() {
     const key = useKey();
@@ -9,7 +10,6 @@ function AddNewSetForm() {
     const [images, setImages] = useState([]);
     const [imagePreviews, setImagePreviews] = useState([]);
     const [result, setResult] = useState("")
-    const [incomeSets, setIncomeSets] = useState([])
 
     useEffect(() => {
         const select = document.querySelector("#categories");
@@ -26,8 +26,6 @@ function AddNewSetForm() {
             option.textContent = categoryMap;
             select.appendChild(option);
         });
-
-
     }, []);
 
     function addInputFile() {
@@ -141,6 +139,7 @@ function AddNewSetForm() {
                     <button onClick={sendImg}>Odeslat</button>
                 </div>
             </div>
+            <ReadAllImagesSorted/>
         </div>
     );
 }
