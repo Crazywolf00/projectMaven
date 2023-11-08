@@ -1,5 +1,6 @@
 package com.example.projectmaven.service;
 
+import com.example.projectmaven.model.CategoryImagesDto;
 import com.example.projectmaven.model.ImagePort;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -29,5 +30,5 @@ public interface ImagePortService {
 
     void deleteImgByIndex(int index);
 
-    List<List<List<ImagePort>>> getAllSetsImages();
+    List<CategoryImagesDto> getAllSetsImages();
 }

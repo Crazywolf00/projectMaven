@@ -91,6 +91,10 @@ public class ApiController {
         }
     }
 
+    @GetMapping("/sortedImg")
+    public ResponseEntity<?> getSortedImg() {
+        return ResponseEntity.status(HttpStatus.OK).body(imgService.getAllSetsImages());
+    }
 
 
     @GetMapping("/welcome")

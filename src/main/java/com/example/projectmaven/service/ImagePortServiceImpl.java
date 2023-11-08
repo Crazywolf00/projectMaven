@@ -1,5 +1,6 @@
 package com.example.projectmaven.service;
 
+import com.example.projectmaven.model.CategoryImagesDto;
 import com.example.projectmaven.model.ImagePort;
 import com.example.projectmaven.repository.ImagePortRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -145,10 +146,34 @@ public class ImagePortServiceImpl implements ImagePortService {
     }
 
     @Override
-    public List<List<List<ImagePort>>> getAllSetsImages() {
+    public List<CategoryImagesDto> getAllSetsImages() {
         List<ImagePort> allImages = repository.findAll();
+        List<CategoryImagesDto> categoryImagesDto = new ArrayList<>();
 
-        return null;
+        Set<String> setCategory = new HashSet<>();
+        for (ImagePort imagePort: allImages) {
+            if(!Objects.equals(imagePort.getCategoriesName(), "main")) {
+                setCategory.add(imagePort.getCategoriesName());
+            }
+        }
+
+        for (String s: setCategory) {
+            categoryImagesDto.add(new CategoryImagesDto(s));
+        }
+
+        for (ImagePort imagePort : allImages) {
+            for (CategoryImagesDto categoryImageDto:categoryImagesDto) {
+                if(Objects.equals(categoryImageDto.getCategory(), imagePort.getCategoriesName())) {
+                    categoryImageDto.addImage(imagePort);
+                    break;
+                }
+            }
+        }
+
+        for (CategoryImagesDto cat: categoryImagesDto) {
+            cat.sortImage();
+        }
+        return categoryImagesDto;
     }
 
 
