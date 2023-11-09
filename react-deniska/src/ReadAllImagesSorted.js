@@ -4,6 +4,7 @@ import {SERVER_URL} from "./config";
 import './ReadAllImagesSorted.css'
 import Modal from "./Modal";
 import {useKey} from "./KeyProvider";
+
 function ReadAllImagesSorted() {
     const key = useKey();
     const [incomeImages, setIncomeImages] = useState([])
@@ -27,16 +28,22 @@ function ReadAllImagesSorted() {
     function deleteImg(id, event) {
         event.stopPropagation();
         const imgToDelete = document.querySelector(`#id-${id}`)
-        axios.delete(`admin/deleteImg/${id}?key=${key.keyAdmin}`)
+        axios.delete(`admin/deleteImg/${id}`)
             .then(response => {
-                if(response.status === 200) {
+                if (response.status === 200) {
                     imgToDelete.style.display = 'none'
                 }
             })
     }
 
-    function deleteSet(setIndex,categoryName,setName) {
-        const set = document.querySelector(`#setId-${setIndex}`)
+    function deleteSet(categoryName, setName) {
+        const set = document.querySelector(`#setName-${setName}`)
+        axios.delete(`/admin/deleteSet?key=${key.keyAdmin}&categoryName=${categoryName}&setName=${setName}`)
+            .then(response => {
+                if (response.status === 200) {
+                    set.style.display = 'none'
+                }
+            })
     }
 
     return <div id={'read-all-img-sort'}>
@@ -47,11 +54,12 @@ function ReadAllImagesSorted() {
 
                 {category.sorteImageList.map((set, setIndex) => (
                     <div className={set.setName}
-                         key={setIndex}>
-                        <div className={'set-name'}
-                        id={`setId-${setIndex}`}>
+                         key={setIndex}
+                         id={`setName-${set.setName}`}>
+                        <div className={'set-name'}>
                             <div className={'delete-set-img'}
-                            onClick={deleteSet(setIndex,category.category,set.setName)}>smazat set</div>
+                                 onClick={() => deleteSet(category.category, set.setName)}>smazat set
+                            </div>
                             <h2> {set.setName}</h2>
                         </div>
                         <div className={'set-name-style'}>
@@ -65,11 +73,12 @@ function ReadAllImagesSorted() {
                                         backgroundImage: `url(${SERVER_URL}/api/getImg/${img.id})`,
                                     }}
                                     onClick={() => openModal(`${SERVER_URL}/api/getImg/${img.id}`)}>
-                                <div className={'delete-one-img'}
-                                onClick={(event) => (deleteImg(img.id,event))}>smazat</div>
+                                    <div className={'delete-one-img'}
+                                         onClick={(event) => (deleteImg(img.id, event))}>smazat
+                                    </div>
                                 </div>
 
-                                ))}
+                            ))}
                         </div>
 
 
@@ -81,8 +90,8 @@ function ReadAllImagesSorted() {
             </div>
         ))}
 
-<Modal show={modalOpen} onClose={closeModal} imageUrl={selectedImageUrl}/>
-</div>
+        <Modal show={modalOpen} onClose={closeModal} imageUrl={selectedImageUrl}/>
+    </div>
 }
 
 export default ReadAllImagesSorted

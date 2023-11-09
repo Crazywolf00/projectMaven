@@ -181,5 +181,17 @@ public class ImagePortServiceImpl implements ImagePortService {
         return repository.getById(id);
     }
 
+    @Override
+    public List<Long> getAllIdSameSet(String setName, String categoryName) {
+        List<Long> ids = new ArrayList<>();
+        for (ImagePort img: repository.findAll()) {
+            if(Objects.equals(img.getSetName(), setName)
+                    && Objects.equals(img.getCategoriesName(), categoryName)) {
+                ids.add(img.getId());
+            }
+        }
+        return ids;
+    }
+
 
 }

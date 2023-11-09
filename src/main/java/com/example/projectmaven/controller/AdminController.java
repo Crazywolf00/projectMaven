@@ -94,6 +94,21 @@ public class AdminController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
     }
+
+    @DeleteMapping("/deleteSet")
+    public ResponseEntity<?> deleteSet(@RequestParam String key,
+                                       @RequestParam String categoryName,
+                                       @RequestParam String setName) throws IOException {
+        if (password.checkKey(key)) {
+            for (Long id : imgService.getAllIdSameSet(setName, categoryName)){
+                imgService.deleteImg(id);
+            }
+            return ResponseEntity.status(HttpStatus.OK).build();
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+    }
+
     @PatchMapping("/allow/{id}")
     public ResponseEntity<?> updateCommentAllow(@RequestParam String key,
                                                 @PathVariable Long id) {
@@ -186,7 +201,7 @@ public class AdminController {
                                                   @RequestParam String type,
                                                   @RequestParam String message) {
         if (password.checkKey(key)) {
-            if(welcomeMessageService.getMessageByType(type) != null) {
+            if (welcomeMessageService.getMessageByType(type) != null) {
                 welcomeMessageService.updateWelcomeMessage(welcomeMessageService.getMessageByType(type), message);
             } else {
                 welcomeMessageService.createWelcomeMessage(new WelcomeMessage(message, type));
@@ -210,12 +225,12 @@ public class AdminController {
     public ResponseEntity<?> deleteMessage(@RequestParam String key,
                                            @PathVariable Long id) {
         if (password.checkKey(key)) {
-           if(welcomeMessageService.getMessageById(id) == null) {
-               return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-           } else {
-               welcomeMessageService.deleteMessage(id);
-               return ResponseEntity.status(HttpStatus.OK).build();
-           }
+            if (welcomeMessageService.getMessageById(id) == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            } else {
+                welcomeMessageService.deleteMessage(id);
+                return ResponseEntity.status(HttpStatus.OK).build();
+            }
         } else {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }

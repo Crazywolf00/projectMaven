@@ -33,4 +33,6 @@ public interface ImagePortService {
     List<CategoryImagesDto> getAllSetsImages();
 
     ImagePort getImgById(Long id);
+
+    List<Long> getAllIdSameSet(String setName, String category);
 }
