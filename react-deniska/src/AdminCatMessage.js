@@ -48,6 +48,7 @@ function AdminCatMessage() {
             .then(response => {
                 if (response.status === 200) {
                     const button = document.querySelector('#admin-cat-message-button')
+                    messageToSend.value = "";
                     button.textContent = 'Zpráva byla uložena';
                     document.querySelector('#category-message-textarea').innerHTML = "";
                     setTimeout(() => {
