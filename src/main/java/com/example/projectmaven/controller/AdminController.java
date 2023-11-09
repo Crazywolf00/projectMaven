@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -100,8 +101,14 @@ public class AdminController {
                                        @RequestParam String categoryName,
                                        @RequestParam String setName) throws IOException {
         if (password.checkKey(key)) {
-            for (Long id : imgService.getAllIdSameSet(setName, categoryName)){
-                imgService.deleteImg(id);
+            if (Objects.equals(setName, "empty")) {
+                for (Long id: imgService.getAllIdSameCategory(categoryName)) {
+                    imgService.deleteImg(id);
+                }
+            } else {
+                for (Long id : imgService.getAllIdSameSet(setName, categoryName)) {
+                    imgService.deleteImg(id);
+                }
             }
             return ResponseEntity.status(HttpStatus.OK).build();
         } else {

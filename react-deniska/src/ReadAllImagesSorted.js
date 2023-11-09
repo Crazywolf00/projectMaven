@@ -28,7 +28,7 @@ function ReadAllImagesSorted() {
     function deleteImg(id, event) {
         event.stopPropagation();
         const imgToDelete = document.querySelector(`#id-${id}`)
-        axios.delete(`admin/deleteImg/${id}`)
+        axios.delete(`admin/deleteImg/${id}?key=${key.keyAdmin}`)
             .then(response => {
                 if (response.status === 200) {
                     imgToDelete.style.display = 'none'
@@ -37,6 +37,7 @@ function ReadAllImagesSorted() {
     }
 
     function deleteSet(categoryName, setName) {
+        debugger
         const set = document.querySelector(`#setName-${setName}`)
         axios.delete(`/admin/deleteSet?key=${key.keyAdmin}&categoryName=${categoryName}&setName=${setName}`)
             .then(response => {
@@ -46,16 +47,30 @@ function ReadAllImagesSorted() {
             })
     }
 
+    function deleteCategory(categoryName) {
+        const category = document.querySelector(`#category-${categoryName}`)
+        axios.delete(`/admin/deleteSet?key=${key.keyAdmin}&categoryName=${categoryName}&setName=empty`)
+            .then(response => {
+                if (response.status === 200) {
+                    category.style.display = 'none'
+                }
+            })
+    }
+
     return <div id={'read-all-img-sort'}>
         {incomeImages.map((category, categoryIndex) => (
             <div className={'category-category'}
+                 id={`category-${category.category.trim()}`}
                  key={categoryIndex}>
+                <div className={'delete-category-img'}
+                     onClick={() => deleteCategory(category.category)}>smazat vše v kategorii
+                </div>
                 <h1>{category.category}</h1>
 
                 {category.sorteImageList.map((set, setIndex) => (
                     <div className={set.setName}
                          key={setIndex}
-                         id={`setName-${set.setName}`}>
+                         id={`setName-${set.setName.trim()}`}>
                         <div className={'set-name'}>
                             <div className={'delete-set-img'}
                                  onClick={() => deleteSet(category.category, set.setName)}>smazat set

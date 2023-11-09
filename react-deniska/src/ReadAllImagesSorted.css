@@ -50,6 +50,7 @@ h2 {
 }
 
 .delete-one-img {
+    cursor: pointer;
     width: 50px;
     height: 25px;
     background-color: #ff5454;
@@ -58,7 +59,17 @@ h2 {
 }
 
 .delete-set-img {
+    cursor: pointer;
     width: 75px;
+    height: 25px;
+    background-color: #ff5454;
+    border-radius: 5px;
+    margin-bottom: -25px;
+}
+
+.delete-category-img {
+    cursor: pointer;
+    width: 157px;
     height: 25px;
     background-color: #ff5454;
     border-radius: 5px;
