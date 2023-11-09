@@ -4,6 +4,7 @@
     height: 200px;
     width: 200px;
     margin: 5px;
+    cursor: pointer;
 }
 
 #read-all-img-sort {
@@ -46,4 +47,20 @@ h2 {
     flex-flow: column;
     align-items: center;
     justify-content: center;
+}
+
+.delete-one-img {
+    width: 50px;
+    height: 25px;
+    background-color: #ff5454;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.delete-set-img {
+    width: 75px;
+    height: 25px;
+    background-color: #ff5454;
+    border-radius: 5px;
+    margin-bottom: -25px;
 }

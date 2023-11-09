@@ -176,5 +176,10 @@ public class ImagePortServiceImpl implements ImagePortService {
         return categoryImagesDto;
     }
 
+    @Override
+    public ImagePort getImgById(Long id) {
+        return repository.getById(id);
+    }
+
 
 }

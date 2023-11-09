@@ -12,4 +12,6 @@ public interface ImagePortRepository extends ListCrudRepository<ImagePort,Long> 
         ImagePort getImagePortBySetName(String name);
 
         ImagePort getImagePortByImgIndex(int index);
+
+        ImagePort getById(Long id);
 }

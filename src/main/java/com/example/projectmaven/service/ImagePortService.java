@@ -31,4 +31,6 @@ public interface ImagePortService {
     void deleteImgByIndex(int index);
 
     List<CategoryImagesDto> getAllSetsImages();
+
+    ImagePort getImgById(Long id);
 }

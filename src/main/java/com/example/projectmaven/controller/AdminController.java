@@ -80,6 +80,20 @@ public class AdminController {
         }
     }
 
+    @DeleteMapping("/deleteImg/{id}")
+    public ResponseEntity<?> deleteImgById(@RequestParam String key,
+                                           @PathVariable Long id) throws IOException {
+        if (password.checkKey(key)) {
+            if (imgService.getImgById(id) != null) {
+                imgService.deleteImg(id);
+                return ResponseEntity.status(HttpStatus.OK).build();
+            } else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
+    }
     @PatchMapping("/allow/{id}")
     public ResponseEntity<?> updateCommentAllow(@RequestParam String key,
                                                 @PathVariable Long id) {
