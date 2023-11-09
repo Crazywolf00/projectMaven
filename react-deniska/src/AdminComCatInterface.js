@@ -1,8 +1,8 @@
 import {useState} from "react";
 import AdminComments from "./AdminComments";
 import './AdminComCatInterface.css'
-import AdminCategory from "./AdminCategoryInterface.js";
 import AdminCatMessage from "./AdminCatMessage";
+import AdminAddNewSetForm from "./AdminAddNewSetForm";
 
 
 function AdminComCatInterface() {
@@ -50,7 +50,7 @@ function AdminComCatInterface() {
             {comments ? <AdminComments/> : <div></div>}
             {comments ? <button onClick={changeComment}>Zavřít</button> : <div></div>}
 
-            {category ? <AdminCategory/> : <div></div>}
+            {category ? <AdminAddNewSetForm/> : <div></div>}
             {category ? <button onClick={changeCategory}>Zavřít</button> : <div></div>}
 
             {message ? <AdminCatMessage/> : <div></div>}
