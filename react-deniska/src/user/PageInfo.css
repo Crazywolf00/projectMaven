@@ -1,4 +1,61 @@
 #info-info {
     text-align: center;
     max-width: 800px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.19);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.24);
+    font-size: 20px;
+    font-family: "Comic Sans MS";
+}
+#language-info {
+    display: flex;
+    align-items: center;
+}
+.selector {
+    display: inline-flex;
+    align-items: center;
+    background-size: contain;
+}
+#language-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#language-cze {
+    width: 60px;
+    height: 60px;
+    background-image: url("https://play-lh.googleusercontent.com/XzMr_k1HZ4L0fGCI0-I9uXQOU7ULjI3POCUyDOuwLXjiGdyVih052MikiRafM3A1gA");
+    cursor: pointer;
+}
+#free-space {
+    height: 100px;
+}
+.info-img-one,
+.info-img-two {
+    height: 180px;
+    width: 360px;
+    background-size: contain;
+    margin: 5px;
+}
+
+.info-img-one.zoomed,
+.info-img-two.zoomed {
+    width: 80%;
+    height: 80%;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    z-index: 1000;
+    border: 25px solid white;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+
+}
+
+#info-img {
+    display: inline-flex;
 }
