@@ -1,6 +1,10 @@
 import './MineReferral.css'
+import {useState} from "react";
+import PageInfo from "./PageInfo";
 
 function MineReferral({setShowReferral}) {
+
+    const [showInfo, setShowInfo] = useState(false)
 
     function returnMain() {
         setShowReferral(true)
@@ -14,6 +18,10 @@ function MineReferral({setShowReferral}) {
         window.open('https://www.linkedin.com/in/václav-vlček-96924b287', '_blank')
     }
 
+    function changeShowInfo() {
+        setShowInfo(!showInfo)
+    }
+
 
     return (
         <div>
@@ -23,11 +31,13 @@ function MineReferral({setShowReferral}) {
                 <div className={'mine-ref'} id={'linkedin'} onClick={goToLinkedin}></div>
             </div>
             <div id={'info-referral'}>
-                <div id={'more-info-referral'}>
+                <div id={'more-info-referral'} onClick={changeShowInfo}>
                     <div>SEE MORE</div>
                     <div> ▼</div>
                 </div>
-                <div>info</div>
+                <div>
+                    {showInfo ? <PageInfo/> : <div></div>}
+                </div>
             </div>
         </div>
     )
