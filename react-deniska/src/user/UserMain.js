@@ -1,5 +1,7 @@
 import {SERVER_URL} from "../config";
 import UserHeader from "./UserHeader";
+import PhotoSign from "../PhotoSign";
+import UserWelcomeMessage from "./UserWelcomeMessage";
 
 
 function UserMain() {
@@ -12,11 +14,17 @@ function UserMain() {
             alignItems: 'center',
             justifyContent: 'center'
         }}>
-                <div>
-                    <UserHeader/>
-
-                </div>
+        <div>
+            <UserHeader/>
+            <div style={{
+                marginTop: '-150px'
+            }}>
+                <PhotoSign/>
+                <UserWelcomeMessage/>
+            </div>
+        </div>
         </body>
     )
 }
+
 export default UserMain;
