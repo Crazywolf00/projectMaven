@@ -22,7 +22,7 @@ function AdminMain() {
         <body id="body" style={{
             backgroundImage: `url(${SERVER_URL}/api/background?name=background)`,
             backgroundSize: '2000px 3000px',
-            minHeight: '868px',
+            minHeight: '955px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center'

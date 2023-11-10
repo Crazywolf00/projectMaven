@@ -1,0 +1,30 @@
+.Prázdné {
+    display: none;
+}
+
+.image-item-user {
+    background-color: gray;
+    height: 70%;
+    background-size: cover;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    min-width: 80px;
+    text-align: center;
+    transition: min-width 1s, opacity 1s, font-size 1s;
+    padding: 25px 0px;
+    font-family: "Comic Sans MS";
+    text-shadow: 2px 0px 0px white, 0px 2px 0px white, 0px -2px 0px white, -2px 0px 0px white;
+    font-size: 0px;
+    cursor: pointer;
+}
+
+.image-item-user:hover h4 {
+    rotate: 0deg;
+}
+
+.image-item-user:hover {
+    font-size: 25px;
+    min-width: 160px;
+    opacity: 1;
+    filter: none;
+}

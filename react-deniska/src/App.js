@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SERVER_URL } from './config';
 import './App.css';
 import AdminMain from './AdminMain.js'
-import UserMain from './UserMain.js'
+import UserMain from './user/UserMain.js'
 
 function App() {
 
