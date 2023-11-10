@@ -1,0 +1,15 @@
+footer {
+    grid-area: f;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0),
+    rgba(150, 150, 150, 0.5),
+    rgba(150, 150, 150, 0.5),
+    rgba(150, 150, 150, 0.5),
+    rgba(150, 150, 150, 0.5),
+    rgba(255, 255, 255, 0));
+    height: 20px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0.4;
+}

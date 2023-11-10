@@ -2,6 +2,7 @@ import {SERVER_URL} from "../config";
 import UserHeader from "./UserHeader";
 import PhotoSign from "../PhotoSign";
 import UserWelcomeMessage from "./UserWelcomeMessage";
+import ReferralLinks from "./ReferralLinks";
 
 
 function UserMain() {
@@ -22,6 +23,13 @@ function UserMain() {
                 <PhotoSign/>
                 <UserWelcomeMessage/>
             </div>
+            <div style={{
+                marginTop: '-20px',
+                padding: '0px 150px'
+            }}>
+                <ReferralLinks/>
+            </div>
+
         </div>
         </body>
     )
