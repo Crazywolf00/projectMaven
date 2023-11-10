@@ -1,3 +1,4 @@
+import './MineReferral.css'
 function MineReferral({setShowReferral}) {
 
     function returnMain() {
@@ -6,9 +7,9 @@ function MineReferral({setShowReferral}) {
 
     return (
         <div id={'mine-referral'}>
-            <div id={'git-hub'}></div>
-            <div id={'return'} onClick={returnMain}>hi</div>
-            <div id={'lintedIn'}></div>
+            <div className={'mine-ref'} id={'git-hub'}></div>
+            <div className={'mine-ref'} id={'return'} onClick={returnMain}></div>
+            <div className={'mine-ref'} id={'linkedin'}></div>
         </div>
     )
 }

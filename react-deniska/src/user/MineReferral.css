@@ -1,0 +1,27 @@
+#mine-referral {
+    display: inline-flex;
+}
+
+.mine-ref {
+    height: 250px;
+    width: 250px;
+    margin: 50px;
+    box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 80px;
+    cursor: pointer;
+    background-size: contain;
+}
+
+#git-hub {
+    background-image: url("https://pic.clubic.com/v1/images/1927773/raw?fit=smartCrop&height=900&width=900&hash=9ab9df5082c1ce24dc8729ae43a388f6bc269721");
+}
+
+#return {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw8dYCOt61OPnI-0V4kWTOSoM5tKCz73WNLi4_uQ1dKLJoRJMNVgm3D6cCojvkpV8nQTA&usqp=CAU");
+    opacity: 0.7;
+}
+
+#linkedin {
+    background-image: url("https://www.pngall.com/wp-content/uploads/13/Linkedin-Logo-PNG-Photos.png");
+
+}
