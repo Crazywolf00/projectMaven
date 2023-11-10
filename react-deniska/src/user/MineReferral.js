@@ -32,7 +32,7 @@ function MineReferral({setShowReferral}) {
             </div>
             <div id={'info-referral'}>
                 <div id={'more-info-referral'} onClick={changeShowInfo}>
-                    <div>SEE MORE</div>
+                    <div>MORE ABOUT THIS PAGE</div>
                     <div> ▼</div>
                 </div>
                 <div>
