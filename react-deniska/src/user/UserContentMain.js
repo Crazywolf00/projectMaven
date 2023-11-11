@@ -1,6 +1,12 @@
 import './UserContentMain.css'
+import {useEffect} from "react";
+
 function UserContentMain({category}) {
 
+    useEffect(() => {
+
+        console.log(category);
+    }, [category]);
 
     return (
         <div>
