@@ -1,6 +1,7 @@
 package com.example.projectmaven.service;
 
 import com.example.projectmaven.model.CategoryImagesDto;
+import com.example.projectmaven.model.ContentDto;
 import com.example.projectmaven.model.ImagePort;
 import com.example.projectmaven.repository.ImagePortRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -202,6 +203,17 @@ public class ImagePortServiceImpl implements ImagePortService {
             }
         }
         return ids;
+    }
+
+    @Override
+    public ContentDto fillImgByCategory(ContentDto contentDto, String category) {
+        for (ImagePort img: repository.findAll()) {
+            if(Objects.equals(img.getCategoriesName(), category)) {
+                contentDto.addImg(img);
+            }
+        }
+        contentDto.sortImage();
+        return contentDto;
     }
 
 

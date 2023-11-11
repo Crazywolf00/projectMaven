@@ -10,4 +10,5 @@ public interface WelcomeMessageRepository extends ListCrudRepository<WelcomeMess
     WelcomeMessage getWelcomeMessageByMessageType(String type);
 
     WelcomeMessage getWelcomeMessageById(Long Id);
+
 }

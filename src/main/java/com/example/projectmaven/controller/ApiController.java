@@ -1,9 +1,6 @@
 package com.example.projectmaven.controller;
 
-import com.example.projectmaven.model.Comment;
-import com.example.projectmaven.model.ImageDto;
-import com.example.projectmaven.model.ImagePort;
-import com.example.projectmaven.model.WelcomeMessage;
+import com.example.projectmaven.model.*;
 import com.example.projectmaven.service.CommentServiceImpl;
 import com.example.projectmaven.service.ImagePortServiceImpl;
 import com.example.projectmaven.service.WelcomeMessageServiceImpl;
@@ -70,6 +67,19 @@ public class ApiController {
     @GetMapping("/comments")
     public ResponseEntity<?> getComments() {
         return ResponseEntity.status(HttpStatus.OK).body(commentService.getAllComments());
+    }
+
+    @GetMapping("/content")
+    public ResponseEntity<?> getAllContentByCategory(@RequestParam String category) {
+        System.out.println(category);
+        ContentDto contentDto;
+        if(welcomeMessageService.getMessageByType(category) != null) {
+            contentDto = new ContentDto(welcomeMessageService.getMessageByType(category));
+        } else {
+            contentDto = new ContentDto();
+        }
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(imgService.fillImgByCategory(contentDto, category));
     }
 
 
