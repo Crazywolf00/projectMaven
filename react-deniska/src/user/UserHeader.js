@@ -3,7 +3,7 @@ import axios from "../axios";
 import {SERVER_URL} from "../config";
 import './UserHeader.css'
 
-function UserHeader() {
+function UserHeader({setCategory}) {
 
     const [mainIMG, setMainIMG] = useState([]);
     const marginTopValues = [30, 50, 70, 30, 70, 50, 70, 30, 50, 30, 70, 50, 30, 70, 50]
@@ -21,12 +21,16 @@ function UserHeader() {
         fetchData();
     }, []);
 
+    function ChoseCategory(category) {
+        setCategory(category)
+    }
     return (
         <div id="header">
             <div className="image-container">
                 {mainIMG.map((image, index) => (
                     <div key={index}
                          className={`image-item-user ${image.setName}`}
+                         onClick={() => ChoseCategory(image.setName)}
                          style={{
                              backgroundImage: `url(${SERVER_URL}/api/getImg/${image.id})`,
                              margin: `${marginTopValues[index]}px 5px`,
@@ -45,8 +49,6 @@ function UserHeader() {
             </div>
         </div>
     )
-
-
 
 }
 export default UserHeader
