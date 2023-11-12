@@ -23,7 +23,9 @@
 }
 
 #linkedin {
-    background-image: url("https://www.pngall.com/wp-content/uploads/13/Linkedin-Logo-PNG-Photos.png");
+    background-size: cover;
+    background-position: -42px;
+    background-image: url("https://media.licdn.com/dms/image/C4E12AQGK9u8CooxZZg/article-cover_image-shrink_600_2000/0/1621096290373?e=2147483647&v=beta&t=pj480m6ha56cAikkeKPQlGJ5IEkPD_oTo9Q5hHkWYsk");
 }
 
 .mine-ref:hover {
