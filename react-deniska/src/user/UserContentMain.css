@@ -17,10 +17,11 @@
 }
 
 .user-img-show {
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 180px;
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 #user-category-topic {
@@ -37,4 +38,34 @@
     text-align: center;
     font-size: 25px;
     font-family: "Comic Sans MS";
+}
+
+#user-content-welcome {
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.49);
+    margin: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#user-content-welcome-imgs {
+
+    margin: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.42);
+
+}
+
+#user-content-welcome-imgs:hover {
+
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.42);
+    transition: opacity 0.5s;
+}
+
+#img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
 }

@@ -31,18 +31,21 @@ function UserContentMain({category}) {
                     <div id={'user-category-topic'}>{category}</div>
                     {message && <div id={'user-message-welcome'}>{message}</div>}
                     {content && content.map((oneContent, contentIndex) => (
-                        <div key={contentIndex} id={'user-content-welcome'}>
+                        <>
                             <div>{oneContent.setName}</div>
-                            {oneContent.images.map((img, imgIndex) => (
-                                <div style={{
-                                    display: 'inline-flex'
-                                }}>
-                                    <div key={imgIndex} className={'user-img-show'} style={{
-                                        backgroundImage: `url(${SERVER_URL}/api/getImg/${img.id})`,
-                                    }}></div>
-                                </div>
-                            ))}
-                        </div>
+                            <div key={contentIndex} id={'user-content-welcome'}>
+                                {oneContent.images.map((img, imgIndex) => (
+                                    <div id={'user-content-welcome-imgs'} style={{
+                                        display: 'inline-flex'
+                                    }}>
+                                        <div id={'img-container'}>
+                                        <div key={imgIndex} className={'user-img-show'} style={{
+                                            backgroundImage: `url(${SERVER_URL}/api/getImg/${img.id})`,
+                                        }}></div></div>
+                                    </div>
+                                ))}
+                            </div>
+                        </>
                     ))}
                 </div>
             )}
