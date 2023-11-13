@@ -50,14 +50,12 @@
     flex-wrap: wrap;
 }
 #user-content-welcome-imgs {
-
     margin: 5px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.42);
-
+    background-color: rgba(255, 255, 255, 0.62);
 }
 
 #user-content-welcome-imgs:hover {
-
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.42);
     transition: opacity 0.5s;
 }
@@ -68,4 +66,18 @@
     justify-content: center;
     padding: 10px;
 
+}
+
+#set-name-user {
+    margin-bottom: -19px;
+    padding-left: 40px;
+    background: linear-gradient(to right,
+    rgb(255, 255, 255),
+    rgb(255, 255, 255),
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0));
+    font-size: 22px;
+    font-family: "Comic Sans MS";
 }

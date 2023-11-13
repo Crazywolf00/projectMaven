@@ -32,7 +32,7 @@ function UserContentMain({category}) {
                     {message && <div id={'user-message-welcome'}>{message}</div>}
                     {content && content.map((oneContent, contentIndex) => (
                         <>
-                            <div>{oneContent.setName}</div>
+                            <div id={'set-name-user'}>{oneContent.setName}</div>
                             <div key={contentIndex} id={'user-content-welcome'}>
                                 {oneContent.images.map((img, imgIndex) => (
                                     <div id={'user-content-welcome-imgs'} style={{
