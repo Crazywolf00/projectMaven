@@ -24,6 +24,7 @@ function UserHeader({setCategory}) {
     function ChoseCategory(category) {
         setCategory(category)
     }
+
     return (
         <div id="header">
             <div className="image-container">

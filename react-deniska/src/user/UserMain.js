@@ -4,13 +4,24 @@ import PhotoSign from "../PhotoSign";
 import UserWelcomeMessage from "./UserWelcomeMessage";
 import ReferralLinks from "./ReferralLinks";
 import MineReferral from "./MineReferral"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import UserContentMain from "./UserContentMain";
 
 
 function UserMain() {
     const [showReferral, setShowReferral] = useState(true)
     const [category, setCategory] = useState("")
+
+    useEffect(() => {
+        setTimeout(() => {
+            const targetElement = document.getElementById('fragment');
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 100)
+
+    }, [category])
+
 
     return (
         <body
@@ -31,8 +42,13 @@ function UserMain() {
                     <div style={{marginTop: '-150px'}}>
                         <PhotoSign/>
                         <UserWelcomeMessage/>
+                        <div id={'fragment'} style={{
+                            position: 'absolute',
+                            marginTop: '-40px'
+                        }}></div>
                     </div>
-                    <div style={{
+                    <div
+                        style={{
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center'

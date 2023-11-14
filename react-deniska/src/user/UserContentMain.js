@@ -27,6 +27,7 @@ function UserContentMain({category}) {
 
     }, [category]);
 
+
     const closeModal = () => {
         setModalOpen(false);
     };
